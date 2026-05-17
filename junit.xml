@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="bun test" tests="611" assertions="864" failures="0" skipped="0" time="4.307227">
+  <testsuite name="tests/shell.test.ts" file="tests/shell.test.ts" tests="38" assertions="42" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.$ — basic execution" file="tests/shell.test.ts" line="20" tests="9" assertions="10" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="echo returns expected text" classname="Bun.$ — basic execution" time="0.000799" file="tests/shell.test.ts" line="21" assertions="1" />
+      <testcase name="exit code 0 on success" classname="Bun.$ — basic execution" time="0.00011" file="tests/shell.test.ts" line="26" assertions="1" />
+      <testcase name="exit code 1 on failure with .nothrow()" classname="Bun.$ — basic execution" time="0.000149" file="tests/shell.test.ts" line="31" assertions="1" />
+      <testcase name="non-zero exit throws by default" classname="Bun.$ — basic execution" time="0.000142" file="tests/shell.test.ts" line="36" assertions="1" />
+      <testcase name=".text() returns stdout as string" classname="Bun.$ — basic execution" time="0.000066" file="tests/shell.test.ts" line="46" assertions="1" />
+      <testcase name=".json() parses stdout as JSON" classname="Bun.$ — basic execution" time="0.000114" file="tests/shell.test.ts" line="51" assertions="1" />
+      <testcase name=".bytes() returns Uint8Array" classname="Bun.$ — basic execution" time="0.00025" file="tests/shell.test.ts" line="56" assertions="2" />
+      <testcase name="multi-command pipeline" classname="Bun.$ — basic execution" time="0.002659" file="tests/shell.test.ts" line="62" assertions="1" />
+      <testcase name="stderr is captured in .stderr" classname="Bun.$ — basic execution" time="0.000272" file="tests/shell.test.ts" line="67" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.$ — interpolation" file="tests/shell.test.ts" line="79" tests="4" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="string variable interpolated safely" classname="Bun.$ — interpolation" time="0.00011" file="tests/shell.test.ts" line="80" assertions="1" />
+      <testcase name="array of args is expanded word-by-word" classname="Bun.$ — interpolation" time="0.000093" file="tests/shell.test.ts" line="86" assertions="1" />
+      <testcase name="$.escape() escapes shell metacharacters" classname="Bun.$ — interpolation" time="0.000011" file="tests/shell.test.ts" line="92" assertions="1" />
+      <testcase name="$.braces() expands brace patterns" classname="Bun.$ — interpolation" time="0" file="tests/shell.test.ts" line="99" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.$ — env and cwd" file="tests/shell.test.ts" line="109" tests="4" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name=".env() sets custom env var" classname="Bun.$ — env and cwd" time="0.000128" file="tests/shell.test.ts" line="110" assertions="1" />
+      <testcase name=".cwd() changes working directory" classname="Bun.$ — env and cwd" time="0.000092" file="tests/shell.test.ts" line="118" assertions="2" />
+      <testcase name="$.cwd() sets global cwd for that $ instance" classname="Bun.$ — env and cwd" time="0.000264" file="tests/shell.test.ts" line="126" assertions="1" />
+      <testcase name="$.env() sets global env for that $ instance" classname="Bun.$ — env and cwd" time="0.000102" file="tests/shell.test.ts" line="132" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.$ — file redirection" file="tests/shell.test.ts" line="143" tests="2" assertions="2" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="redirect stdout to file with &gt; redirect" classname="Bun.$ — file redirection" time="0.000387" file="tests/shell.test.ts" line="144" assertions="1" />
+      <testcase name="pipe output of one command to another via stdin()" classname="Bun.$ — file redirection" time="0.002432" file="tests/shell.test.ts" line="151" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.$ — error control" file="tests/shell.test.ts" line="164" tests="3" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="ShellError has exitCode and stdout/stderr" classname="Bun.$ — error control" time="0.000262" file="tests/shell.test.ts" line="165" assertions="2" />
+      <testcase name="$.nothrow() suppresses throw on non-zero exit" classname="Bun.$ — error control" time="0.000195" file="tests/shell.test.ts" line="176" assertions="1" />
+      <testcase name="$.throws(false) suppresses throw" classname="Bun.$ — error control" time="0.000207" file="tests/shell.test.ts" line="182" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.spawn" file="tests/shell.test.ts" line="193" tests="8" assertions="9" failures="0" skipped="0" time="0.021" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="captures stdout via pipe" classname="Bun.spawn" time="0.002401" file="tests/shell.test.ts" line="194" assertions="2" />
+      <testcase name="captures stderr via pipe" classname="Bun.spawn" time="0.005449" file="tests/shell.test.ts" line="202" assertions="1" />
+      <testcase name="writes to stdin via pipe" classname="Bun.spawn" time="0.002541" file="tests/shell.test.ts" line="209" assertions="1" />
+      <testcase name="exited promise resolves with exit code" classname="Bun.spawn" time="0.005442" file="tests/shell.test.ts" line="217" assertions="1" />
+      <testcase name="kill() terminates the process" classname="Bun.spawn" time="0.000565" file="tests/shell.test.ts" line="223" assertions="1" />
+      <testcase name="env option passes custom environment" classname="Bun.spawn" time="0.003976" file="tests/shell.test.ts" line="230" assertions="1" />
+      <testcase name="cwd option sets working directory" classname="Bun.spawn" time="0.0024" file="tests/shell.test.ts" line="240" assertions="1" />
+      <testcase name="pid is a positive integer" classname="Bun.spawn" time="0.002219" file="tests/shell.test.ts" line="247" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.spawnSync" file="tests/shell.test.ts" line="258" tests="8" assertions="8" failures="0" skipped="0" time="0.018" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="captures stdout synchronously" classname="Bun.spawnSync" time="0.001825" file="tests/shell.test.ts" line="259" assertions="1" />
+      <testcase name="exit code is returned" classname="Bun.spawnSync" time="0.003962" file="tests/shell.test.ts" line="264" assertions="1" />
+      <testcase name="captures stderr synchronously" classname="Bun.spawnSync" time="0.004695" file="tests/shell.test.ts" line="269" assertions="1" />
+      <testcase name="success is true when exit code is 0" classname="Bun.spawnSync" time="0.002321" file="tests/shell.test.ts" line="274" assertions="1" />
+      <testcase name="success is false when exit code is non-zero" classname="Bun.spawnSync" time="0.001834" file="tests/shell.test.ts" line="279" assertions="1" />
+      <testcase name="stdin buffer is passed to the process" classname="Bun.spawnSync" time="0.002279" file="tests/shell.test.ts" line="284" assertions="1" />
+      <testcase name="env option is forwarded" classname="Bun.spawnSync" time="0.004406" file="tests/shell.test.ts" line="289" assertions="1" />
+      <testcase name="cwd option is respected" classname="Bun.spawnSync" time="0.001879" file="tests/shell.test.ts" line="296" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/glob.test.ts" file="tests/glob.test.ts" tests="28" assertions="45" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.Glob — match()" file="tests/glob.test.ts" line="48" tests="8" assertions="15" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="*.ts matches a .ts file" classname="Bun.Glob — match()" time="0.000024" file="tests/glob.test.ts" line="49" assertions="1" />
+      <testcase name="*.ts does not match a .tsx file" classname="Bun.Glob — match()" time="0.00002" file="tests/glob.test.ts" line="53" assertions="1" />
+      <testcase name="*.{ts,tsx} matches both extensions" classname="Bun.Glob — match()" time="0.000034" file="tests/glob.test.ts" line="57" assertions="3" />
+      <testcase name="? matches exactly one character" classname="Bun.Glob — match()" time="0.000015" file="tests/glob.test.ts" line="64" assertions="2" />
+      <testcase name="[ab] matches character class" classname="Bun.Glob — match()" time="0.000015" file="tests/glob.test.ts" line="69" assertions="3" />
+      <testcase name="** matches across path separators" classname="Bun.Glob — match()" time="0.000014" file="tests/glob.test.ts" line="76" assertions="1" />
+      <testcase name="negation ! flips the match" classname="Bun.Glob — match()" time="0.000018" file="tests/glob.test.ts" line="80" assertions="2" />
+      <testcase name="exact pattern matches exact string" classname="Bun.Glob — match()" time="0.000015" file="tests/glob.test.ts" line="85" assertions="2" />
+    </testsuite>
+    <testsuite name="Bun.Glob — scanSync()" file="tests/glob.test.ts" line="95" tests="7" assertions="11" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="scans *.ts files in a directory" classname="Bun.Glob — scanSync()" time="0.000356" file="tests/glob.test.ts" line="96" assertions="2" />
+      <testcase name="**/*.ts finds nested .ts files" classname="Bun.Glob — scanSync()" time="0.000103" file="tests/glob.test.ts" line="102" assertions="2" />
+      <testcase name="*.{ts,tsx} finds both TypeScript variants" classname="Bun.Glob — scanSync()" time="0.000121" file="tests/glob.test.ts" line="108" assertions="2" />
+      <testcase name="*.css finds only CSS files" classname="Bun.Glob — scanSync()" time="0.00006" file="tests/glob.test.ts" line="114" assertions="2" />
+      <testcase name="**/*.tsx finds TSX files in subdirectories" classname="Bun.Glob — scanSync()" time="0.00005" file="tests/glob.test.ts" line="120" assertions="1" />
+      <testcase name="non-matching pattern returns empty iterator" classname="Bun.Glob — scanSync()" time="0.000098" file="tests/glob.test.ts" line="125" assertions="1" />
+      <testcase name="absolute option returns absolute paths" classname="Bun.Glob — scanSync()" time="0.000063" file="tests/glob.test.ts" line="130" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.Glob — scan() async" file="tests/glob.test.ts" line="140" tests="2" assertions="2" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="async scan returns same results as syncScan" classname="Bun.Glob — scan() async" time="0.000481" file="tests/glob.test.ts" line="141" assertions="1" />
+      <testcase name="async for-await loop works" classname="Bun.Glob — scan() async" time="0.000577" file="tests/glob.test.ts" line="147" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.FileSystemRouter — nextjs style" file="tests/glob.test.ts" line="160" tests="11" assertions="17" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="matches exact route /" classname="Bun.FileSystemRouter — nextjs style" time="0.000046" file="tests/glob.test.ts" line="167" assertions="2" />
+      <testcase name="matches exact route /about" classname="Bun.FileSystemRouter — nextjs style" time="0.000025" file="tests/glob.test.ts" line="173" assertions="1" />
+      <testcase name="matches /blog as exact route" classname="Bun.FileSystemRouter — nextjs style" time="0.000017" file="tests/glob.test.ts" line="178" assertions="1" />
+      <testcase name="matches dynamic route /blog/my-post" classname="Bun.FileSystemRouter — nextjs style" time="0.000033" file="tests/glob.test.ts" line="183" assertions="2" />
+      <testcase name="dynamic params are extracted correctly" classname="Bun.FileSystemRouter — nextjs style" time="0.000025" file="tests/glob.test.ts" line="189" assertions="2" />
+      <testcase name="match() returns null for unknown routes" classname="Bun.FileSystemRouter — nextjs style" time="0.000016" file="tests/glob.test.ts" line="195" assertions="1" />
+      <testcase name="routes property lists all registered routes" classname="Bun.FileSystemRouter — nextjs style" time="0.000025" file="tests/glob.test.ts" line="199" assertions="2" />
+      <testcase name="style property is &apos;nextjs&apos;" classname="Bun.FileSystemRouter — nextjs style" time="0.000007" file="tests/glob.test.ts" line="204" assertions="1" />
+      <testcase name="matched route has filePath" classname="Bun.FileSystemRouter — nextjs style" time="0.000009" file="tests/glob.test.ts" line="208" assertions="2" />
+      <testcase name="matched route has pathname" classname="Bun.FileSystemRouter — nextjs style" time="0.000008" file="tests/glob.test.ts" line="214" assertions="1" />
+      <testcase name="query string is parsed into query object" classname="Bun.FileSystemRouter — nextjs style" time="0.000021" file="tests/glob.test.ts" line="219" assertions="2" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/transpiler.test.ts" file="tests/transpiler.test.ts" tests="24" assertions="38" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.Transpiler — transformSync" file="tests/transpiler.test.ts" line="23" tests="7" assertions="13" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="strips TypeScript types" classname="Bun.Transpiler — transformSync" time="0.000125" file="tests/transpiler.test.ts" line="24" assertions="2" />
+      <testcase name="transpiles JSX to function calls" classname="Bun.Transpiler — transformSync" time="0.000104" file="tests/transpiler.test.ts" line="31" assertions="2" />
+      <testcase name="transpiles TSX" classname="Bun.Transpiler — transformSync" time="0.00009" file="tests/transpiler.test.ts" line="38" assertions="2" />
+      <testcase name="returns a string" classname="Bun.Transpiler — transformSync" time="0.000058" file="tests/transpiler.test.ts" line="45" assertions="1" />
+      <testcase name="preserves export declarations" classname="Bun.Transpiler — transformSync" time="0.000057" file="tests/transpiler.test.ts" line="50" assertions="2" />
+      <testcase name="define replaces identifiers" classname="Bun.Transpiler — transformSync" time="0.000071" file="tests/transpiler.test.ts" line="57" assertions="1" />
+      <testcase name="async transform() returns a Promise&lt;string&gt;" classname="Bun.Transpiler — transformSync" time="0.000222" file="tests/transpiler.test.ts" line="66" assertions="3" />
+    </testsuite>
+    <testsuite name="Bun.Transpiler — scan / scanImports" file="tests/transpiler.test.ts" line="80" tests="5" assertions="9" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="scanImports returns array of Import objects" classname="Bun.Transpiler — scan / scanImports" time="0.000067" file="tests/transpiler.test.ts" line="83" assertions="2" />
+      <testcase name="scanImports finds named import paths" classname="Bun.Transpiler — scan / scanImports" time="0.000117" file="tests/transpiler.test.ts" line="89" assertions="1" />
+      <testcase name="scan returns imports and exports" classname="Bun.Transpiler — scan / scanImports" time="0.000057" file="tests/transpiler.test.ts" line="95" assertions="2" />
+      <testcase name="scan finds multiple exports" classname="Bun.Transpiler — scan / scanImports" time="0.000045" file="tests/transpiler.test.ts" line="101" assertions="3" />
+      <testcase name="import kind is &apos;import-statement&apos; for static imports" classname="Bun.Transpiler — scan / scanImports" time="0.000028" file="tests/transpiler.test.ts" line="108" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.build() — bundler" file="tests/transpiler.test.ts" line="118" tests="12" assertions="16" failures="0" skipped="0" time="0.003" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="builds a TypeScript file successfully" classname="Bun.build() — bundler" time="0.001508" file="tests/transpiler.test.ts" line="119" assertions="2" />
+      <testcase name="output artifact is a Blob with text content" classname="Bun.build() — bundler" time="0.000797" file="tests/transpiler.test.ts" line="128" assertions="2" />
+      <testcase name="bundled output contains the function from imported module" classname="Bun.build() — bundler" time="0.000679" file="tests/transpiler.test.ts" line="138" assertions="1" />
+      <testcase name="output artifact has path property" classname="Bun.build() — bundler" time="0.000549" file="tests/transpiler.test.ts" line="147" assertions="1" />
+      <testcase name="output artifact has loader property" classname="Bun.build() — bundler" time="0.000488" file="tests/transpiler.test.ts" line="155" assertions="1" />
+      <testcase name="minify: true produces smaller output than no minification" classname="Bun.build() — bundler" time="0.001385" file="tests/transpiler.test.ts" line="163" assertions="1" />
+      <testcase name="define replaces constant at build time" classname="Bun.build() — bundler" time="0.000653" file="tests/transpiler.test.ts" line="170" assertions="1" />
+      <testcase name="target: &apos;browser&apos; succeeds" classname="Bun.build() — bundler" time="0.000742" file="tests/transpiler.test.ts" line="179" assertions="1" />
+      <testcase name="build with outdir writes files to disk" classname="Bun.build() — bundler" time="0.000957" file="tests/transpiler.test.ts" line="187" assertions="2" />
+      <testcase name="BuildOutput.logs is an array" classname="Bun.build() — bundler" time="0.001049" file="tests/transpiler.test.ts" line="200" assertions="1" />
+      <testcase name="in-memory bundling via files option" classname="Bun.build() — bundler" time="0.000796" file="tests/transpiler.test.ts" line="208" assertions="2" />
+      <testcase name="invalid entrypoint causes success: false or throws" classname="Bun.build() — bundler" time="0.000122" file="tests/transpiler.test.ts" line="221" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/compression.test.ts" file="tests/compression.test.ts" tests="27" assertions="31" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.gzipSync / Bun.gunzipSync" file="tests/compression.test.ts" line="10" tests="7" assertions="8" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="roundtrip string → Uint8Array → string" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000406" file="tests/compression.test.ts" line="11" assertions="1" />
+      <testcase name="roundtrip Uint8Array" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000077" file="tests/compression.test.ts" line="17" assertions="1" />
+      <testcase name="compressed size is smaller than the original" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000023" file="tests/compression.test.ts" line="23" assertions="1" />
+      <testcase name="returns a Uint8Array" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000018" file="tests/compression.test.ts" line="28" assertions="1" />
+      <testcase name="level option is accepted" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000045" file="tests/compression.test.ts" line="32" assertions="2" />
+      <testcase name="empty input roundtrips" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000009" file="tests/compression.test.ts" line="40" assertions="1" />
+      <testcase name="binary data roundtrips" classname="Bun.gzipSync / Bun.gunzipSync" time="0.000028" file="tests/compression.test.ts" line="46" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.deflateSync / Bun.inflateSync" file="tests/compression.test.ts" line="57" tests="6" assertions="7" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="roundtrip string" classname="Bun.deflateSync / Bun.inflateSync" time="0.00004" file="tests/compression.test.ts" line="58" assertions="1" />
+      <testcase name="roundtrip Uint8Array" classname="Bun.deflateSync / Bun.inflateSync" time="0.000018" file="tests/compression.test.ts" line="64" assertions="1" />
+      <testcase name="compressed is smaller than original" classname="Bun.deflateSync / Bun.inflateSync" time="0.000011" file="tests/compression.test.ts" line="70" assertions="1" />
+      <testcase name="returns a Uint8Array" classname="Bun.deflateSync / Bun.inflateSync" time="0.000022" file="tests/compression.test.ts" line="75" assertions="1" />
+      <testcase name="level option is accepted" classname="Bun.deflateSync / Bun.inflateSync" time="0.000035" file="tests/compression.test.ts" line="79" assertions="2" />
+      <testcase name="empty input roundtrips" classname="Bun.deflateSync / Bun.inflateSync" time="0.000014" file="tests/compression.test.ts" line="86" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.zstdCompressSync / Bun.zstdDecompressSync" file="tests/compression.test.ts" line="97" tests="7" assertions="8" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="roundtrip string" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.00007" file="tests/compression.test.ts" line="98" assertions="1" />
+      <testcase name="roundtrip Uint8Array" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.000004" file="tests/compression.test.ts" line="104" assertions="1" />
+      <testcase name="returns a Buffer" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.000013" file="tests/compression.test.ts" line="110" assertions="1" />
+      <testcase name="compressed size is smaller than original" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.000014" file="tests/compression.test.ts" line="114" assertions="1" />
+      <testcase name="level option is accepted" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.000037" file="tests/compression.test.ts" line="119" assertions="2" />
+      <testcase name="empty input roundtrips" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.000024" file="tests/compression.test.ts" line="126" assertions="1" />
+      <testcase name="binary data roundtrips" classname="Bun.zstdCompressSync / Bun.zstdDecompressSync" time="0.000076" file="tests/compression.test.ts" line="132" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.zstdCompress / Bun.zstdDecompress (async)" file="tests/compression.test.ts" line="143" tests="3" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="roundtrip string" classname="Bun.zstdCompress / Bun.zstdDecompress (async)" time="0.000549" file="tests/compression.test.ts" line="144" assertions="1" />
+      <testcase name="returns Promise&lt;Buffer&gt;" classname="Bun.zstdCompress / Bun.zstdDecompress (async)" time="0.000108" file="tests/compression.test.ts" line="150" assertions="2" />
+      <testcase name="async result matches sync result" classname="Bun.zstdCompress / Bun.zstdDecompress (async)" time="0.00012" file="tests/compression.test.ts" line="156" assertions="1" />
+    </testsuite>
+    <testsuite name="CompressionStream / DecompressionStream" file="tests/compression.test.ts" line="170" tests="4" assertions="4" failures="0" skipped="0" time="0.006" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="gzip roundtrip via streams" classname="CompressionStream / DecompressionStream" time="0.006476" file="tests/compression.test.ts" line="215" assertions="1" />
+      <testcase name="deflate roundtrip via streams" classname="CompressionStream / DecompressionStream" time="0.000615" file="tests/compression.test.ts" line="221" assertions="1" />
+      <testcase name="deflate-raw roundtrip via streams" classname="CompressionStream / DecompressionStream" time="0.000569" file="tests/compression.test.ts" line="227" assertions="1" />
+      <testcase name="gzip stream output matches gzipSync output (decompresses correctly)" classname="CompressionStream / DecompressionStream" time="0.000273" file="tests/compression.test.ts" line="233" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/test-runner.test.ts" file="tests/test-runner.test.ts" tests="45" assertions="71" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="mock() — basic mocks" file="tests/test-runner.test.ts" line="7" tests="12" assertions="20" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="mock() creates a callable function" classname="mock() — basic mocks" time="0.000199" file="tests/test-runner.test.ts" line="8" assertions="1" />
+      <testcase name="mock().mock.calls tracks calls" classname="mock() — basic mocks" time="0.000025" file="tests/test-runner.test.ts" line="13" assertions="3" />
+      <testcase name="mock with implementation returns value" classname="mock() — basic mocks" time="0.000022" file="tests/test-runner.test.ts" line="22" assertions="1" />
+      <testcase name="mock.mock.results tracks return values" classname="mock() — basic mocks" time="0.000033" file="tests/test-runner.test.ts" line="27" assertions="2" />
+      <testcase name="mockReturnValue sets a fixed return" classname="mock() — basic mocks" time="0.00002" file="tests/test-runner.test.ts" line="35" assertions="2" />
+      <testcase name="mockReturnValueOnce returns value once then falls through" classname="mock() — basic mocks" time="0.000009" file="tests/test-runner.test.ts" line="41" assertions="2" />
+      <testcase name="mockImplementation replaces implementation" classname="mock() — basic mocks" time="0.000028" file="tests/test-runner.test.ts" line="47" assertions="1" />
+      <testcase name="mockImplementationOnce replaces implementation once" classname="mock() — basic mocks" time="0.000024" file="tests/test-runner.test.ts" line="53" assertions="2" />
+      <testcase name="mockResolvedValue returns a resolved promise" classname="mock() — basic mocks" time="0.000049" file="tests/test-runner.test.ts" line="60" assertions="1" />
+      <testcase name="mockRejectedValue returns a rejected promise" classname="mock() — basic mocks" time="0.000037" file="tests/test-runner.test.ts" line="65" assertions="1" />
+      <testcase name="mockClear resets calls and results" classname="mock() — basic mocks" time="0.000049" file="tests/test-runner.test.ts" line="70" assertions="2" />
+      <testcase name="mockReset clears calls and removes implementation" classname="mock() — basic mocks" time="0.000105" file="tests/test-runner.test.ts" line="78" assertions="2" />
+    </testsuite>
+    <testsuite name="spyOn()" file="tests/test-runner.test.ts" line="91" tests="5" assertions="10" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="spyOn wraps an object method and tracks calls" classname="spyOn()" time="0.000108" file="tests/test-runner.test.ts" line="92" assertions="3" />
+      <testcase name="spyOn preserves original behavior by default" classname="spyOn()" time="0.000154" file="tests/test-runner.test.ts" line="101" assertions="1" />
+      <testcase name="spyOn can override implementation" classname="spyOn()" time="0.000033" file="tests/test-runner.test.ts" line="107" assertions="2" />
+      <testcase name="mockRestore restores original method" classname="spyOn()" time="0.000025" file="tests/test-runner.test.ts" line="115" assertions="2" />
+      <testcase name="spyOn tracks calls to built-in Math.random" classname="spyOn()" time="0.000021" file="tests/test-runner.test.ts" line="123" assertions="2" />
+    </testsuite>
+    <testsuite name="jest.fn() compatibility" file="tests/test-runner.test.ts" line="135" tests="3" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="jest.fn() creates a mock function" classname="jest.fn() compatibility" time="0.000042" file="tests/test-runner.test.ts" line="136" assertions="1" />
+      <testcase name="jest.fn(impl) uses implementation" classname="jest.fn() compatibility" time="0.000027" file="tests/test-runner.test.ts" line="142" assertions="1" />
+      <testcase name="jest.spyOn mirrors spyOn" classname="jest.fn() compatibility" time="0.000019" file="tests/test-runner.test.ts" line="147" assertions="2" />
+    </testsuite>
+    <testsuite name="fake timers — setSystemTime" file="tests/test-runner.test.ts" line="160" tests="5" assertions="6" failures="0" skipped="0" time="0.011" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="setSystemTime fixes Date.now()" classname="fake timers — setSystemTime" time="0.000034" file="tests/test-runner.test.ts" line="166" assertions="1" />
+      <testcase name="setSystemTime accepts a Date object" classname="fake timers — setSystemTime" time="0.000033" file="tests/test-runner.test.ts" line="172" assertions="1" />
+      <testcase name="new Date() returns mocked time" classname="fake timers — setSystemTime" time="0.011174" file="tests/test-runner.test.ts" line="178" assertions="2" />
+      <testcase name="setSystemTime(0) sets Unix epoch" classname="fake timers — setSystemTime" time="0" file="tests/test-runner.test.ts" line="185" assertions="1" />
+      <testcase name="setSystemTime() without arg restores real clock" classname="fake timers — setSystemTime" time="0" file="tests/test-runner.test.ts" line="190" assertions="1" />
+    </testsuite>
+    <testsuite name="hook ordering" file="tests/test-runner.test.ts" line="204" tests="2" assertions="0" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="first test runs in order" classname="hook ordering" time="0" file="tests/test-runner.test.ts" line="219" assertions="0" />
+      <testcase name="second test runs in order" classname="hook ordering" time="0" file="tests/test-runner.test.ts" line="223" assertions="0" />
+    </testsuite>
+    <testsuite name="nested describe" file="tests/test-runner.test.ts" line="232" tests="2" assertions="2" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testsuite name="inner" file="tests/test-runner.test.ts" line="243" tests="1" assertions="1" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="inner test" classname="inner &amp;gt; nested describe" time="0" file="tests/test-runner.test.ts" line="245" assertions="1" />
+      </testsuite>
+      <testcase name="outer test" classname="nested describe" time="0" file="tests/test-runner.test.ts" line="251" assertions="1" />
+    </testsuite>
+    <testsuite name="expect matchers" file="tests/test-runner.test.ts" line="261" tests="11" assertions="24" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="toBeUndefined / toBeDefined" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="262" assertions="3" />
+      <testcase name="toBeNull / toBeTruthy / toBeFalsy" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="268" assertions="4" />
+      <testcase name="toBeGreaterThan / toBeLessThan / toBeCloseTo" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="275" assertions="3" />
+      <testcase name="toContain for arrays and strings" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="281" assertions="2" />
+      <testcase name="toHaveLength" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="286" assertions="2" />
+      <testcase name="toMatchObject partial match" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="291" assertions="1" />
+      <testcase name="toThrow" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="295" assertions="1" />
+      <testcase name="resolves / rejects" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="301" assertions="2" />
+      <testcase name="not.toBe" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="306" assertions="2" />
+      <testcase name="toBeInstanceOf" classname="expect matchers" time="0" file="tests/test-runner.test.ts" line="311" assertions="2" />
+      <testcase name="toStrictEqual" classname="expect matchers" time="0.000575" file="tests/test-runner.test.ts" line="316" assertions="2" />
+    </testsuite>
+    <testsuite name="snapshot testing" file="tests/test-runner.test.ts" line="326" tests="5" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="toMatchSnapshot — primitive" classname="snapshot testing" time="0.000022" file="tests/test-runner.test.ts" line="327" assertions="1" />
+      <testcase name="toMatchSnapshot — object" classname="snapshot testing" time="0.000021" file="tests/test-runner.test.ts" line="331" assertions="1" />
+      <testcase name="toMatchSnapshot — array" classname="snapshot testing" time="0" file="tests/test-runner.test.ts" line="340" assertions="1" />
+      <testcase name="toMatchInlineSnapshot — string" classname="snapshot testing" time="0" file="tests/test-runner.test.ts" line="350" assertions="1" />
+      <testcase name="toMatchInlineSnapshot — number" classname="snapshot testing" time="0" file="tests/test-runner.test.ts" line="354" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/formats.test.ts" file="tests/formats.test.ts" tests="44" assertions="72" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.TOML.parse" file="tests/formats.test.ts" line="7" tests="8" assertions="16" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="parses simple key-value pairs" classname="Bun.TOML.parse" time="0.000077" file="tests/formats.test.ts" line="8" assertions="2" />
+      <testcase name="parses integers and floats" classname="Bun.TOML.parse" time="0.000086" file="tests/formats.test.ts" line="14" assertions="2" />
+      <testcase name="parses booleans" classname="Bun.TOML.parse" time="0.000014" file="tests/formats.test.ts" line="20" assertions="2" />
+      <testcase name="parses arrays" classname="Bun.TOML.parse" time="0.00002" file="tests/formats.test.ts" line="26" assertions="1" />
+      <testcase name="parses table sections" classname="Bun.TOML.parse" time="0.000034" file="tests/formats.test.ts" line="31" assertions="2" />
+      <testcase name="parses nested tables" classname="Bun.TOML.parse" time="0.000017" file="tests/formats.test.ts" line="37" assertions="2" />
+      <testcase name="parses array of tables" classname="Bun.TOML.parse" time="0.000024" file="tests/formats.test.ts" line="44" assertions="3" />
+      <testcase name="returns an object" classname="Bun.TOML.parse" time="0" file="tests/formats.test.ts" line="52" assertions="2" />
+    </testsuite>
+    <testsuite name="Bun.JSONC.parse" file="tests/formats.test.ts" line="63" tests="5" assertions="6" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="parses standard JSON" classname="Bun.JSONC.parse" time="0.000031" file="tests/formats.test.ts" line="64" assertions="1" />
+      <testcase name="parses JSON with single-line comments" classname="Bun.JSONC.parse" time="0.000008" file="tests/formats.test.ts" line="69" assertions="1" />
+      <testcase name="parses JSON with block comments" classname="Bun.JSONC.parse" time="0.000019" file="tests/formats.test.ts" line="78" assertions="1" />
+      <testcase name="parses JSON with trailing commas" classname="Bun.JSONC.parse" time="0.000012" file="tests/formats.test.ts" line="87" assertions="2" />
+      <testcase name="parses arrays with trailing commas" classname="Bun.JSONC.parse" time="0.000006" file="tests/formats.test.ts" line="94" assertions="1" />
+    </testsuite>
+    <testsuite name="URL" file="tests/formats.test.ts" line="104" tests="7" assertions="15" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="parses a full URL" classname="URL" time="0.000058" file="tests/formats.test.ts" line="105" assertions="8" />
+      <testcase name="href is the full serialized URL" classname="URL" time="0.000006" file="tests/formats.test.ts" line="117" assertions="1" />
+      <testcase name="origin combines protocol + host" classname="URL" time="0.000014" file="tests/formats.test.ts" line="122" assertions="1" />
+      <testcase name="relative URL resolves against base" classname="URL" time="0.000049" file="tests/formats.test.ts" line="127" assertions="1" />
+      <testcase name="mutable properties update href" classname="URL" time="0.000128" file="tests/formats.test.ts" line="132" assertions="1" />
+      <testcase name="searchParams is a URLSearchParams instance" classname="URL" time="0.000093" file="tests/formats.test.ts" line="138" assertions="2" />
+      <testcase name="throws on invalid URL" classname="URL" time="0.000065" file="tests/formats.test.ts" line="144" assertions="1" />
+    </testsuite>
+    <testsuite name="URLSearchParams" file="tests/formats.test.ts" line="153" tests="9" assertions="15" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="constructs from string" classname="URLSearchParams" time="0.000018" file="tests/formats.test.ts" line="154" assertions="2" />
+      <testcase name="constructs from object" classname="URLSearchParams" time="0.000095" file="tests/formats.test.ts" line="160" assertions="1" />
+      <testcase name="append adds duplicate keys" classname="URLSearchParams" time="0.000018" file="tests/formats.test.ts" line="165" assertions="1" />
+      <testcase name="set replaces all values for a key" classname="URLSearchParams" time="0.00001" file="tests/formats.test.ts" line="171" assertions="1" />
+      <testcase name="delete removes a key" classname="URLSearchParams" time="0.000028" file="tests/formats.test.ts" line="177" assertions="2" />
+      <testcase name="has returns true for existing key" classname="URLSearchParams" time="0.000006" file="tests/formats.test.ts" line="184" assertions="2" />
+      <testcase name="toString serializes correctly" classname="URLSearchParams" time="0.000018" file="tests/formats.test.ts" line="190" assertions="2" />
+      <testcase name="forEach iterates all entries" classname="URLSearchParams" time="0.000043" file="tests/formats.test.ts" line="197" assertions="1" />
+      <testcase name="keys(), values(), entries() iterators work" classname="URLSearchParams" time="0.00007" file="tests/formats.test.ts" line="204" assertions="3" />
+    </testsuite>
+    <testsuite name="Headers" file="tests/formats.test.ts" line="216" tests="8" assertions="11" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="constructs from object" classname="Headers" time="0.000092" file="tests/formats.test.ts" line="217" assertions="1" />
+      <testcase name="get is case-insensitive" classname="Headers" time="0.000014" file="tests/formats.test.ts" line="222" assertions="2" />
+      <testcase name="set overwrites existing value" classname="Headers" time="0.00001" file="tests/formats.test.ts" line="228" assertions="1" />
+      <testcase name="append adds to existing header" classname="Headers" time="0.000021" file="tests/formats.test.ts" line="235" assertions="2" />
+      <testcase name="delete removes a header" classname="Headers" time="0.000013" file="tests/formats.test.ts" line="244" assertions="1" />
+      <testcase name="has returns true for existing header" classname="Headers" time="0.000012" file="tests/formats.test.ts" line="250" assertions="2" />
+      <testcase name="forEach iterates all entries" classname="Headers" time="0.000019" file="tests/formats.test.ts" line="256" assertions="1" />
+      <testcase name="constructs from entries array" classname="Headers" time="0.000023" file="tests/formats.test.ts" line="263" assertions="1" />
+    </testsuite>
+    <testsuite name="FormData" file="tests/formats.test.ts" line="276" tests="7" assertions="9" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="append and get a string field" classname="FormData" time="0.000021" file="tests/formats.test.ts" line="277" assertions="1" />
+      <testcase name="set overwrites existing field" classname="FormData" time="0.000009" file="tests/formats.test.ts" line="283" assertions="1" />
+      <testcase name="getAll returns all values for a key" classname="FormData" time="0.000016" file="tests/formats.test.ts" line="290" assertions="1" />
+      <testcase name="has returns true for existing field" classname="FormData" time="0.000004" file="tests/formats.test.ts" line="297" assertions="2" />
+      <testcase name="delete removes a field" classname="FormData" time="0" file="tests/formats.test.ts" line="304" assertions="1" />
+      <testcase name="append a Blob as a file field" classname="FormData" time="0.000133" file="tests/formats.test.ts" line="311" assertions="2" />
+      <testcase name="forEach iterates all fields" classname="FormData" time="0.000019" file="tests/formats.test.ts" line="320" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/workers.test.ts" file="tests/workers.test.ts" tests="12" assertions="12" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Worker — basic messaging" file="tests/workers.test.ts" line="93" tests="5" assertions="5" failures="0" skipped="0" time="0.022" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="echo worker reflects messages back" classname="Worker — basic messaging" time="0.012211" file="tests/workers.test.ts" line="94" assertions="1" />
+      <testcase name="sends and receives a plain object" classname="Worker — basic messaging" time="0.004042" file="tests/workers.test.ts" line="103" assertions="1" />
+      <testcase name="math worker computes a + b" classname="Worker — basic messaging" time="0.002329" file="tests/workers.test.ts" line="112" assertions="1" />
+      <testcase name="receives multiple messages in order" classname="Worker — basic messaging" time="0.002393" file="tests/workers.test.ts" line="121" assertions="1" />
+      <testcase name="postMessage with nested arrays and numbers" classname="Worker — basic messaging" time="0.002236" file="tests/workers.test.ts" line="134" assertions="1" />
+    </testsuite>
+    <testsuite name="Worker — lifecycle" file="tests/workers.test.ts" line="149" tests="3" assertions="3" failures="0" skipped="0" time="0.11" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="threadId is a positive integer" classname="Worker — lifecycle" time="0.004845" file="tests/workers.test.ts" line="150" assertions="1" />
+      <testcase name="terminate() stops a running worker" classname="Worker — lifecycle" time="0.10163" file="tests/workers.test.ts" line="157" assertions="1" />
+      <testcase name="worker threadId differs from main thread (0 or 1)" classname="Worker — lifecycle" time="0.005629" file="tests/workers.test.ts" line="165" assertions="1" />
+    </testsuite>
+    <testsuite name="Worker — error handling" file="tests/workers.test.ts" line="178" tests="1" assertions="1" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="unhandled error fires onerror on the Worker" classname="Worker — error handling" time="0.002597" file="tests/workers.test.ts" line="179" assertions="1" />
+    </testsuite>
+    <testsuite name="Worker — environment" file="tests/workers.test.ts" line="193" tests="1" assertions="1" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="worker receives custom env vars" classname="Worker — environment" time="0.002157" file="tests/workers.test.ts" line="194" assertions="1" />
+    </testsuite>
+    <testsuite name="Worker — transferables" file="tests/workers.test.ts" line="208" tests="1" assertions="1" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="ArrayBuffer can be transferred to a worker" classname="Worker — transferables" time="0.00248" file="tests/workers.test.ts" line="209" assertions="1" />
+    </testsuite>
+    <testsuite name="Worker — SharedArrayBuffer" file="tests/workers.test.ts" line="224" tests="1" assertions="1" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="worker writes to a SharedArrayBuffer visible from main thread" classname="Worker — SharedArrayBuffer" time="0.002517" file="tests/workers.test.ts" line="225" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/websocket.test.ts" file="tests/websocket.test.ts" tests="23" assertions="31" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="WebSocket lifecycle" file="tests/websocket.test.ts" line="70" tests="5" assertions="5" failures="0" skipped="0" time="0.043" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="client can connect and receives the open greeting" classname="WebSocket lifecycle" time="0.001966" file="tests/websocket.test.ts" line="71" assertions="1" />
+      <testcase name="open handler increments server-side open counter" classname="WebSocket lifecycle" time="0.000348" file="tests/websocket.test.ts" line="79" assertions="1" />
+      <testcase name="server.pendingWebSockets increments when a socket opens" classname="WebSocket lifecycle" time="0.02131" file="tests/websocket.test.ts" line="88" assertions="1" />
+      <testcase name="close handler receives the close code from client.close()" classname="WebSocket lifecycle" time="0.021189" file="tests/websocket.test.ts" line="97" assertions="1" />
+      <testcase name="close event fires on the client after ws.close()" classname="WebSocket lifecycle" time="0.000722" file="tests/websocket.test.ts" line="108" assertions="1" />
+    </testsuite>
+    <testsuite name="message exchange" file="tests/websocket.test.ts" line="120" tests="6" assertions="8" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="string message is echoed back correctly" classname="message exchange" time="0.000552" file="tests/websocket.test.ts" line="121" assertions="1" />
+      <testcase name="multiple sequential messages are echoed in order" classname="message exchange" time="0.000846" file="tests/websocket.test.ts" line="130" assertions="1" />
+      <testcase name="empty string message is echoed back" classname="message exchange" time="0.000376" file="tests/websocket.test.ts" line="144" assertions="1" />
+      <testcase name="binary (Uint8Array) message round-trips correctly" classname="message exchange" time="0.000423" file="tests/websocket.test.ts" line="153" assertions="2" />
+      <testcase name="ArrayBuffer message round-trips correctly" classname="message exchange" time="0.000372" file="tests/websocket.test.ts" line="166" assertions="2" />
+      <testcase name="large string message is echoed back intact" classname="message exchange" time="0.000513" file="tests/websocket.test.ts" line="179" assertions="1" />
+    </testsuite>
+    <testsuite name="ws.send() backpressure indicator" file="tests/websocket.test.ts" line="193" tests="1" assertions="2" failures="0" skipped="0" time="0.023" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="send() returns a non-negative integer" classname="ws.send() backpressure indicator" time="0.023174" file="tests/websocket.test.ts" line="194" assertions="2" />
+    </testsuite>
+    <testsuite name="contextual data (ws.data)" file="tests/websocket.test.ts" line="226" tests="2" assertions="4" failures="0" skipped="0" time="0.001" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="ws.data carries userId from the upgrade call" classname="contextual data (ws.data)" time="0.000776" file="tests/websocket.test.ts" line="259" assertions="2" />
+      <testcase name="multiple connections carry independent data" classname="contextual data (ws.data)" time="0.001252" file="tests/websocket.test.ts" line="269" assertions="2" />
+    </testsuite>
+    <testsuite name="pub/sub" file="tests/websocket.test.ts" line="285" tests="7" assertions="10" failures="0" skipped="0" time="0.024" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="subscribe confirmation is received on open" classname="pub/sub" time="0.000503" file="tests/websocket.test.ts" line="330" assertions="1" />
+      <testcase name="ws.isSubscribed() returns true after subscribing" classname="pub/sub" time="0.000749" file="tests/websocket.test.ts" line="337" assertions="1" />
+      <testcase name="ws.isSubscribed() returns false for an unrelated topic" classname="pub/sub" time="0.000776" file="tests/websocket.test.ts" line="346" assertions="1" />
+      <testcase name="ws.subscriptions includes the active topic" classname="pub/sub" time="0.000785" file="tests/websocket.test.ts" line="355" assertions="1" />
+      <testcase name="ws.publish() delivers message to other subscribers but not self" classname="pub/sub" time="0.001072" file="tests/websocket.test.ts" line="366" assertions="1" />
+      <testcase name="server.publish() broadcasts to all subscribers of a topic" classname="pub/sub" time="0.001046" file="tests/websocket.test.ts" line="383" assertions="2" />
+      <testcase name="server.subscriberCount() reflects live subscription count" classname="pub/sub" time="0.022071" file="tests/websocket.test.ts" line="402" assertions="3" />
+    </testsuite>
+    <testsuite name="perMessageDeflate compression" file="tests/websocket.test.ts" line="419" tests="1" assertions="1" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="messages are received correctly when perMessageDeflate is enabled" classname="perMessageDeflate compression" time="0.00228" file="tests/websocket.test.ts" line="420" assertions="1" />
+    </testsuite>
+    <testsuite name="custom upgrade headers" file="tests/websocket.test.ts" line="452" tests="1" assertions="1" failures="0" skipped="0" time="0.001" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="Set-Cookie header is returned in the 101 upgrade response" classname="custom upgrade headers" time="0.001987" file="tests/websocket.test.ts" line="453" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/hashing.test.ts" file="tests/hashing.test.ts" tests="42" assertions="49" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.hash — non-cryptographic hashes" file="tests/hashing.test.ts" line="8" tests="18" assertions="18" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="Bun.hash(string) returns a number or bigint" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="9" assertions="1" />
+      <testcase name="same input always produces same hash" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="14" assertions="1" />
+      <testcase name="different inputs produce different hashes" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="18" assertions="1" />
+      <testcase name="Bun.hash accepts Uint8Array" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="22" assertions="1" />
+      <testcase name="Bun.hash accepts ArrayBuffer" classname="Bun.hash — non-cryptographic hashes" time="0.000038" file="tests/hashing.test.ts" line="28" assertions="1" />
+      <testcase name="hash.wyhash returns bigint" classname="Bun.hash — non-cryptographic hashes" time="0.000013" file="tests/hashing.test.ts" line="34" assertions="1" />
+      <testcase name="hash.wyhash is deterministic" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="39" assertions="1" />
+      <testcase name="hash.adler32 returns a number" classname="Bun.hash — non-cryptographic hashes" time="0.000019" file="tests/hashing.test.ts" line="43" assertions="1" />
+      <testcase name="hash.crc32 returns a number" classname="Bun.hash — non-cryptographic hashes" time="0.000011" file="tests/hashing.test.ts" line="47" assertions="1" />
+      <testcase name="hash.crc32 is deterministic" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="51" assertions="1" />
+      <testcase name="hash.cityHash32 returns a number" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="55" assertions="1" />
+      <testcase name="hash.cityHash64 returns bigint" classname="Bun.hash — non-cryptographic hashes" time="0" file="tests/hashing.test.ts" line="59" assertions="1" />
+      <testcase name="hash.xxHash32 returns a number" classname="Bun.hash — non-cryptographic hashes" time="0.000038" file="tests/hashing.test.ts" line="63" assertions="1" />
+      <testcase name="hash.xxHash64 returns bigint" classname="Bun.hash — non-cryptographic hashes" time="0.000012" file="tests/hashing.test.ts" line="67" assertions="1" />
+      <testcase name="hash.xxHash3 returns bigint" classname="Bun.hash — non-cryptographic hashes" time="0.000004" file="tests/hashing.test.ts" line="71" assertions="1" />
+      <testcase name="hash.murmur32v3 returns a number" classname="Bun.hash — non-cryptographic hashes" time="0.000014" file="tests/hashing.test.ts" line="75" assertions="1" />
+      <testcase name="hash.rapidhash returns bigint" classname="Bun.hash — non-cryptographic hashes" time="0.000007" file="tests/hashing.test.ts" line="79" assertions="1" />
+      <testcase name="seed changes the wyhash output" classname="Bun.hash — non-cryptographic hashes" time="0.00001" file="tests/hashing.test.ts" line="83" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.CryptoHasher — SHA / Blake / etc." file="tests/hashing.test.ts" line="94" tests="16" assertions="22" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="sha256 hex digest has 64 hex chars" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000064" file="tests/hashing.test.ts" line="95" assertions="2" />
+      <testcase name="sha256 is deterministic" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000013" file="tests/hashing.test.ts" line="102" assertions="1" />
+      <testcase name="sha256 known vector" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000019" file="tests/hashing.test.ts" line="108" assertions="1" />
+      <testcase name="sha1 hex digest has 40 chars" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000015" file="tests/hashing.test.ts" line="114" assertions="1" />
+      <testcase name="sha512 hex digest has 128 chars" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000013" file="tests/hashing.test.ts" line="119" assertions="1" />
+      <testcase name="md5 hex digest has 32 chars" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000011" file="tests/hashing.test.ts" line="124" assertions="1" />
+      <testcase name="blake2b256 hex digest has 64 chars" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000011" file="tests/hashing.test.ts" line="129" assertions="1" />
+      <testcase name="digest() without encoding returns Buffer" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000023" file="tests/hashing.test.ts" line="134" assertions="2" />
+      <testcase name="digest(&apos;base64&apos;) returns a non-empty base64 string" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000017" file="tests/hashing.test.ts" line="140" assertions="2" />
+      <testcase name="chained .update() calls accumulate data" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000017" file="tests/hashing.test.ts" line="146" assertions="1" />
+      <testcase name=".copy() produces an independent hasher" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000015" file="tests/hashing.test.ts" line="152" assertions="1" />
+      <testcase name="CryptoHasher.hash() static helper returns Buffer" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.00001" file="tests/hashing.test.ts" line="161" assertions="2" />
+      <testcase name="HMAC mode with sha256 produces different output than plain sha256" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000019" file="tests/hashing.test.ts" line="167" assertions="1" />
+      <testcase name="HMAC is deterministic with same key" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0" file="tests/hashing.test.ts" line="173" assertions="1" />
+      <testcase name=".algorithm property reflects the chosen algorithm" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000021" file="tests/hashing.test.ts" line="179" assertions="1" />
+      <testcase name=".byteLength reflects output size" classname="Bun.CryptoHasher — SHA / Blake / etc." time="0.000022" file="tests/hashing.test.ts" line="184" assertions="3" />
+    </testsuite>
+    <testsuite name="Bun.password — argon2" file="tests/hashing.test.ts" line="195" tests="5" assertions="6" failures="0" skipped="0" time="0.574" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="hash returns a string starting with $argon2" classname="Bun.password — argon2" time="0.063095" file="tests/hashing.test.ts" line="196" assertions="1" />
+      <testcase name="verify returns true for correct password" classname="Bun.password — argon2" time="0.115901" file="tests/hashing.test.ts" line="201" assertions="1" />
+      <testcase name="verify returns false for wrong password" classname="Bun.password — argon2" time="0.112672" file="tests/hashing.test.ts" line="206" assertions="1" />
+      <testcase name="two hashes of the same password differ (salted)" classname="Bun.password — argon2" time="0.110448" file="tests/hashing.test.ts" line="211" assertions="1" />
+      <testcase name="hashSync + verifySync work synchronously" classname="Bun.password — argon2" time="0.174858" file="tests/hashing.test.ts" line="217" assertions="2" />
+    </testsuite>
+    <testsuite name="Bun.password — bcrypt" file="tests/hashing.test.ts" line="224" tests="3" assertions="3" failures="0" skipped="0" time="0.297" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="bcrypt hash starts with $2" classname="Bun.password — bcrypt" time="0.059903" file="tests/hashing.test.ts" line="225" assertions="1" />
+      <testcase name="bcrypt verify returns true for correct password" classname="Bun.password — bcrypt" time="0.11907" file="tests/hashing.test.ts" line="230" assertions="1" />
+      <testcase name="bcrypt verify returns false for wrong password" classname="Bun.password — bcrypt" time="0.119212" file="tests/hashing.test.ts" line="235" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/utilities.test.ts" file="tests/utilities.test.ts" tests="62" assertions="91" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Bun.sleep / Bun.sleepSync" file="tests/utilities.test.ts" line="7" tests="4" assertions="4" failures="0" skipped="0" time="0.046" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="sleep(ms) returns a Promise that resolves" classname="Bun.sleep / Bun.sleepSync" time="0.001479" file="tests/utilities.test.ts" line="8" assertions="2" />
+      <testcase name="sleep(0) resolves immediately" classname="Bun.sleep / Bun.sleepSync" time="0.000039" file="tests/utilities.test.ts" line="14" assertions="0" />
+      <testcase name="sleep takes approximately the requested time" classname="Bun.sleep / Bun.sleepSync" time="0.021088" file="tests/utilities.test.ts" line="18" assertions="1" />
+      <testcase name="sleepSync blocks synchronously" classname="Bun.sleep / Bun.sleepSync" time="0.024714" file="tests/utilities.test.ts" line="25" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.nanoseconds" file="tests/utilities.test.ts" line="37" tests="3" assertions="4" failures="0" skipped="0" time="0.001" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="returns a number" classname="Bun.nanoseconds" time="0.000124" file="tests/utilities.test.ts" line="38" assertions="1" />
+      <testcase name="increases over time" classname="Bun.nanoseconds" time="0.001706" file="tests/utilities.test.ts" line="42" assertions="1" />
+      <testcase name="two successive calls differ" classname="Bun.nanoseconds" time="0.000056" file="tests/utilities.test.ts" line="49" assertions="2" />
+    </testsuite>
+    <testsuite name="Bun.deepEquals" file="tests/utilities.test.ts" line="62" tests="8" assertions="14" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="equal primitives return true" classname="Bun.deepEquals" time="0.000037" file="tests/utilities.test.ts" line="63" assertions="3" />
+      <testcase name="unequal primitives return false" classname="Bun.deepEquals" time="0.000009" file="tests/utilities.test.ts" line="69" assertions="2" />
+      <testcase name="deeply equal objects return true" classname="Bun.deepEquals" time="0.000031" file="tests/utilities.test.ts" line="74" assertions="1" />
+      <testcase name="structurally different objects return false" classname="Bun.deepEquals" time="0.000018" file="tests/utilities.test.ts" line="78" assertions="2" />
+      <testcase name="equal arrays return true" classname="Bun.deepEquals" time="0.000009" file="tests/utilities.test.ts" line="83" assertions="1" />
+      <testcase name="arrays of different length return false" classname="Bun.deepEquals" time="0.000002" file="tests/utilities.test.ts" line="87" assertions="1" />
+      <testcase name="strict mode distinguishes 0 and -0" classname="Bun.deepEquals" time="0.000015" file="tests/utilities.test.ts" line="91" assertions="3" />
+      <testcase name="nested objects with same values are equal" classname="Bun.deepEquals" time="0" file="tests/utilities.test.ts" line="98" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.deepMatch" file="tests/utilities.test.ts" line="109" tests="4" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="subset matches superset" classname="Bun.deepMatch" time="0" file="tests/utilities.test.ts" line="110" assertions="1" />
+      <testcase name="superset does not match subset" classname="Bun.deepMatch" time="0.000047" file="tests/utilities.test.ts" line="114" assertions="1" />
+      <testcase name="exact match returns true" classname="Bun.deepMatch" time="0.000007" file="tests/utilities.test.ts" line="118" assertions="1" />
+      <testcase name="mismatched value returns false" classname="Bun.deepMatch" time="0" file="tests/utilities.test.ts" line="122" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.inspect" file="tests/utilities.test.ts" line="131" tests="6" assertions="11" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="returns a string" classname="Bun.inspect" time="0.000036" file="tests/utilities.test.ts" line="132" assertions="1" />
+      <testcase name="includes object keys" classname="Bun.inspect" time="0.00002" file="tests/utilities.test.ts" line="136" assertions="2" />
+      <testcase name="handles arrays" classname="Bun.inspect" time="0.000018" file="tests/utilities.test.ts" line="142" assertions="3" />
+      <testcase name="handles null and undefined" classname="Bun.inspect" time="0.000014" file="tests/utilities.test.ts" line="149" assertions="2" />
+      <testcase name="depth option limits nesting" classname="Bun.inspect" time="0.000027" file="tests/utilities.test.ts" line="154" assertions="1" />
+      <testcase name="inspect.table returns a string" classname="Bun.inspect" time="0.000028" file="tests/utilities.test.ts" line="160" assertions="2" />
+    </testsuite>
+    <testsuite name="Bun.escapeHTML" file="tests/utilities.test.ts" line="171" tests="6" assertions="6" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="escapes &lt; and &gt;" classname="Bun.escapeHTML" time="0.000025" file="tests/utilities.test.ts" line="172" assertions="1" />
+      <testcase name="escapes &amp;" classname="Bun.escapeHTML" time="0.000012" file="tests/utilities.test.ts" line="176" assertions="1" />
+      <testcase name="escapes double quotes" classname="Bun.escapeHTML" time="0" file="tests/utilities.test.ts" line="180" assertions="1" />
+      <testcase name="escapes single quotes" classname="Bun.escapeHTML" time="0.000027" file="tests/utilities.test.ts" line="184" assertions="1" />
+      <testcase name="plain text is unchanged" classname="Bun.escapeHTML" time="0" file="tests/utilities.test.ts" line="188" assertions="1" />
+      <testcase name="accepts numbers" classname="Bun.escapeHTML" time="0" file="tests/utilities.test.ts" line="192" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.color" file="tests/utilities.test.ts" line="201" tests="6" assertions="11" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="parses named color to hex" classname="Bun.color" time="0.000088" file="tests/utilities.test.ts" line="202" assertions="1" />
+      <testcase name="parses hex color to rgb object" classname="Bun.color" time="0.000021" file="tests/utilities.test.ts" line="207" assertions="4" />
+      <testcase name="parses hex color to [rgb] array" classname="Bun.color" time="0.00002" file="tests/utilities.test.ts" line="215" assertions="1" />
+      <testcase name="returns null for invalid color" classname="Bun.color" time="0" file="tests/utilities.test.ts" line="220" assertions="1" />
+      <testcase name="parses rgb() string" classname="Bun.color" time="0.000019" file="tests/utilities.test.ts" line="225" assertions="3" />
+      <testcase name="number output format" classname="Bun.color" time="0.000015" file="tests/utilities.test.ts" line="232" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.semver" file="tests/utilities.test.ts" line="242" tests="7" assertions="9" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="satisfies: exact version matches" classname="Bun.semver" time="0.000021" file="tests/utilities.test.ts" line="243" assertions="1" />
+      <testcase name="satisfies: caret range" classname="Bun.semver" time="0.000014" file="tests/utilities.test.ts" line="247" assertions="2" />
+      <testcase name="satisfies: tilde range" classname="Bun.semver" time="0.000011" file="tests/utilities.test.ts" line="252" assertions="2" />
+      <testcase name="satisfies: wildcard" classname="Bun.semver" time="0.000005" file="tests/utilities.test.ts" line="257" assertions="1" />
+      <testcase name="order: equal versions return 0" classname="Bun.semver" time="0.000007" file="tests/utilities.test.ts" line="261" assertions="1" />
+      <testcase name="order: greater version returns 1" classname="Bun.semver" time="0.000009" file="tests/utilities.test.ts" line="265" assertions="1" />
+      <testcase name="order: lesser version returns -1" classname="Bun.semver" time="0.000016" file="tests/utilities.test.ts" line="269" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.which" file="tests/utilities.test.ts" line="278" tests="3" assertions="4" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="finds common executables like &apos;ls&apos;" classname="Bun.which" time="0.002593" file="tests/utilities.test.ts" line="279" assertions="2" />
+      <testcase name="returns null for non-existent command" classname="Bun.which" time="0.000426" file="tests/utilities.test.ts" line="285" assertions="1" />
+      <testcase name="finds &apos;bun&apos; itself" classname="Bun.which" time="0.000073" file="tests/utilities.test.ts" line="289" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.pathToFileURL / Bun.fileURLToPath" file="tests/utilities.test.ts" line="299" tests="3" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="pathToFileURL returns a URL with file:// scheme" classname="Bun.pathToFileURL / Bun.fileURLToPath" time="0.000027" file="tests/utilities.test.ts" line="304" assertions="3" />
+      <testcase name="fileURLToPath converts URL back to path" classname="Bun.pathToFileURL / Bun.fileURLToPath" time="0.000011" file="tests/utilities.test.ts" line="311" assertions="1" />
+      <testcase name="roundtrip path → URL → path" classname="Bun.pathToFileURL / Bun.fileURLToPath" time="0.000025" file="tests/utilities.test.ts" line="317" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.peek" file="tests/utilities.test.ts" line="328" tests="4" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="peek on already-resolved promise returns the value" classname="Bun.peek" time="0.000068" file="tests/utilities.test.ts" line="329" assertions="1" />
+      <testcase name="peek.status on resolved promise returns &apos;fulfilled&apos;" classname="Bun.peek" time="0.000083" file="tests/utilities.test.ts" line="337" assertions="1" />
+      <testcase name="peek.status on pending promise returns &apos;pending&apos;" classname="Bun.peek" time="0.000035" file="tests/utilities.test.ts" line="343" assertions="1" />
+      <testcase name="peek.status on rejected promise returns &apos;rejected&apos;" classname="Bun.peek" time="0.000107" file="tests/utilities.test.ts" line="348" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun runtime metadata" file="tests/utilities.test.ts" line="361" tests="4" assertions="6" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="Bun.version is a semver string" classname="Bun runtime metadata" time="0.000068" file="tests/utilities.test.ts" line="362" assertions="2" />
+      <testcase name="Bun.revision is a non-empty string" classname="Bun runtime metadata" time="0.000013" file="tests/utilities.test.ts" line="367" assertions="2" />
+      <testcase name="Bun.env is the process environment" classname="Bun runtime metadata" time="0.000013" file="tests/utilities.test.ts" line="372" assertions="1" />
+      <testcase name="process.env.PATH is defined" classname="Bun runtime metadata" time="0.000017" file="tests/utilities.test.ts" line="376" assertions="1" />
+    </testsuite>
+    <testsuite name="structuredClone" file="tests/utilities.test.ts" line="385" tests="4" assertions="9" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="clones a plain object" classname="structuredClone" time="0.000059" file="tests/utilities.test.ts" line="386" assertions="3" />
+      <testcase name="clones arrays" classname="structuredClone" time="0.000018" file="tests/utilities.test.ts" line="394" assertions="2" />
+      <testcase name="clones Date objects" classname="structuredClone" time="0.000009" file="tests/utilities.test.ts" line="401" assertions="2" />
+      <testcase name="clones Map and Set" classname="structuredClone" time="0.000045" file="tests/utilities.test.ts" line="408" assertions="2" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/http-server.test.ts" file="tests/http-server.test.ts" tests="30" assertions="53" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="server lifecycle" file="tests/http-server.test.ts" line="121" tests="3" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="server.url is a valid URL" classname="server lifecycle" time="0" file="tests/http-server.test.ts" line="122" assertions="2" />
+      <testcase name="server.port is a positive integer" classname="server lifecycle" time="0" file="tests/http-server.test.ts" line="128" assertions="2" />
+      <testcase name="server.pendingRequests is a non-negative number" classname="server lifecycle" time="0.000238" file="tests/http-server.test.ts" line="133" assertions="1" />
+    </testsuite>
+    <testsuite name="static routes" file="tests/http-server.test.ts" line="142" tests="3" assertions="6" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="GET /health returns 200 OK" classname="static routes" time="0.000664" file="tests/http-server.test.ts" line="143" assertions="2" />
+      <testcase name="GET /api/static-json returns pre-built JSON" classname="static routes" time="0.000281" file="tests/http-server.test.ts" line="149" assertions="3" />
+      <testcase name="unmatched route falls through to fetch() handler with 404" classname="static routes" time="0.000231" file="tests/http-server.test.ts" line="157" assertions="1" />
+    </testsuite>
+    <testsuite name="parameterised routes" file="tests/http-server.test.ts" line="167" tests="3" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="single param :id is captured correctly" classname="parameterised routes" time="0.000213" file="tests/http-server.test.ts" line="168" assertions="2" />
+      <testcase name="multiple params :org and :repo are captured correctly" classname="parameterised routes" time="0.000302" file="tests/http-server.test.ts" line="175" assertions="2" />
+      <testcase name="URL-encoded param is decoded" classname="parameterised routes" time="0.000254" file="tests/http-server.test.ts" line="182" assertions="1" />
+    </testsuite>
+    <testsuite name="HTTP verb routing" file="tests/http-server.test.ts" line="193" tests="5" assertions="12" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="GET /api/items returns array" classname="HTTP verb routing" time="0.00024" file="tests/http-server.test.ts" line="194" assertions="3" />
+      <testcase name="POST /api/items creates resource with 201" classname="HTTP verb routing" time="0.000312" file="tests/http-server.test.ts" line="202" assertions="3" />
+      <testcase name="PUT /api/items updates resource" classname="HTTP verb routing" time="0.000345" file="tests/http-server.test.ts" line="214" assertions="2" />
+      <testcase name="DELETE /api/items returns 204 No Content" classname="HTTP verb routing" time="0.000222" file="tests/http-server.test.ts" line="225" assertions="1" />
+      <testcase name="PATCH /api/items partially updates resource" classname="HTTP verb routing" time="0.000275" file="tests/http-server.test.ts" line="230" assertions="3" />
+    </testsuite>
+    <testsuite name="request body parsing" file="tests/http-server.test.ts" line="247" tests="5" assertions="7" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="JSON body is parsed correctly" classname="request body parsing" time="0.00036" file="tests/http-server.test.ts" line="248" assertions="1" />
+      <testcase name="plain text body is echoed back" classname="request body parsing" time="0.000257" file="tests/http-server.test.ts" line="258" assertions="1" />
+      <testcase name="FormData body fields are parsed" classname="request body parsing" time="0.000373" file="tests/http-server.test.ts" line="267" assertions="2" />
+      <testcase name="application/x-www-form-urlencoded body is parsed" classname="request body parsing" time="0.000252" file="tests/http-server.test.ts" line="277" assertions="2" />
+      <testcase name="ArrayBuffer body round-trips correctly" classname="request body parsing" time="0.000346" file="tests/http-server.test.ts" line="288" assertions="1" />
+    </testsuite>
+    <testsuite name="file streaming" file="tests/http-server.test.ts" line="304" tests="2" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="BunFile is streamed as response body" classname="file streaming" time="0.000598" file="tests/http-server.test.ts" line="305" assertions="2" />
+      <testcase name="streamed file has a content-type header" classname="file streaming" time="0.00028" file="tests/http-server.test.ts" line="312" assertions="1" />
+    </testsuite>
+    <testsuite name="response streaming" file="tests/http-server.test.ts" line="322" tests="1" assertions="2" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="async generator streams chunks in order" classname="response streaming" time="0.000652" file="tests/http-server.test.ts" line="323" assertions="2" />
+    </testsuite>
+    <testsuite name="server-sent events" file="tests/http-server.test.ts" line="335" tests="2" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="SSE endpoint returns text/event-stream content-type" classname="server-sent events" time="0.000255" file="tests/http-server.test.ts" line="336" assertions="1" />
+      <testcase name="SSE response body contains valid event frames" classname="server-sent events" time="0.000175" file="tests/http-server.test.ts" line="341" assertions="2" />
+    </testsuite>
+    <testsuite name="wildcard routes" file="tests/http-server.test.ts" line="353" tests="1" assertions="2" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="/api/* catches unmatched paths under /api/" classname="wildcard routes" time="0.000157" file="tests/http-server.test.ts" line="354" assertions="2" />
+    </testsuite>
+    <testsuite name="error handler" file="tests/http-server.test.ts" line="365" tests="1" assertions="2" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="thrown error in route invokes the error() callback" classname="error handler" time="0.002319" file="tests/http-server.test.ts" line="366" assertions="2" />
+    </testsuite>
+    <testsuite name="server metrics" file="tests/http-server.test.ts" line="397" tests="3" assertions="4" failures="0" skipped="0" time="0.002" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="server.pendingWebSockets starts at 0" classname="server metrics" time="0.000012" file="tests/http-server.test.ts" line="398" assertions="1" />
+      <testcase name="server.subscriberCount returns 0 for unknown topic" classname="server metrics" time="0.000002" file="tests/http-server.test.ts" line="402" assertions="1" />
+      <testcase name="server.requestIP returns null or SocketAddress for a request" classname="server metrics" time="0.00215" file="tests/http-server.test.ts" line="406" assertions="2" />
+    </testsuite>
+    <testsuite name="server.reload()" file="tests/http-server.test.ts" line="434" tests="1" assertions="2" failures="0" skipped="0" time="0.001" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="routes can be hot-swapped without restarting the server" classname="server.reload()" time="0.001248" file="tests/http-server.test.ts" line="435" assertions="2" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/networking.test.ts" file="tests/networking.test.ts" tests="20" assertions="30" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="fetch — built-in HTTP client" file="tests/networking.test.ts" line="22" tests="8" assertions="10" failures="0" skipped="0" time="0.007" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="GET request returns 200 for a local server" classname="fetch — built-in HTTP client" time="0.002049" file="tests/networking.test.ts" line="23" assertions="2" />
+      <testcase name="fetch returns headers from the server" classname="fetch — built-in HTTP client" time="0.001107" file="tests/networking.test.ts" line="39" assertions="1" />
+      <testcase name="POST body is received by server" classname="fetch — built-in HTTP client" time="0.001916" file="tests/networking.test.ts" line="54" assertions="1" />
+      <testcase name="JSON round-trip via fetch" classname="fetch — built-in HTTP client" time="0.001108" file="tests/networking.test.ts" line="73" assertions="1" />
+      <testcase name="fetch follows redirect" classname="fetch — built-in HTTP client" time="0.001825" file="tests/networking.test.ts" line="94" assertions="2" />
+      <testcase name="fetch with custom request headers" classname="fetch — built-in HTTP client" time="0.000974" file="tests/networking.test.ts" line="114" assertions="1" />
+      <testcase name="404 response status is preserved" classname="fetch — built-in HTTP client" time="0.001876" file="tests/networking.test.ts" line="131" assertions="1" />
+      <testcase name="fetch AbortController cancels request" classname="fetch — built-in HTTP client" time="0.000976" file="tests/networking.test.ts" line="146" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.dns — DNS resolution" file="tests/networking.test.ts" line="168" tests="5" assertions="10" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="lookup(&apos;localhost&apos;) returns 127.0.0.1 or ::1" classname="Bun.dns — DNS resolution" time="0.000487" file="tests/networking.test.ts" line="169" assertions="2" />
+      <testcase name="lookup result has address and family fields" classname="Bun.dns — DNS resolution" time="0.000307" file="tests/networking.test.ts" line="176" assertions="2" />
+      <testcase name="lookup with family:4 returns only IPv4 addresses" classname="Bun.dns — DNS resolution" time="0.000232" file="tests/networking.test.ts" line="182" assertions="2" />
+      <testcase name="getCacheStats returns expected shape" classname="Bun.dns — DNS resolution" time="0.000021" file="tests/networking.test.ts" line="188" assertions="3" />
+      <testcase name="prefetch is callable without error" classname="Bun.dns — DNS resolution" time="0.000075" file="tests/networking.test.ts" line="195" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.listen / Bun.connect — TCP" file="tests/networking.test.ts" line="204" tests="4" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="server echoes data back to client" classname="Bun.listen / Bun.connect — TCP" time="0.000653" file="tests/networking.test.ts" line="205" assertions="1" />
+      <testcase name="server receives the exact bytes the client sends" classname="Bun.listen / Bun.connect — TCP" time="0.000358" file="tests/networking.test.ts" line="246" assertions="1" />
+      <testcase name="server.port is a valid port number" classname="Bun.listen / Bun.connect — TCP" time="0.000058" file="tests/networking.test.ts" line="280" assertions="2" />
+      <testcase name="multiple clients can connect concurrently" classname="Bun.listen / Bun.connect — TCP" time="0.000331" file="tests/networking.test.ts" line="294" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.udpSocket — UDP" file="tests/networking.test.ts" line="332" tests="3" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="can create and close a UDP socket" classname="Bun.udpSocket — UDP" time="0.000099" file="tests/networking.test.ts" line="333" assertions="1" />
+      <testcase name="UDP socket has expected properties" classname="Bun.udpSocket — UDP" time="0.000064" file="tests/networking.test.ts" line="346" assertions="3" />
+      <testcase name="UDP send and receive" classname="Bun.udpSocket — UDP" time="0.000225" file="tests/networking.test.ts" line="358" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/redis.test.ts" file="tests/redis.test.ts" tests="39" assertions="50" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Redis — Bun.RedisClient" file="tests/redis.test.ts" line="15" tests="39" assertions="50" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testsuite name="connection" file="tests/redis.test.ts" line="43" tests="4" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="connected is true after connect()" classname="connection &amp;gt; Redis — Bun.RedisClient" time="0.000007" file="tests/redis.test.ts" line="44" assertions="1" />
+        <testcase name="bufferedAmount is a number" classname="connection &amp;gt; Redis — Bun.RedisClient" time="0" file="tests/redis.test.ts" line="48" assertions="1" />
+        <testcase name="onconnect / onclose callbacks can be set without error" classname="connection &amp;gt; Redis — Bun.RedisClient" time="0.00006" file="tests/redis.test.ts" line="52" assertions="1" />
+        <testcase name="PING via send() returns PONG" classname="connection &amp;gt; Redis — Bun.RedisClient" time="0.000168" file="tests/redis.test.ts" line="61" assertions="1" />
+      </testsuite>
+      <testsuite name="string operations" file="tests/redis.test.ts" line="71" tests="9" assertions="12" failures="0" skipped="0" time="0.001" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="set() and get() round-trip a string" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.00036" file="tests/redis.test.ts" line="78" assertions="1" />
+        <testcase name="get() returns null for a missing key" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000138" file="tests/redis.test.ts" line="84" assertions="1" />
+        <testcase name="getBuffer() returns a Uint8Array" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.001216" file="tests/redis.test.ts" line="89" assertions="2" />
+        <testcase name="del() removes a key and returns 1" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000392" file="tests/redis.test.ts" line="96" assertions="2" />
+        <testcase name="exists() returns true when key is present" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000353" file="tests/redis.test.ts" line="103" assertions="1" />
+        <testcase name="exists() returns false when key is absent" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000348" file="tests/redis.test.ts" line="109" assertions="1" />
+        <testcase name="expire() sets a TTL and ttl() reads it back" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000492" file="tests/redis.test.ts" line="115" assertions="2" />
+        <testcase name="ttl() returns -1 for a key with no expiry" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000237" file="tests/redis.test.ts" line="123" assertions="1" />
+        <testcase name="overwriting a key replaces its value" classname="string operations &amp;gt; Redis — Bun.RedisClient" time="0.000327" file="tests/redis.test.ts" line="129" assertions="1" />
+      </testsuite>
+      <testsuite name="numeric operations" file="tests/redis.test.ts" line="140" tests="4" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="incr() increments and returns the new value" classname="numeric operations &amp;gt; Redis — Bun.RedisClient" time="0.000185" file="tests/redis.test.ts" line="147" assertions="1" />
+        <testcase name="incr() is additive across multiple calls" classname="numeric operations &amp;gt; Redis — Bun.RedisClient" time="0.000288" file="tests/redis.test.ts" line="153" assertions="1" />
+        <testcase name="decr() decrements and returns the new value" classname="numeric operations &amp;gt; Redis — Bun.RedisClient" time="0.000161" file="tests/redis.test.ts" line="161" assertions="1" />
+        <testcase name="decr() goes negative" classname="numeric operations &amp;gt; Redis — Bun.RedisClient" time="0.00023" file="tests/redis.test.ts" line="167" assertions="1" />
+      </testsuite>
+      <testsuite name="hash operations" file="tests/redis.test.ts" line="178" tests="6" assertions="7" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="hmset() stores multiple fields, hmget() retrieves them" classname="hash operations &amp;gt; Redis — Bun.RedisClient" time="0.000274" file="tests/redis.test.ts" line="185" assertions="1" />
+        <testcase name="hget() retrieves a single field by name" classname="hash operations &amp;gt; Redis — Bun.RedisClient" time="0.000216" file="tests/redis.test.ts" line="191" assertions="1" />
+        <testcase name="hget() returns null for a missing field" classname="hash operations &amp;gt; Redis — Bun.RedisClient" time="0.000109" file="tests/redis.test.ts" line="197" assertions="1" />
+        <testcase name="hmget() returns null for absent fields" classname="hash operations &amp;gt; Redis — Bun.RedisClient" time="0.000122" file="tests/redis.test.ts" line="202" assertions="2" />
+        <testcase name="hincrby() increments an integer hash field" classname="hash operations &amp;gt; Redis — Bun.RedisClient" time="0.000283" file="tests/redis.test.ts" line="208" assertions="1" />
+        <testcase name="hincrbyfloat() increments a float hash field" classname="hash operations &amp;gt; Redis — Bun.RedisClient" time="0.000279" file="tests/redis.test.ts" line="215" assertions="1" />
+      </testsuite>
+      <testsuite name="set operations" file="tests/redis.test.ts" line="227" tests="6" assertions="8" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="sadd() adds members, smembers() returns them all" classname="set operations &amp;gt; Redis — Bun.RedisClient" time="0.000813" file="tests/redis.test.ts" line="234" assertions="2" />
+        <testcase name="sismember() returns true for an existing member" classname="set operations &amp;gt; Redis — Bun.RedisClient" time="0.000172" file="tests/redis.test.ts" line="243" assertions="1" />
+        <testcase name="sismember() returns false for a non-member" classname="set operations &amp;gt; Redis — Bun.RedisClient" time="0.000139" file="tests/redis.test.ts" line="248" assertions="1" />
+        <testcase name="srem() removes a member" classname="set operations &amp;gt; Redis — Bun.RedisClient" time="0.000363" file="tests/redis.test.ts" line="253" assertions="1" />
+        <testcase name="srandmember() returns a member from the set" classname="set operations &amp;gt; Redis — Bun.RedisClient" time="0.000133" file="tests/redis.test.ts" line="260" assertions="1" />
+        <testcase name="spop() removes and returns a member" classname="set operations &amp;gt; Redis — Bun.RedisClient" time="0.000428" file="tests/redis.test.ts" line="265" assertions="2" />
+      </testsuite>
+      <testsuite name="raw commands via send()" file="tests/redis.test.ts" line="280" tests="4" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="LPUSH + LRANGE builds a list in the expected order" classname="raw commands via send() &amp;gt; Redis — Bun.RedisClient" time="0.000454" file="tests/redis.test.ts" line="287" assertions="1" />
+        <testcase name="TYPE returns the type of a key" classname="raw commands via send() &amp;gt; Redis — Bun.RedisClient" time="0.000537" file="tests/redis.test.ts" line="294" assertions="1" />
+        <testcase name="OBJECT ENCODING returns a string" classname="raw commands via send() &amp;gt; Redis — Bun.RedisClient" time="0.00024" file="tests/redis.test.ts" line="299" assertions="1" />
+        <testcase name="DBSIZE returns a non-negative number" classname="raw commands via send() &amp;gt; Redis — Bun.RedisClient" time="0.000194" file="tests/redis.test.ts" line="304" assertions="2" />
+      </testsuite>
+      <testsuite name="auto-pipelining" file="tests/redis.test.ts" line="315" tests="2" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="concurrent set and get commands all resolve correctly" classname="auto-pipelining &amp;gt; Redis — Bun.RedisClient" time="0.000319" file="tests/redis.test.ts" line="324" assertions="2" />
+        <testcase name="ten concurrent incr operations all resolve" classname="auto-pipelining &amp;gt; Redis — Bun.RedisClient" time="0.000454" file="tests/redis.test.ts" line="331" assertions="1" />
+      </testsuite>
+      <testsuite name="pub/sub" file="tests/redis.test.ts" line="343" tests="2" assertions="4" failures="0" skipped="0" time="0.166" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="subscriber receives a published message" classname="pub/sub &amp;gt; Redis — Bun.RedisClient" time="0.0522" file="tests/redis.test.ts" line="344" assertions="3" />
+        <testcase name="unsubscribe stops message delivery" classname="pub/sub &amp;gt; Redis — Bun.RedisClient" time="0.114062" file="tests/redis.test.ts" line="369" assertions="1" />
+      </testsuite>
+      <testsuite name="error handling" file="tests/redis.test.ts" line="392" tests="2" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="WRONGTYPE error thrown when operating on wrong key type" classname="error handling &amp;gt; Redis — Bun.RedisClient" time="0.000542" file="tests/redis.test.ts" line="393" assertions="1" />
+        <testcase name="connection closed via close() sets connected to false" classname="error handling &amp;gt; Redis — Bun.RedisClient" time="0.00053" file="tests/redis.test.ts" line="401" assertions="2" />
+      </testsuite>
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/streams.test.ts" file="tests/streams.test.ts" tests="25" assertions="31" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="ReadableStream — basic construction and reading" file="tests/streams.test.ts" line="7" tests="6" assertions="7" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="read chunks from a simple pull source" classname="ReadableStream — basic construction and reading" time="0.000227" file="tests/streams.test.ts" line="8" assertions="1" />
+      <testcase name="stream from start() with enqueue/close" classname="ReadableStream — basic construction and reading" time="0.000203" file="tests/streams.test.ts" line="27" assertions="1" />
+      <testcase name="Bun.readableStreamToArray returns an array of chunks" classname="ReadableStream — basic construction and reading" time="0.000091" file="tests/streams.test.ts" line="40" assertions="1" />
+      <testcase name="Bun.readableStreamToArrayBuffer concatenates Uint8Array chunks" classname="ReadableStream — basic construction and reading" time="0.000176" file="tests/streams.test.ts" line="51" assertions="1" />
+      <testcase name="tee() splits into two independent streams" classname="ReadableStream — basic construction and reading" time="0.00027" file="tests/streams.test.ts" line="64" assertions="2" />
+      <testcase name="cancel() resolves without error" classname="ReadableStream — basic construction and reading" time="0.000178" file="tests/streams.test.ts" line="78" assertions="1" />
+    </testsuite>
+    <testsuite name="WritableStream" file="tests/streams.test.ts" line="93" tests="3" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="write chunks and close" classname="WritableStream" time="0.000098" file="tests/streams.test.ts" line="94" assertions="1" />
+      <testcase name="abort() calls abort handler" classname="WritableStream" time="0.000181" file="tests/streams.test.ts" line="108" assertions="1" />
+      <testcase name="desiredSize is exposed on writer" classname="WritableStream" time="0.000057" file="tests/streams.test.ts" line="120" assertions="1" />
+    </testsuite>
+    <testsuite name="TransformStream" file="tests/streams.test.ts" line="136" tests="4" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="transforms each chunk" classname="TransformStream" time="0.000483" file="tests/streams.test.ts" line="137" assertions="1" />
+      <testcase name="pipe ReadableStream through TransformStream" classname="TransformStream" time="0.00039" file="tests/streams.test.ts" line="157" assertions="1" />
+      <testcase name="flush is called on close" classname="TransformStream" time="0.000108" file="tests/streams.test.ts" line="176" assertions="2" />
+      <testcase name="identity TransformStream passes chunks through" classname="TransformStream" time="0.000284" file="tests/streams.test.ts" line="195" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.ArrayBufferSink" file="tests/streams.test.ts" line="209" tests="7" assertions="11" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="basic write + end returns ArrayBuffer" classname="Bun.ArrayBufferSink" time="0.000077" file="tests/streams.test.ts" line="210" assertions="2" />
+      <testcase name="asUint8Array option makes end() return Uint8Array" classname="Bun.ArrayBufferSink" time="0.000052" file="tests/streams.test.ts" line="220" assertions="2" />
+      <testcase name="write() returns number of bytes written" classname="Bun.ArrayBufferSink" time="0.000032" file="tests/streams.test.ts" line="229" assertions="2" />
+      <testcase name="stream mode: flush() returns Uint8Array of pending data" classname="Bun.ArrayBufferSink" time="0.000088" file="tests/streams.test.ts" line="237" assertions="2" />
+      <testcase name="stream mode: writes after flush accumulate correctly" classname="Bun.ArrayBufferSink" time="0.000019" file="tests/streams.test.ts" line="246" assertions="1" />
+      <testcase name="highWaterMark preallocates buffer without changing behaviour" classname="Bun.ArrayBufferSink" time="0.000019" file="tests/streams.test.ts" line="256" assertions="1" />
+      <testcase name="can write ArrayBuffer chunks" classname="Bun.ArrayBufferSink" time="0.000015" file="tests/streams.test.ts" line="264" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.concatArrayBuffers" file="tests/streams.test.ts" line="277" tests="5" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="concatenates multiple ArrayBuffers" classname="Bun.concatArrayBuffers" time="0.000014" file="tests/streams.test.ts" line="278" assertions="1" />
+      <testcase name="concatenates Uint8Array views" classname="Bun.concatArrayBuffers" time="0.000023" file="tests/streams.test.ts" line="286" assertions="1" />
+      <testcase name="returns an ArrayBuffer by default" classname="Bun.concatArrayBuffers" time="0.000005" file="tests/streams.test.ts" line="293" assertions="1" />
+      <testcase name="maxLength truncates the result" classname="Bun.concatArrayBuffers" time="0.000019" file="tests/streams.test.ts" line="298" assertions="1" />
+      <testcase name="empty array returns empty ArrayBuffer" classname="Bun.concatArrayBuffers" time="0.000013" file="tests/streams.test.ts" line="305" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/postgres.test.ts" file="tests/postgres.test.ts" tests="40" assertions="54" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="PostgreSQL — Bun.SQL" file="tests/postgres.test.ts" line="18" tests="40" assertions="54" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testsuite name="connection and basic queries" file="tests/postgres.test.ts" line="76" tests="4" assertions="4" failures="0" skipped="0" time="0.084" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="SELECT 1 returns numeric 1" classname="connection and basic queries &amp;gt; PostgreSQL — Bun.SQL" time="0.016884" file="tests/postgres.test.ts" line="77" assertions="1" />
+        <testcase name="SELECT a literal string parameter" classname="connection and basic queries &amp;gt; PostgreSQL — Bun.SQL" time="0.033853" file="tests/postgres.test.ts" line="82" assertions="1" />
+        <testcase name="NOW() returns a Date object" classname="connection and basic queries &amp;gt; PostgreSQL — Bun.SQL" time="0.017118" file="tests/postgres.test.ts" line="87" assertions="1" />
+        <testcase name="generate_series returns multiple rows" classname="connection and basic queries &amp;gt; PostgreSQL — Bun.SQL" time="0.018234" file="tests/postgres.test.ts" line="92" assertions="1" />
+      </testsuite>
+      <testsuite name="CRUD" file="tests/postgres.test.ts" line="102" tests="4" assertions="5" failures="0" skipped="0" time="0.13" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="INSERT and SELECT" classname="CRUD &amp;gt; PostgreSQL — Bun.SQL" time="0.046492" file="tests/postgres.test.ts" line="105" assertions="2" />
+        <testcase name="UPDATE changes a value" classname="CRUD &amp;gt; PostgreSQL — Bun.SQL" time="0.033921" file="tests/postgres.test.ts" line="112" assertions="1" />
+        <testcase name="DELETE removes a row" classname="CRUD &amp;gt; PostgreSQL — Bun.SQL" time="0.035018" file="tests/postgres.test.ts" line="118" assertions="1" />
+        <testcase name="empty result set returns []" classname="CRUD &amp;gt; PostgreSQL — Bun.SQL" time="0.016029" file="tests/postgres.test.ts" line="124" assertions="1" />
+      </testsuite>
+      <testsuite name="parameterized query safety" file="tests/postgres.test.ts" line="134" tests="4" assertions="5" failures="0" skipped="0" time="0.174" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="SQL-injection attempt is escaped, not executed" classname="parameterized query safety &amp;gt; PostgreSQL — Bun.SQL" time="0.080852" file="tests/postgres.test.ts" line="135" assertions="2" />
+        <testcase name="numeric parameter passed safely" classname="parameterized query safety &amp;gt; PostgreSQL — Bun.SQL" time="0.032247" file="tests/postgres.test.ts" line="146" assertions="1" />
+        <testcase name="boolean parameter passed safely" classname="parameterized query safety &amp;gt; PostgreSQL — Bun.SQL" time="0.031476" file="tests/postgres.test.ts" line="151" assertions="1" />
+        <testcase name="null interpolation produces NULL" classname="parameterized query safety &amp;gt; PostgreSQL — Bun.SQL" time="0.031538" file="tests/postgres.test.ts" line="156" assertions="1" />
+      </testsuite>
+      <testsuite name="sql() object and array helpers" file="tests/postgres.test.ts" line="166" tests="5" assertions="8" failures="0" skipped="0" time="0.231" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="sql(object) in INSERT expands to column/value pairs" classname="sql() object and array helpers &amp;gt; PostgreSQL — Bun.SQL" time="0.04952" file="tests/postgres.test.ts" line="169" assertions="2" />
+        <testcase name="sql(object, &apos;col&apos;) picks only the listed columns" classname="sql() object and array helpers &amp;gt; PostgreSQL — Bun.SQL" time="0.05131" file="tests/postgres.test.ts" line="177" assertions="3" />
+        <testcase name="sql(array) performs a bulk INSERT" classname="sql() object and array helpers &amp;gt; PostgreSQL — Bun.SQL" time="0.052969" file="tests/postgres.test.ts" line="186" assertions="1" />
+        <testcase name="sql([...]) builds a WHERE IN clause" classname="sql() object and array helpers &amp;gt; PostgreSQL — Bun.SQL" time="0.033626" file="tests/postgres.test.ts" line="200" assertions="1" />
+        <testcase name="sql(object) in UPDATE SET clause" classname="sql() object and array helpers &amp;gt; PostgreSQL — Bun.SQL" time="0.046763" file="tests/postgres.test.ts" line="210" assertions="1" />
+      </testsuite>
+      <testsuite name=".values() format" file="tests/postgres.test.ts" line="221" tests="1" assertions="2" failures="0" skipped="0" time="0.015" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="returns rows as arrays in column order" classname=".values() format &amp;gt; PostgreSQL — Bun.SQL" time="0.015761" file="tests/postgres.test.ts" line="227" assertions="2" />
+      </testsuite>
+      <testsuite name=".raw() format" file="tests/postgres.test.ts" line="236" tests="1" assertions="3" failures="0" skipped="0" time="0.016" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="returns rows as arrays of Buffer" classname=".raw() format &amp;gt; PostgreSQL — Bun.SQL" time="0.01633" file="tests/postgres.test.ts" line="237" assertions="3" />
+      </testsuite>
+      <testsuite name="transactions" file="tests/postgres.test.ts" line="249" tests="3" assertions="4" failures="0" skipped="0" time="0.216" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="commits on success" classname="transactions &amp;gt; PostgreSQL — Bun.SQL" time="0.08489" file="tests/postgres.test.ts" line="252" assertions="1" />
+        <testcase name="rolls back on thrown error" classname="transactions &amp;gt; PostgreSQL — Bun.SQL" time="0.059838" file="tests/postgres.test.ts" line="263" assertions="2" />
+        <testcase name="pipelined queries (returned array) commit together" classname="transactions &amp;gt; PostgreSQL — Bun.SQL" time="0.073797" file="tests/postgres.test.ts" line="275" assertions="1" />
+      </testsuite>
+      <testsuite name="savepoints" file="tests/postgres.test.ts" line="288" tests="2" assertions="2" failures="0" skipped="0" time="0.22" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="committed savepoint is included in the outer transaction" classname="savepoints &amp;gt; PostgreSQL — Bun.SQL" time="0.103902" file="tests/postgres.test.ts" line="291" assertions="1" />
+        <testcase name="rolled-back savepoint leaves outer transaction intact" classname="savepoints &amp;gt; PostgreSQL — Bun.SQL" time="0.117627" file="tests/postgres.test.ts" line="302" assertions="1" />
+      </testsuite>
+      <testsuite name="dynamic SQL fragments" file="tests/postgres.test.ts" line="322" tests="2" assertions="2" failures="0" skipped="0" time="0.045" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="conditional fragment included when truthy" classname="dynamic SQL fragments &amp;gt; PostgreSQL — Bun.SQL" time="0.030079" file="tests/postgres.test.ts" line="328" assertions="1" />
+        <testcase name="empty fragment excluded when falsy" classname="dynamic SQL fragments &amp;gt; PostgreSQL — Bun.SQL" time="0.015325" file="tests/postgres.test.ts" line="337" assertions="1" />
+      </testsuite>
+      <testsuite name="sql.unsafe()" file="tests/postgres.test.ts" line="351" tests="2" assertions="3" failures="0" skipped="0" time="0.043" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="executes a raw SQL string" classname="sql.unsafe() &amp;gt; PostgreSQL — Bun.SQL" time="0.013709" file="tests/postgres.test.ts" line="352" assertions="1" />
+        <testcase name="accepts positional $1/$2 parameters" classname="sql.unsafe() &amp;gt; PostgreSQL — Bun.SQL" time="0.030341" file="tests/postgres.test.ts" line="357" assertions="2" />
+      </testsuite>
+      <testsuite name=".simple() — simple query protocol" file="tests/postgres.test.ts" line="368" tests="1" assertions="1" failures="0" skipped="0" time="0.014" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="executes multi-statement SQL without error" classname=".simple() — simple query protocol &amp;gt; PostgreSQL — Bun.SQL" time="0.014115" file="tests/postgres.test.ts" line="369" assertions="1" />
+      </testsuite>
+      <testsuite name="reserved connections" file="tests/postgres.test.ts" line="379" tests="2" assertions="2" failures="0" skipped="0" time="0.032" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="reserve() provides an isolated connection" classname="reserved connections &amp;gt; PostgreSQL — Bun.SQL" time="0.017429" file="tests/postgres.test.ts" line="380" assertions="1" />
+        <testcase name="using declaration auto-releases via Symbol.dispose" classname="reserved connections &amp;gt; PostgreSQL — Bun.SQL" time="0.01561" file="tests/postgres.test.ts" line="390" assertions="1" />
+      </testsuite>
+      <testsuite name="error handling" file="tests/postgres.test.ts" line="403" tests="3" assertions="4" failures="0" skipped="0" time="0.067" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="query on a non-existent table throws SQL.PostgresError" classname="error handling &amp;gt; PostgreSQL — Bun.SQL" time="0.01657" file="tests/postgres.test.ts" line="404" assertions="1" />
+        <testcase name="UNIQUE constraint violation throws PostgresError with code 23505" classname="error handling &amp;gt; PostgreSQL — Bun.SQL" time="0.03532" file="tests/postgres.test.ts" line="414" assertions="2" />
+        <testcase name="syntax error throws SQL.PostgresError" classname="error handling &amp;gt; PostgreSQL — Bun.SQL" time="0.016992" file="tests/postgres.test.ts" line="429" assertions="1" />
+      </testsuite>
+      <testsuite name="large integer handling" file="tests/postgres.test.ts" line="444" tests="3" assertions="6" failures="0" skipped="0" time="0.19" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="integer exceeding 53-bit precision returned as string by default" classname="large integer handling &amp;gt; PostgreSQL — Bun.SQL" time="0.016426" file="tests/postgres.test.ts" line="445" assertions="2" />
+        <testcase name="safe integer (≤53-bit) returned as number" classname="large integer handling &amp;gt; PostgreSQL — Bun.SQL" time="0.016682" file="tests/postgres.test.ts" line="451" assertions="2" />
+        <testcase name="bigint:true option returns large integers as BigInt" classname="large integer handling &amp;gt; PostgreSQL — Bun.SQL" time="0.158219" file="tests/postgres.test.ts" line="457" assertions="2" />
+      </testsuite>
+      <testsuite name="sql.array() — PostgreSQL array literals" file="tests/postgres.test.ts" line="473" tests="3" assertions="3" failures="0" skipped="0" time="0.096" hostname="fundament.gibbon-snake.ts.net">
+        <testcase name="integer array works with ANY()" classname="sql.array() — PostgreSQL array literals &amp;gt; PostgreSQL — Bun.SQL" time="0.033524" file="tests/postgres.test.ts" line="474" assertions="1" />
+        <testcase name="string array works with ANY()" classname="sql.array() — PostgreSQL array literals &amp;gt; PostgreSQL — Bun.SQL" time="0.03022" file="tests/postgres.test.ts" line="480" assertions="1" />
+        <testcase name="value absent from array returns false" classname="sql.array() — PostgreSQL array literals &amp;gt; PostgreSQL — Bun.SQL" time="0.033118" file="tests/postgres.test.ts" line="486" assertions="1" />
+      </testsuite>
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/htmlrewriter.test.ts" file="tests/htmlrewriter.test.ts" tests="26" assertions="35" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="HTMLRewriter — element handler" file="tests/htmlrewriter.test.ts" line="15" tests="8" assertions="12" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="element() is called for matching selector" classname="HTMLRewriter — element handler" time="0.000204" file="tests/htmlrewriter.test.ts" line="16" assertions="2" />
+      <testcase name="tagName is lowercase" classname="HTMLRewriter — element handler" time="0.000038" file="tests/htmlrewriter.test.ts" line="30" assertions="1" />
+      <testcase name="getAttribute returns existing attribute" classname="HTMLRewriter — element handler" time="0.000041" file="tests/htmlrewriter.test.ts" line="43" assertions="1" />
+      <testcase name="getAttribute returns null for missing attribute" classname="HTMLRewriter — element handler" time="0.000025" file="tests/htmlrewriter.test.ts" line="56" assertions="1" />
+      <testcase name="hasAttribute returns true/false" classname="HTMLRewriter — element handler" time="0.000038" file="tests/htmlrewriter.test.ts" line="69" assertions="2" />
+      <testcase name="setAttribute mutates the attribute in output" classname="HTMLRewriter — element handler" time="0.000037" file="tests/htmlrewriter.test.ts" line="85" assertions="2" />
+      <testcase name="removeAttribute removes it from output" classname="HTMLRewriter — element handler" time="0.000025" file="tests/htmlrewriter.test.ts" line="98" assertions="2" />
+      <testcase name="attributes iterator yields all pairs" classname="HTMLRewriter — element handler" time="0.000065" file="tests/htmlrewriter.test.ts" line="111" assertions="1" />
+    </testsuite>
+    <testsuite name="HTMLRewriter — content mutation" file="tests/htmlrewriter.test.ts" line="129" tests="8" assertions="12" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="prepend inserts before element inner content" classname="HTMLRewriter — content mutation" time="0.000043" file="tests/htmlrewriter.test.ts" line="130" assertions="1" />
+      <testcase name="append inserts after element inner content" classname="HTMLRewriter — content mutation" time="0.000021" file="tests/htmlrewriter.test.ts" line="142" assertions="1" />
+      <testcase name="before inserts before the element" classname="HTMLRewriter — content mutation" time="0.000028" file="tests/htmlrewriter.test.ts" line="154" assertions="1" />
+      <testcase name="after inserts after the element" classname="HTMLRewriter — content mutation" time="0.000022" file="tests/htmlrewriter.test.ts" line="166" assertions="1" />
+      <testcase name="replace substitutes the element" classname="HTMLRewriter — content mutation" time="0.000026" file="tests/htmlrewriter.test.ts" line="178" assertions="2" />
+      <testcase name="remove removes the element and its content" classname="HTMLRewriter — content mutation" time="0.000023" file="tests/htmlrewriter.test.ts" line="191" assertions="2" />
+      <testcase name="removeAndKeepContent removes tag but keeps inner text" classname="HTMLRewriter — content mutation" time="0.000027" file="tests/htmlrewriter.test.ts" line="204" assertions="2" />
+      <testcase name="setInnerContent replaces inner HTML" classname="HTMLRewriter — content mutation" time="0.000029" file="tests/htmlrewriter.test.ts" line="217" assertions="2" />
+    </testsuite>
+    <testsuite name="HTMLRewriter — text handler" file="tests/htmlrewriter.test.ts" line="235" tests="2" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="text() is called with text chunks" classname="HTMLRewriter — text handler" time="0.000049" file="tests/htmlrewriter.test.ts" line="236" assertions="1" />
+      <testcase name="text can be replaced" classname="HTMLRewriter — text handler" time="0.000027" file="tests/htmlrewriter.test.ts" line="249" assertions="2" />
+    </testsuite>
+    <testsuite name="HTMLRewriter — multiple selectors" file="tests/htmlrewriter.test.ts" line="267" tests="3" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="two .on() calls both fire" classname="HTMLRewriter — multiple selectors" time="0.000041" file="tests/htmlrewriter.test.ts" line="268" assertions="1" />
+      <testcase name="attribute selector [href] matches elements with that attribute" classname="HTMLRewriter — multiple selectors" time="0.00002" file="tests/htmlrewriter.test.ts" line="287" assertions="1" />
+      <testcase name="class selector .foo matches by class" classname="HTMLRewriter — multiple selectors" time="0.000028" file="tests/htmlrewriter.test.ts" line="300" assertions="1" />
+    </testsuite>
+    <testsuite name="HTMLRewriter — onDocument()" file="tests/htmlrewriter.test.ts" line="318" tests="3" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="end handler fires at document end" classname="HTMLRewriter — onDocument()" time="0.000029" file="tests/htmlrewriter.test.ts" line="319" assertions="1" />
+      <testcase name="end.append adds content after document" classname="HTMLRewriter — onDocument()" time="0.000031" file="tests/htmlrewriter.test.ts" line="332" assertions="1" />
+      <testcase name="doctype handler receives name" classname="HTMLRewriter — onDocument()" time="0.000032" file="tests/htmlrewriter.test.ts" line="344" assertions="1" />
+    </testsuite>
+    <testsuite name="HTMLRewriter — transform(Response)" file="tests/htmlrewriter.test.ts" line="362" tests="2" assertions="2" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="transform(Response) returns a Response" classname="HTMLRewriter — transform(Response)" time="0.000038" file="tests/htmlrewriter.test.ts" line="363" assertions="1" />
+      <testcase name="transformed Response body contains mutations" classname="HTMLRewriter — transform(Response)" time="0.000074" file="tests/htmlrewriter.test.ts" line="377" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/sqlite.test.ts" file="tests/sqlite.test.ts" tests="56" assertions="77" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="Database constructor" file="tests/sqlite.test.ts" line="27" tests="5" assertions="6" failures="0" skipped="0" time="0.001" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="opens an in-memory database with :memory:" classname="Database constructor" time="0.001196" file="tests/sqlite.test.ts" line="28" assertions="1" />
+      <testcase name="opens an in-memory database with empty string" classname="Database constructor" time="0.000261" file="tests/sqlite.test.ts" line="34" assertions="1" />
+      <testcase name="opens an in-memory database with no argument" classname="Database constructor" time="0.00004" file="tests/sqlite.test.ts" line="40" assertions="1" />
+      <testcase name=".close() can be called multiple times without error" classname="Database constructor" time="0.000053" file="tests/sqlite.test.ts" line="46" assertions="1" />
+      <testcase name="using statement auto-closes the database" classname="Database constructor" time="0.000295" file="tests/sqlite.test.ts" line="52" assertions="2" />
+    </testsuite>
+    <testsuite name="basic CRUD" file="tests/sqlite.test.ts" line="68" tests="7" assertions="12" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name=".run() INSERT returns lastInsertRowid and changes" classname="basic CRUD" time="0.000222" file="tests/sqlite.test.ts" line="77" assertions="2" />
+      <testcase name=".query().get() returns the first matching row as an object" classname="basic CRUD" time="0.000087" file="tests/sqlite.test.ts" line="83" assertions="2" />
+      <testcase name=".query().get() returns null when no row matches" classname="basic CRUD" time="0.000169" file="tests/sqlite.test.ts" line="90" assertions="1" />
+      <testcase name=".query().all() returns all matching rows as an array of objects" classname="basic CRUD" time="0.000096" file="tests/sqlite.test.ts" line="95" assertions="3" />
+      <testcase name=".query().all() returns empty array when no rows match" classname="basic CRUD" time="0.000099" file="tests/sqlite.test.ts" line="104" assertions="1" />
+      <testcase name="UPDATE reflects change count in .run() result" classname="basic CRUD" time="0.000074" file="tests/sqlite.test.ts" line="109" assertions="1" />
+      <testcase name="DELETE removes rows and reflects change count" classname="basic CRUD" time="0.000096" file="tests/sqlite.test.ts" line="116" assertions="2" />
+    </testsuite>
+    <testsuite name="prepared statements and parameters" file="tests/sqlite.test.ts" line="130" tests="12" assertions="17" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="named parameter with $ prefix" classname="prepared statements and parameters" time="0.0001" file="tests/sqlite.test.ts" line="139" assertions="2" />
+      <testcase name="named parameter with : prefix" classname="prepared statements and parameters" time="0.000141" file="tests/sqlite.test.ts" line="147" assertions="1" />
+      <testcase name="positional ? parameters" classname="prepared statements and parameters" time="0.000088" file="tests/sqlite.test.ts" line="154" assertions="1" />
+      <testcase name="numbered ?1 ?2 parameters" classname="prepared statements and parameters" time="0.000089" file="tests/sqlite.test.ts" line="161" assertions="2" />
+      <testcase name="statement is reusable with different parameters" classname="prepared statements and parameters" time="0.000142" file="tests/sqlite.test.ts" line="168" assertions="1" />
+      <testcase name="strict mode allows binding without prefixes" classname="prepared statements and parameters" time="0.000085" file="tests/sqlite.test.ts" line="176" assertions="1" />
+      <testcase name=".values() returns rows as arrays" classname="prepared statements and parameters" time="0.000113" file="tests/sqlite.test.ts" line="185" assertions="2" />
+      <testcase name=".iterate() yields rows one at a time" classname="prepared statements and parameters" time="0.000155" file="tests/sqlite.test.ts" line="193" assertions="1" />
+      <testcase name=".as(Class) maps rows to class instances with methods" classname="prepared statements and parameters" time="0.000149" file="tests/sqlite.test.ts" line="203" assertions="2" />
+      <testcase name=".finalize() prevents further execution" classname="prepared statements and parameters" time="0.000123" file="tests/sqlite.test.ts" line="219" assertions="1" />
+      <testcase name=".toString() reflects the last bound parameter values" classname="prepared statements and parameters" time="0.000108" file="tests/sqlite.test.ts" line="225" assertions="1" />
+      <testcase name="columnNames is populated after .get()" classname="prepared statements and parameters" time="0.00008" file="tests/sqlite.test.ts" line="231" assertions="2" />
+    </testsuite>
+    <testsuite name="data type round-trips" file="tests/sqlite.test.ts" line="244" tests="8" assertions="10" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="TEXT stores and retrieves a string" classname="data type round-trips" time="0.000112" file="tests/sqlite.test.ts" line="254" assertions="1" />
+      <testcase name="INTEGER stores and retrieves a number" classname="data type round-trips" time="0.000079" file="tests/sqlite.test.ts" line="260" assertions="1" />
+      <testcase name="REAL stores and retrieves a float" classname="data type round-trips" time="0.000059" file="tests/sqlite.test.ts" line="266" assertions="1" />
+      <testcase name="NULL stores and retrieves null" classname="data type round-trips" time="0.000076" file="tests/sqlite.test.ts" line="272" assertions="1" />
+      <testcase name="BLOB (Uint8Array) stores and retrieves binary data" classname="data type round-trips" time="0.000067" file="tests/sqlite.test.ts" line="278" assertions="2" />
+      <testcase name="Buffer stores and retrieves as Uint8Array" classname="data type round-trips" time="0.00009" file="tests/sqlite.test.ts" line="286" assertions="2" />
+      <testcase name="boolean true stores as 1, retrieves as 1" classname="data type round-trips" time="0.000093" file="tests/sqlite.test.ts" line="294" assertions="1" />
+      <testcase name="boolean false stores as 0, retrieves as 0" classname="data type round-trips" time="0.000055" file="tests/sqlite.test.ts" line="300" assertions="1" />
+    </testsuite>
+    <testsuite name="safeIntegers" file="tests/sqlite.test.ts" line="311" tests="3" assertions="4" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="default mode returns large integers as number (possibly imprecise)" classname="safeIntegers" time="0.000068" file="tests/sqlite.test.ts" line="312" assertions="1" />
+      <testcase name="safeIntegers:true returns large integers as bigint" classname="safeIntegers" time="0.000063" file="tests/sqlite.test.ts" line="321" assertions="2" />
+      <testcase name="safeIntegers:true throws when bigint exceeds 64 bits" classname="safeIntegers" time="0.000085" file="tests/sqlite.test.ts" line="330" assertions="1" />
+    </testsuite>
+    <testsuite name="transactions" file="tests/sqlite.test.ts" line="343" tests="7" assertions="9" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="transaction commits on success" classname="transactions" time="0.000286" file="tests/sqlite.test.ts" line="352" assertions="2" />
+      <testcase name="transaction rolls back on error" classname="transactions" time="0.000256" file="tests/sqlite.test.ts" line="368" assertions="2" />
+      <testcase name="transaction return value is propagated" classname="transactions" time="0.000076" file="tests/sqlite.test.ts" line="381" assertions="1" />
+      <testcase name="nested transactions use savepoints" classname="transactions" time="0.000367" file="tests/sqlite.test.ts" line="389" assertions="1" />
+      <testcase name="deferred transaction variant executes successfully" classname="transactions" time="0.000105" file="tests/sqlite.test.ts" line="403" assertions="1" />
+      <testcase name="immediate transaction variant executes successfully" classname="transactions" time="0.000122" file="tests/sqlite.test.ts" line="410" assertions="1" />
+      <testcase name="exclusive transaction variant executes successfully" classname="transactions" time="0.000108" file="tests/sqlite.test.ts" line="417" assertions="1" />
+    </testsuite>
+    <testsuite name="pragmas and WAL mode" file="tests/sqlite.test.ts" line="429" tests="3" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="journal_mode = WAL is accepted" classname="pragmas and WAL mode" time="0.000098" file="tests/sqlite.test.ts" line="430" assertions="1" />
+      <testcase name="foreign_keys pragma enables FK enforcement" classname="pragmas and WAL mode" time="0.000105" file="tests/sqlite.test.ts" line="438" assertions="1" />
+      <testcase name="integrity_check returns &apos;ok&apos; on a healthy database" classname="pragmas and WAL mode" time="0.00009" file="tests/sqlite.test.ts" line="447" assertions="1" />
+    </testsuite>
+    <testsuite name="serialize / deserialize" file="tests/sqlite.test.ts" line="461" tests="2" assertions="3" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="serialize returns a Uint8Array" classname="serialize / deserialize" time="0.000082" file="tests/sqlite.test.ts" line="462" assertions="2" />
+      <testcase name="deserialize reconstructs the database with its data" classname="serialize / deserialize" time="0.000137" file="tests/sqlite.test.ts" line="471" assertions="1" />
+    </testsuite>
+    <testsuite name="error handling" file="tests/sqlite.test.ts" line="490" tests="4" assertions="5" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="syntax error throws" classname="error handling" time="0.000072" file="tests/sqlite.test.ts" line="491" assertions="1" />
+      <testcase name="UNIQUE constraint violation throws with SQLITE_CONSTRAINT code" classname="error handling" time="0.000086" file="tests/sqlite.test.ts" line="497" assertions="2" />
+      <testcase name="NOT NULL constraint violation throws" classname="error handling" time="0.00011" file="tests/sqlite.test.ts" line="512" assertions="1" />
+      <testcase name="query on a closed database throws" classname="error handling" time="0.000032" file="tests/sqlite.test.ts" line="519" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.SQL unified API — SQLite adapter" file="tests/sqlite.test.ts" line="530" tests="5" assertions="8" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="in-memory SQLite via new SQL(&apos;:memory:&apos;)" classname="Bun.SQL unified API — SQLite adapter" time="0.000681" file="tests/sqlite.test.ts" line="531" assertions="1" />
+      <testcase name="parameterised queries prevent SQL injection" classname="Bun.SQL unified API — SQLite adapter" time="0.000263" file="tests/sqlite.test.ts" line="540" assertions="2" />
+      <testcase name="Bun.SQL transaction commits on success" classname="Bun.SQL unified API — SQLite adapter" time="0.000292" file="tests/sqlite.test.ts" line="553" assertions="2" />
+      <testcase name="Bun.SQL transaction rolls back on error" classname="Bun.SQL unified API — SQLite adapter" time="0.000333" file="tests/sqlite.test.ts" line="570" assertions="2" />
+      <testcase name="Bun.SQL .values() returns arrays" classname="Bun.SQL unified API — SQLite adapter" time="0.000116" file="tests/sqlite.test.ts" line="587" assertions="1" />
+    </testsuite>
+  </testsuite>
+  <testsuite name="tests/file-io.test.ts" file="tests/file-io.test.ts" tests="30" assertions="52" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+    <testsuite name="BunFile metadata" file="tests/file-io.test.ts" line="24" tests="6" assertions="8" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="size is a positive integer for an existing file" classname="BunFile metadata" time="0.000065" file="tests/file-io.test.ts" line="25" assertions="2" />
+      <testcase name="type returns a MIME string for a known extension" classname="BunFile metadata" time="0.000101" file="tests/file-io.test.ts" line="31" assertions="2" />
+      <testcase name="type can be overridden via options" classname="BunFile metadata" time="0.000015" file="tests/file-io.test.ts" line="38" assertions="1" />
+      <testcase name="exists() returns true for a real file" classname="BunFile metadata" time="0.000113" file="tests/file-io.test.ts" line="45" assertions="1" />
+      <testcase name="exists() returns false for a missing file" classname="BunFile metadata" time="0.00007" file="tests/file-io.test.ts" line="50" assertions="1" />
+      <testcase name="size is 0 for a non-existent file" classname="BunFile metadata" time="0.000033" file="tests/file-io.test.ts" line="55" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.file() — reading" file="tests/file-io.test.ts" line="66" tests="6" assertions="15" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="text() reads file as a UTF-8 string" classname="Bun.file() — reading" time="0.000102" file="tests/file-io.test.ts" line="67" assertions="3" />
+      <testcase name="json() parses file as JSON" classname="Bun.file() — reading" time="0.000316" file="tests/file-io.test.ts" line="75" assertions="4" />
+      <testcase name="arrayBuffer() returns an ArrayBuffer with correct byte length" classname="Bun.file() — reading" time="0.000175" file="tests/file-io.test.ts" line="84" assertions="2" />
+      <testcase name="bytes() returns a Uint8Array" classname="Bun.file() — reading" time="0.000148" file="tests/file-io.test.ts" line="91" assertions="3" />
+      <testcase name="stream() returns a ReadableStream that yields the full content" classname="Bun.file() — reading" time="0.00024" file="tests/file-io.test.ts" line="100" assertions="2" />
+      <testcase name="can create BunFile from a file:// URL" classname="Bun.file() — reading" time="0.00015" file="tests/file-io.test.ts" line="108" assertions="1" />
+    </testsuite>
+    <testsuite name="Bun.write()" file="tests/file-io.test.ts" line="120" tests="8" assertions="9" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="writes a string to disk and returns byte count" classname="Bun.write()" time="0.000273" file="tests/file-io.test.ts" line="121" assertions="2" />
+      <testcase name="writes a Uint8Array to disk" classname="Bun.write()" time="0.000169" file="tests/file-io.test.ts" line="130" assertions="1" />
+      <testcase name="writes an ArrayBuffer to disk" classname="Bun.write()" time="0.000146" file="tests/file-io.test.ts" line="138" assertions="1" />
+      <testcase name="writes a Blob to disk" classname="Bun.write()" time="0.000247" file="tests/file-io.test.ts" line="147" assertions="1" />
+      <testcase name="copies a BunFile by passing it as the source" classname="Bun.write()" time="0.000474" file="tests/file-io.test.ts" line="155" assertions="1" />
+      <testcase name="overwrites an existing file" classname="Bun.write()" time="0.00022" file="tests/file-io.test.ts" line="164" assertions="1" />
+      <testcase name="writes using a BunFile destination" classname="Bun.write()" time="0.00014" file="tests/file-io.test.ts" line="172" assertions="1" />
+      <testcase name="writes a Response body to disk" classname="Bun.write()" time="0.000216" file="tests/file-io.test.ts" line="178" assertions="1" />
+    </testsuite>
+    <testsuite name="FileSink — incremental writing" file="tests/file-io.test.ts" line="191" tests="5" assertions="6" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="writes multiple string chunks and reads them back" classname="FileSink — incremental writing" time="0.000188" file="tests/file-io.test.ts" line="192" assertions="1" />
+      <testcase name="write() returns the number of bytes buffered" classname="FileSink — incremental writing" time="0.000065" file="tests/file-io.test.ts" line="206" assertions="1" />
+      <testcase name="flush() flushes the buffer and returns bytes flushed" classname="FileSink — incremental writing" time="0.000163" file="tests/file-io.test.ts" line="214" assertions="2" />
+      <testcase name="writes Uint8Array chunks" classname="FileSink — incremental writing" time="0.000161" file="tests/file-io.test.ts" line="226" assertions="1" />
+      <testcase name="respects a custom highWaterMark" classname="FileSink — incremental writing" time="0.000162" file="tests/file-io.test.ts" line="236" assertions="1" />
+    </testsuite>
+    <testsuite name="BunFile.delete()" file="tests/file-io.test.ts" line="250" tests="1" assertions="2" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="deletes an existing file" classname="BunFile.delete()" time="0.000217" file="tests/file-io.test.ts" line="251" assertions="2" />
+    </testsuite>
+    <testsuite name="Bun standard streams" file="tests/file-io.test.ts" line="264" tests="4" assertions="12" failures="0" skipped="0" time="0" hostname="fundament.gibbon-snake.ts.net">
+      <testcase name="Bun.stdin is a BunFile with a numeric fd" classname="Bun standard streams" time="0.000036" file="tests/file-io.test.ts" line="265" assertions="3" />
+      <testcase name="Bun.stdout is a BunFile with a stream() method" classname="Bun standard streams" time="0.000017" file="tests/file-io.test.ts" line="272" assertions="3" />
+      <testcase name="Bun.stderr is a BunFile with a stream() method" classname="Bun standard streams" time="0.000011" file="tests/file-io.test.ts" line="278" assertions="3" />
+      <testcase name="Bun.stdout and Bun.stderr have a MIME type" classname="Bun standard streams" time="0.000008" file="tests/file-io.test.ts" line="284" assertions="3" />
+    </testsuite>
+  </testsuite>
+</testsuites>
