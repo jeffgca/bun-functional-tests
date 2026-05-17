@@ -1,0 +1,5878 @@
+{
+  "summary": {
+    "tests": 629,
+    "assertions": 900,
+    "failures": 1,
+    "skipped": 0,
+    "passed": 628,
+    "time": 3.426253
+  },
+  "files": [
+    {
+      "file": "_runner_smoke_test.ts",
+      "tests": 1,
+      "assertions": 1,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "smoke",
+          "suite": "",
+          "file": "_runner_smoke_test.ts",
+          "line": 2,
+          "time": 0.000027,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/shell.test.ts",
+      "tests": 38,
+      "assertions": 42,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "echo returns expected text",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 21,
+          "time": 0.000203,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exit code 0 on success",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 26,
+          "time": 0.00065,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exit code 1 on failure with .nothrow()",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 31,
+          "time": 0.000096,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "non-zero exit throws by default",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 36,
+          "time": 0.000204,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".text() returns stdout as string",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 46,
+          "time": 0.000059,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".json() parses stdout as JSON",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 51,
+          "time": 0.000139,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".bytes() returns Uint8Array",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 56,
+          "time": 0.000321,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "multi-command pipeline",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 62,
+          "time": 0.002495,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "stderr is captured in .stderr",
+          "suite": "Bun.$ — basic execution",
+          "file": "tests/shell.test.ts",
+          "line": 67,
+          "time": 0.000269,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "string variable interpolated safely",
+          "suite": "Bun.$ — interpolation",
+          "file": "tests/shell.test.ts",
+          "line": 80,
+          "time": 0.000035,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "array of args is expanded word-by-word",
+          "suite": "Bun.$ — interpolation",
+          "file": "tests/shell.test.ts",
+          "line": 86,
+          "time": 0.000114,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "$.escape() escapes shell metacharacters",
+          "suite": "Bun.$ — interpolation",
+          "file": "tests/shell.test.ts",
+          "line": 92,
+          "time": 0.00008,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "$.braces() expands brace patterns",
+          "suite": "Bun.$ — interpolation",
+          "file": "tests/shell.test.ts",
+          "line": 99,
+          "time": 0.000008,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".env() sets custom env var",
+          "suite": "Bun.$ — env and cwd",
+          "file": "tests/shell.test.ts",
+          "line": 110,
+          "time": 0.000148,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".cwd() changes working directory",
+          "suite": "Bun.$ — env and cwd",
+          "file": "tests/shell.test.ts",
+          "line": 118,
+          "time": 0.000229,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "$.cwd() sets global cwd for that $ instance",
+          "suite": "Bun.$ — env and cwd",
+          "file": "tests/shell.test.ts",
+          "line": 126,
+          "time": 0.000215,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "$.env() sets global env for that $ instance",
+          "suite": "Bun.$ — env and cwd",
+          "file": "tests/shell.test.ts",
+          "line": 132,
+          "time": 0.000117,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "redirect stdout to file with > redirect",
+          "suite": "Bun.$ — file redirection",
+          "file": "tests/shell.test.ts",
+          "line": 144,
+          "time": 0.000354,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "pipe output of one command to another via stdin()",
+          "suite": "Bun.$ — file redirection",
+          "file": "tests/shell.test.ts",
+          "line": 151,
+          "time": 0.002343,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "ShellError has exitCode and stdout/stderr",
+          "suite": "Bun.$ — error control",
+          "file": "tests/shell.test.ts",
+          "line": 165,
+          "time": 0.000134,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "$.nothrow() suppresses throw on non-zero exit",
+          "suite": "Bun.$ — error control",
+          "file": "tests/shell.test.ts",
+          "line": 176,
+          "time": 0.000063,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "$.throws(false) suppresses throw",
+          "suite": "Bun.$ — error control",
+          "file": "tests/shell.test.ts",
+          "line": 182,
+          "time": 0.000096,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "captures stdout via pipe",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 194,
+          "time": 0.00198,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "captures stderr via pipe",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 202,
+          "time": 0.003926,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes to stdin via pipe",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 209,
+          "time": 0.001704,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exited promise resolves with exit code",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 217,
+          "time": 0.003661,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "kill() terminates the process",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 223,
+          "time": 0.000332,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "env option passes custom environment",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 230,
+          "time": 0.003742,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "cwd option sets working directory",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 240,
+          "time": 0.001688,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "pid is a positive integer",
+          "suite": "Bun.spawn",
+          "file": "tests/shell.test.ts",
+          "line": 247,
+          "time": 0.001472,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "captures stdout synchronously",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 259,
+          "time": 0.001495,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exit code is returned",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 264,
+          "time": 0.004151,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "captures stderr synchronously",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 269,
+          "time": 0.003693,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "success is true when exit code is 0",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 274,
+          "time": 0.00148,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "success is false when exit code is non-zero",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 279,
+          "time": 0.001489,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "stdin buffer is passed to the process",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 284,
+          "time": 0.001575,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "env option is forwarded",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 289,
+          "time": 0.003357,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "cwd option is respected",
+          "suite": "Bun.spawnSync",
+          "file": "tests/shell.test.ts",
+          "line": 296,
+          "time": 0.001476,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/glob.test.ts",
+      "tests": 28,
+      "assertions": 45,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "*.ts matches a .ts file",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 49,
+          "time": 0.000065,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "*.ts does not match a .tsx file",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 53,
+          "time": 0.000014,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "*.{ts,tsx} matches both extensions",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 57,
+          "time": 0.000011,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "? matches exactly one character",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 64,
+          "time": 0.000023,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "[ab] matches character class",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 69,
+          "time": 0.000021,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "** matches across path separators",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 76,
+          "time": 0.000014,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "negation ! flips the match",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 80,
+          "time": 0.000022,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "exact pattern matches exact string",
+          "suite": "Bun.Glob — match()",
+          "file": "tests/glob.test.ts",
+          "line": 85,
+          "time": 0.000013,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "scans *.ts files in a directory",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 96,
+          "time": 0.000375,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "**/*.ts finds nested .ts files",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 102,
+          "time": 0.000075,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "*.{ts,tsx} finds both TypeScript variants",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 108,
+          "time": 0.000123,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "*.css finds only CSS files",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 114,
+          "time": 0.000109,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "**/*.tsx finds TSX files in subdirectories",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 120,
+          "time": 0.000024,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "non-matching pattern returns empty iterator",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 125,
+          "time": 0.000105,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "absolute option returns absolute paths",
+          "suite": "Bun.Glob — scanSync()",
+          "file": "tests/glob.test.ts",
+          "line": 130,
+          "time": 0.000056,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "async scan returns same results as syncScan",
+          "suite": "Bun.Glob — scan() async",
+          "file": "tests/glob.test.ts",
+          "line": 141,
+          "time": 0.000344,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "async for-await loop works",
+          "suite": "Bun.Glob — scan() async",
+          "file": "tests/glob.test.ts",
+          "line": 147,
+          "time": 0.000648,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "matches exact route /",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 167,
+          "time": 0.000013,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "matches exact route /about",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 173,
+          "time": 0.000041,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "matches /blog as exact route",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 178,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "matches dynamic route /blog/my-post",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 183,
+          "time": 0.00001,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "dynamic params are extracted correctly",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 189,
+          "time": 0.000025,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "match() returns null for unknown routes",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 195,
+          "time": 0.000019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "routes property lists all registered routes",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 199,
+          "time": 0.00002,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "style property is 'nextjs'",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 204,
+          "time": 0.000021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "matched route has filePath",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 208,
+          "time": 0.000009,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "matched route has pathname",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 214,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "query string is parsed into query object",
+          "suite": "Bun.FileSystemRouter — nextjs style",
+          "file": "tests/glob.test.ts",
+          "line": 219,
+          "time": 0.00001,
+          "assertions": 2,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/transpiler.test.ts",
+      "tests": 24,
+      "assertions": 38,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "strips TypeScript types",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 24,
+          "time": 0.000073,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "transpiles JSX to function calls",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 31,
+          "time": 0.000093,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "transpiles TSX",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 38,
+          "time": 0.00015,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "returns a string",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 45,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "preserves export declarations",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 50,
+          "time": 0.000078,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "define replaces identifiers",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 57,
+          "time": 0.000082,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "async transform() returns a Promise<string>",
+          "suite": "Bun.Transpiler — transformSync",
+          "file": "tests/transpiler.test.ts",
+          "line": 66,
+          "time": 0.000175,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "scanImports returns array of Import objects",
+          "suite": "Bun.Transpiler — scan / scanImports",
+          "file": "tests/transpiler.test.ts",
+          "line": 83,
+          "time": 0.000044,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "scanImports finds named import paths",
+          "suite": "Bun.Transpiler — scan / scanImports",
+          "file": "tests/transpiler.test.ts",
+          "line": 89,
+          "time": 0.000078,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "scan returns imports and exports",
+          "suite": "Bun.Transpiler — scan / scanImports",
+          "file": "tests/transpiler.test.ts",
+          "line": 95,
+          "time": 0.000027,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "scan finds multiple exports",
+          "suite": "Bun.Transpiler — scan / scanImports",
+          "file": "tests/transpiler.test.ts",
+          "line": 101,
+          "time": 0.000109,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "import kind is 'import-statement' for static imports",
+          "suite": "Bun.Transpiler — scan / scanImports",
+          "file": "tests/transpiler.test.ts",
+          "line": 108,
+          "time": 0.000037,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "builds a TypeScript file successfully",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 119,
+          "time": 0.001346,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "output artifact is a Blob with text content",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 128,
+          "time": 0.000675,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "bundled output contains the function from imported module",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 138,
+          "time": 0.000557,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "output artifact has path property",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 147,
+          "time": 0.00058,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "output artifact has loader property",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 155,
+          "time": 0.000492,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "minify: true produces smaller output than no minification",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 163,
+          "time": 0.000991,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "define replaces constant at build time",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 170,
+          "time": 0.000527,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "target: 'browser' succeeds",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 179,
+          "time": 0.000472,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "build with outdir writes files to disk",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 187,
+          "time": 0.000854,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "BuildOutput.logs is an array",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 200,
+          "time": 0.000491,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "in-memory bundling via files option",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 208,
+          "time": 0.000503,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "invalid entrypoint causes success: false or throws",
+          "suite": "Bun.build() — bundler",
+          "file": "tests/transpiler.test.ts",
+          "line": 221,
+          "time": 0.000055,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/compression.test.ts",
+      "tests": 27,
+      "assertions": 31,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "roundtrip string → Uint8Array → string",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 11,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip Uint8Array",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 17,
+          "time": 0.000176,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "compressed size is smaller than the original",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 23,
+          "time": 0.000023,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns a Uint8Array",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 28,
+          "time": 0.000025,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "level option is accepted",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 32,
+          "time": 0.000019,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "empty input roundtrips",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 40,
+          "time": 0.000046,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "binary data roundtrips",
+          "suite": "Bun.gzipSync / Bun.gunzipSync",
+          "file": "tests/compression.test.ts",
+          "line": 46,
+          "time": 0.000021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip string",
+          "suite": "Bun.deflateSync / Bun.inflateSync",
+          "file": "tests/compression.test.ts",
+          "line": 58,
+          "time": 0.000026,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip Uint8Array",
+          "suite": "Bun.deflateSync / Bun.inflateSync",
+          "file": "tests/compression.test.ts",
+          "line": 64,
+          "time": 0.000005,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "compressed is smaller than original",
+          "suite": "Bun.deflateSync / Bun.inflateSync",
+          "file": "tests/compression.test.ts",
+          "line": 70,
+          "time": 0.000027,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns a Uint8Array",
+          "suite": "Bun.deflateSync / Bun.inflateSync",
+          "file": "tests/compression.test.ts",
+          "line": 75,
+          "time": 0.000011,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "level option is accepted",
+          "suite": "Bun.deflateSync / Bun.inflateSync",
+          "file": "tests/compression.test.ts",
+          "line": 79,
+          "time": 0.000008,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "empty input roundtrips",
+          "suite": "Bun.deflateSync / Bun.inflateSync",
+          "file": "tests/compression.test.ts",
+          "line": 86,
+          "time": 0.000007,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip string",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 98,
+          "time": 0.000065,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip Uint8Array",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 104,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns a Buffer",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 110,
+          "time": 0.000016,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "compressed size is smaller than original",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 114,
+          "time": 0.000013,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "level option is accepted",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 119,
+          "time": 0.000023,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "empty input roundtrips",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 126,
+          "time": 0.000029,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "binary data roundtrips",
+          "suite": "Bun.zstdCompressSync / Bun.zstdDecompressSync",
+          "file": "tests/compression.test.ts",
+          "line": 132,
+          "time": 0.000019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip string",
+          "suite": "Bun.zstdCompress / Bun.zstdDecompress (async)",
+          "file": "tests/compression.test.ts",
+          "line": 144,
+          "time": 0.000089,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns Promise<Buffer>",
+          "suite": "Bun.zstdCompress / Bun.zstdDecompress (async)",
+          "file": "tests/compression.test.ts",
+          "line": 150,
+          "time": 0.000045,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "async result matches sync result",
+          "suite": "Bun.zstdCompress / Bun.zstdDecompress (async)",
+          "file": "tests/compression.test.ts",
+          "line": 156,
+          "time": 0.000084,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "gzip roundtrip via streams",
+          "suite": "CompressionStream / DecompressionStream",
+          "file": "tests/compression.test.ts",
+          "line": 215,
+          "time": 0.005468,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "deflate roundtrip via streams",
+          "suite": "CompressionStream / DecompressionStream",
+          "file": "tests/compression.test.ts",
+          "line": 221,
+          "time": 0.001515,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "deflate-raw roundtrip via streams",
+          "suite": "CompressionStream / DecompressionStream",
+          "file": "tests/compression.test.ts",
+          "line": 227,
+          "time": 0.000551,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "gzip stream output matches gzipSync output (decompresses correctly)",
+          "suite": "CompressionStream / DecompressionStream",
+          "file": "tests/compression.test.ts",
+          "line": 233,
+          "time": 0.00024,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/test-runner.test.ts",
+      "tests": 45,
+      "assertions": 71,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "mock() creates a callable function",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 8,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mock().mock.calls tracks calls",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 13,
+          "time": 0.000123,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "mock with implementation returns value",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 22,
+          "time": 0.000022,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mock.mock.results tracks return values",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 27,
+          "time": 0.000023,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "mockReturnValue sets a fixed return",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 35,
+          "time": 0.000034,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "mockReturnValueOnce returns value once then falls through",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 41,
+          "time": 0.000017,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "mockImplementation replaces implementation",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 47,
+          "time": 0.000018,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mockImplementationOnce replaces implementation once",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 53,
+          "time": 0.000019,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "mockResolvedValue returns a resolved promise",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 60,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mockRejectedValue returns a rejected promise",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 65,
+          "time": 0.000072,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mockClear resets calls and results",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 70,
+          "time": 0.000022,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "mockReset clears calls and removes implementation",
+          "suite": "mock() — basic mocks",
+          "file": "tests/test-runner.test.ts",
+          "line": 78,
+          "time": 0.000014,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "spyOn wraps an object method and tracks calls",
+          "suite": "spyOn()",
+          "file": "tests/test-runner.test.ts",
+          "line": 92,
+          "time": 0.000023,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "spyOn preserves original behavior by default",
+          "suite": "spyOn()",
+          "file": "tests/test-runner.test.ts",
+          "line": 101,
+          "time": 0.000037,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "spyOn can override implementation",
+          "suite": "spyOn()",
+          "file": "tests/test-runner.test.ts",
+          "line": 107,
+          "time": 0.000022,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "mockRestore restores original method",
+          "suite": "spyOn()",
+          "file": "tests/test-runner.test.ts",
+          "line": 115,
+          "time": 0.000025,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "spyOn tracks calls to built-in Math.random",
+          "suite": "spyOn()",
+          "file": "tests/test-runner.test.ts",
+          "line": 123,
+          "time": 0.000022,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "jest.fn() creates a mock function",
+          "suite": "jest.fn() compatibility",
+          "file": "tests/test-runner.test.ts",
+          "line": 136,
+          "time": 0.000018,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "jest.fn(impl) uses implementation",
+          "suite": "jest.fn() compatibility",
+          "file": "tests/test-runner.test.ts",
+          "line": 142,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "jest.spyOn mirrors spyOn",
+          "suite": "jest.fn() compatibility",
+          "file": "tests/test-runner.test.ts",
+          "line": 147,
+          "time": 0.000019,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "setSystemTime fixes Date.now()",
+          "suite": "fake timers — setSystemTime",
+          "file": "tests/test-runner.test.ts",
+          "line": 166,
+          "time": 0.000022,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "setSystemTime accepts a Date object",
+          "suite": "fake timers — setSystemTime",
+          "file": "tests/test-runner.test.ts",
+          "line": 172,
+          "time": 0.00005,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "new Date() returns mocked time",
+          "suite": "fake timers — setSystemTime",
+          "file": "tests/test-runner.test.ts",
+          "line": 178,
+          "time": 0.000379,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "setSystemTime(0) sets Unix epoch",
+          "suite": "fake timers — setSystemTime",
+          "file": "tests/test-runner.test.ts",
+          "line": 185,
+          "time": 0.000018,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "setSystemTime() without arg restores real clock",
+          "suite": "fake timers — setSystemTime",
+          "file": "tests/test-runner.test.ts",
+          "line": 190,
+          "time": 0.000011,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "first test runs in order",
+          "suite": "hook ordering",
+          "file": "tests/test-runner.test.ts",
+          "line": 219,
+          "time": 0.000035,
+          "assertions": 0,
+          "status": "passed"
+        },
+        {
+          "name": "second test runs in order",
+          "suite": "hook ordering",
+          "file": "tests/test-runner.test.ts",
+          "line": 223,
+          "time": 0.000009,
+          "assertions": 0,
+          "status": "passed"
+        },
+        {
+          "name": "outer test",
+          "suite": "nested describe",
+          "file": "tests/test-runner.test.ts",
+          "line": 251,
+          "time": 0.00001,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "inner test",
+          "suite": "inner &gt; nested describe",
+          "file": "tests/test-runner.test.ts",
+          "line": 245,
+          "time": 0.00001,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "toBeUndefined / toBeDefined",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 262,
+          "time": 0.000006,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "toBeNull / toBeTruthy / toBeFalsy",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 268,
+          "time": 0.000009,
+          "assertions": 4,
+          "status": "passed"
+        },
+        {
+          "name": "toBeGreaterThan / toBeLessThan / toBeCloseTo",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 275,
+          "time": 0.000011,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "toContain for arrays and strings",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 281,
+          "time": 0.000012,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "toHaveLength",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 286,
+          "time": 0.000009,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "toMatchObject partial match",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 291,
+          "time": 0.000029,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "toThrow",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 295,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "resolves / rejects",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 301,
+          "time": 0.000047,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "not.toBe",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 306,
+          "time": 0.000015,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "toBeInstanceOf",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 311,
+          "time": 0.000011,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "toStrictEqual",
+          "suite": "expect matchers",
+          "file": "tests/test-runner.test.ts",
+          "line": 316,
+          "time": 0.000025,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "toMatchSnapshot — primitive",
+          "suite": "snapshot testing",
+          "file": "tests/test-runner.test.ts",
+          "line": 327,
+          "time": 0.000011,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "toMatchSnapshot — object",
+          "suite": "snapshot testing",
+          "file": "tests/test-runner.test.ts",
+          "line": 331,
+          "time": 0.000011,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "toMatchSnapshot — array",
+          "suite": "snapshot testing",
+          "file": "tests/test-runner.test.ts",
+          "line": 340,
+          "time": 0.000027,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "toMatchInlineSnapshot — string",
+          "suite": "snapshot testing",
+          "file": "tests/test-runner.test.ts",
+          "line": 350,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "toMatchInlineSnapshot — number",
+          "suite": "snapshot testing",
+          "file": "tests/test-runner.test.ts",
+          "line": 354,
+          "time": 0.000008,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/formats.test.ts",
+      "tests": 44,
+      "assertions": 72,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "parses simple key-value pairs",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 8,
+          "time": 0.000175,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses integers and floats",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 14,
+          "time": 0.000015,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses booleans",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 20,
+          "time": 0.000029,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses arrays",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 26,
+          "time": 0.000012,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses table sections",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 31,
+          "time": 0.000029,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses nested tables",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 37,
+          "time": 0.000026,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses array of tables",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 44,
+          "time": 0.000026,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "returns an object",
+          "suite": "Bun.TOML.parse",
+          "file": "tests/formats.test.ts",
+          "line": 52,
+          "time": 0.000026,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses standard JSON",
+          "suite": "Bun.JSONC.parse",
+          "file": "tests/formats.test.ts",
+          "line": 64,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses JSON with single-line comments",
+          "suite": "Bun.JSONC.parse",
+          "file": "tests/formats.test.ts",
+          "line": 69,
+          "time": 0.000021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses JSON with block comments",
+          "suite": "Bun.JSONC.parse",
+          "file": "tests/formats.test.ts",
+          "line": 78,
+          "time": 0.000017,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses JSON with trailing commas",
+          "suite": "Bun.JSONC.parse",
+          "file": "tests/formats.test.ts",
+          "line": 87,
+          "time": 0.000016,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "parses arrays with trailing commas",
+          "suite": "Bun.JSONC.parse",
+          "file": "tests/formats.test.ts",
+          "line": 94,
+          "time": 0.000018,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses a full URL",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 105,
+          "time": 0.000018,
+          "assertions": 8,
+          "status": "passed"
+        },
+        {
+          "name": "href is the full serialized URL",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 117,
+          "time": 0.00006,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "origin combines protocol + host",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 122,
+          "time": 0.000013,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "relative URL resolves against base",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 127,
+          "time": 0.000021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mutable properties update href",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 132,
+          "time": 0.000008,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "searchParams is a URLSearchParams instance",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 138,
+          "time": 0.000019,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "throws on invalid URL",
+          "suite": "URL",
+          "file": "tests/formats.test.ts",
+          "line": 144,
+          "time": 0.000034,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "constructs from string",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 154,
+          "time": 0.000039,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "constructs from object",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 160,
+          "time": 0.000016,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "append adds duplicate keys",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 165,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "set replaces all values for a key",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 171,
+          "time": 0.000012,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "delete removes a key",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 177,
+          "time": 0.000009,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "has returns true for existing key",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 184,
+          "time": 0.00002,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "toString serializes correctly",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 190,
+          "time": 0.000016,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "forEach iterates all entries",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 197,
+          "time": 0.000017,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "keys(), values(), entries() iterators work",
+          "suite": "URLSearchParams",
+          "file": "tests/formats.test.ts",
+          "line": 204,
+          "time": 0.000133,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "constructs from object",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 217,
+          "time": 0.000028,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "get is case-insensitive",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 222,
+          "time": 0.000007,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "set overwrites existing value",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 228,
+          "time": 0.000019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "append adds to existing header",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 235,
+          "time": 0.000021,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "delete removes a header",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 244,
+          "time": 0.000021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "has returns true for existing header",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 250,
+          "time": 0.000014,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "forEach iterates all entries",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 256,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "constructs from entries array",
+          "suite": "Headers",
+          "file": "tests/formats.test.ts",
+          "line": 263,
+          "time": 0.000038,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "append and get a string field",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 277,
+          "time": 0.000016,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "set overwrites existing field",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 283,
+          "time": 0.000026,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "getAll returns all values for a key",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 290,
+          "time": 0.000013,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "has returns true for existing field",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 297,
+          "time": 0.000017,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "delete removes a field",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 304,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "append a Blob as a file field",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 311,
+          "time": 0.000095,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "forEach iterates all fields",
+          "suite": "FormData",
+          "file": "tests/formats.test.ts",
+          "line": 320,
+          "time": 0.000029,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/workers.test.ts",
+      "tests": 12,
+      "assertions": 12,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "echo worker reflects messages back",
+          "suite": "Worker — basic messaging",
+          "file": "tests/workers.test.ts",
+          "line": 94,
+          "time": 0.002818,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sends and receives a plain object",
+          "suite": "Worker — basic messaging",
+          "file": "tests/workers.test.ts",
+          "line": 103,
+          "time": 0.002291,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "math worker computes a + b",
+          "suite": "Worker — basic messaging",
+          "file": "tests/workers.test.ts",
+          "line": 112,
+          "time": 0.002061,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "receives multiple messages in order",
+          "suite": "Worker — basic messaging",
+          "file": "tests/workers.test.ts",
+          "line": 121,
+          "time": 0.001989,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "postMessage with nested arrays and numbers",
+          "suite": "Worker — basic messaging",
+          "file": "tests/workers.test.ts",
+          "line": 134,
+          "time": 0.002386,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "threadId is a positive integer",
+          "suite": "Worker — lifecycle",
+          "file": "tests/workers.test.ts",
+          "line": 150,
+          "time": 0.004929,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "terminate() stops a running worker",
+          "suite": "Worker — lifecycle",
+          "file": "tests/workers.test.ts",
+          "line": 157,
+          "time": 0.100646,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "worker threadId differs from main thread (0 or 1)",
+          "suite": "Worker — lifecycle",
+          "file": "tests/workers.test.ts",
+          "line": 165,
+          "time": 0.0053,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "unhandled error fires onerror on the Worker",
+          "suite": "Worker — error handling",
+          "file": "tests/workers.test.ts",
+          "line": 179,
+          "time": 0.002358,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "worker receives custom env vars",
+          "suite": "Worker — environment",
+          "file": "tests/workers.test.ts",
+          "line": 194,
+          "time": 0.002264,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "ArrayBuffer can be transferred to a worker",
+          "suite": "Worker — transferables",
+          "file": "tests/workers.test.ts",
+          "line": 209,
+          "time": 0.002211,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "worker writes to a SharedArrayBuffer visible from main thread",
+          "suite": "Worker — SharedArrayBuffer",
+          "file": "tests/workers.test.ts",
+          "line": 225,
+          "time": 0.002457,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/websocket.test.ts",
+      "tests": 23,
+      "assertions": 31,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "client can connect and receives the open greeting",
+          "suite": "WebSocket lifecycle",
+          "file": "tests/websocket.test.ts",
+          "line": 71,
+          "time": 0.002055,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "open handler increments server-side open counter",
+          "suite": "WebSocket lifecycle",
+          "file": "tests/websocket.test.ts",
+          "line": 79,
+          "time": 0.000423,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server.pendingWebSockets increments when a socket opens",
+          "suite": "WebSocket lifecycle",
+          "file": "tests/websocket.test.ts",
+          "line": 88,
+          "time": 0.020808,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "close handler receives the close code from client.close()",
+          "suite": "WebSocket lifecycle",
+          "file": "tests/websocket.test.ts",
+          "line": 97,
+          "time": 0.021744,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "close event fires on the client after ws.close()",
+          "suite": "WebSocket lifecycle",
+          "file": "tests/websocket.test.ts",
+          "line": 108,
+          "time": 0.000611,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "string message is echoed back correctly",
+          "suite": "message exchange",
+          "file": "tests/websocket.test.ts",
+          "line": 121,
+          "time": 0.000627,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "multiple sequential messages are echoed in order",
+          "suite": "message exchange",
+          "file": "tests/websocket.test.ts",
+          "line": 130,
+          "time": 0.000993,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "empty string message is echoed back",
+          "suite": "message exchange",
+          "file": "tests/websocket.test.ts",
+          "line": 144,
+          "time": 0.000672,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "binary (Uint8Array) message round-trips correctly",
+          "suite": "message exchange",
+          "file": "tests/websocket.test.ts",
+          "line": 153,
+          "time": 0.000626,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "ArrayBuffer message round-trips correctly",
+          "suite": "message exchange",
+          "file": "tests/websocket.test.ts",
+          "line": 166,
+          "time": 0.000606,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "large string message is echoed back intact",
+          "suite": "message exchange",
+          "file": "tests/websocket.test.ts",
+          "line": 179,
+          "time": 0.000646,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "send() returns a non-negative integer",
+          "suite": "ws.send() backpressure indicator",
+          "file": "tests/websocket.test.ts",
+          "line": 194,
+          "time": 0.023541,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "ws.data carries userId from the upgrade call",
+          "suite": "contextual data (ws.data)",
+          "file": "tests/websocket.test.ts",
+          "line": 259,
+          "time": 0.00071,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "multiple connections carry independent data",
+          "suite": "contextual data (ws.data)",
+          "file": "tests/websocket.test.ts",
+          "line": 269,
+          "time": 0.000857,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "subscribe confirmation is received on open",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 330,
+          "time": 0.000773,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "ws.isSubscribed() returns true after subscribing",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 337,
+          "time": 0.000666,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "ws.isSubscribed() returns false for an unrelated topic",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 346,
+          "time": 0.000634,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "ws.subscriptions includes the active topic",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 355,
+          "time": 0.000604,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "ws.publish() delivers message to other subscribers but not self",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 366,
+          "time": 0.001028,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server.publish() broadcasts to all subscribers of a topic",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 383,
+          "time": 0.001032,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "server.subscriberCount() reflects live subscription count",
+          "suite": "pub/sub",
+          "file": "tests/websocket.test.ts",
+          "line": 402,
+          "time": 0.021636,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "messages are received correctly when perMessageDeflate is enabled",
+          "suite": "perMessageDeflate compression",
+          "file": "tests/websocket.test.ts",
+          "line": 420,
+          "time": 0.00224,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Set-Cookie header is returned in the 101 upgrade response",
+          "suite": "custom upgrade headers",
+          "file": "tests/websocket.test.ts",
+          "line": 453,
+          "time": 0.002002,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/hashing.test.ts",
+      "tests": 42,
+      "assertions": 49,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "Bun.hash(string) returns a number or bigint",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 9,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "same input always produces same hash",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 14,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "different inputs produce different hashes",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 18,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.hash accepts Uint8Array",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 22,
+          "time": 0.000175,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.hash accepts ArrayBuffer",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 28,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.wyhash returns bigint",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 34,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.wyhash is deterministic",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 39,
+          "time": 0.000042,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.adler32 returns a number",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 43,
+          "time": 0.00001,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.crc32 returns a number",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 47,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.crc32 is deterministic",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 51,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.cityHash32 returns a number",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 55,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.cityHash64 returns bigint",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 59,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.xxHash32 returns a number",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 63,
+          "time": 0.000042,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.xxHash64 returns bigint",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 67,
+          "time": 0.000007,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.xxHash3 returns bigint",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 71,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.murmur32v3 returns a number",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 75,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hash.rapidhash returns bigint",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 79,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "seed changes the wyhash output",
+          "suite": "Bun.hash — non-cryptographic hashes",
+          "file": "tests/hashing.test.ts",
+          "line": 83,
+          "time": 0.000042,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sha256 hex digest has 64 hex chars",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 95,
+          "time": 0.000005,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "sha256 is deterministic",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 102,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sha256 known vector",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 108,
+          "time": 0.000084,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sha1 hex digest has 40 chars",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 114,
+          "time": 0.000008,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sha512 hex digest has 128 chars",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 119,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "md5 hex digest has 32 chars",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 124,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "blake2b256 hex digest has 64 chars",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 129,
+          "time": 0.000048,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "digest() without encoding returns Buffer",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 134,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "digest('base64') returns a non-empty base64 string",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 140,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "chained .update() calls accumulate data",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 146,
+          "time": 0.000006,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".copy() produces an independent hasher",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 152,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "CryptoHasher.hash() static helper returns Buffer",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 161,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "HMAC mode with sha256 produces different output than plain sha256",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 167,
+          "time": 0.000047,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "HMAC is deterministic with same key",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 173,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".algorithm property reflects the chosen algorithm",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 179,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".byteLength reflects output size",
+          "suite": "Bun.CryptoHasher — SHA / Blake / etc.",
+          "file": "tests/hashing.test.ts",
+          "line": 184,
+          "time": 0.000047,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "hash returns a string starting with $argon2",
+          "suite": "Bun.password — argon2",
+          "file": "tests/hashing.test.ts",
+          "line": 196,
+          "time": 0.069201,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "verify returns true for correct password",
+          "suite": "Bun.password — argon2",
+          "file": "tests/hashing.test.ts",
+          "line": 201,
+          "time": 0.108497,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "verify returns false for wrong password",
+          "suite": "Bun.password — argon2",
+          "file": "tests/hashing.test.ts",
+          "line": 206,
+          "time": 0.109613,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "two hashes of the same password differ (salted)",
+          "suite": "Bun.password — argon2",
+          "file": "tests/hashing.test.ts",
+          "line": 211,
+          "time": 0.110976,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hashSync + verifySync work synchronously",
+          "suite": "Bun.password — argon2",
+          "file": "tests/hashing.test.ts",
+          "line": 217,
+          "time": 0.166256,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "bcrypt hash starts with $2",
+          "suite": "Bun.password — bcrypt",
+          "file": "tests/hashing.test.ts",
+          "line": 225,
+          "time": 0.059922,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "bcrypt verify returns true for correct password",
+          "suite": "Bun.password — bcrypt",
+          "file": "tests/hashing.test.ts",
+          "line": 230,
+          "time": 0.119999,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "bcrypt verify returns false for wrong password",
+          "suite": "Bun.password — bcrypt",
+          "file": "tests/hashing.test.ts",
+          "line": 235,
+          "time": 0.119551,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/utilities.test.ts",
+      "tests": 62,
+      "assertions": 91,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "sleep(ms) returns a Promise that resolves",
+          "suite": "Bun.sleep / Bun.sleepSync",
+          "file": "tests/utilities.test.ts",
+          "line": 8,
+          "time": 0.001159,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "sleep(0) resolves immediately",
+          "suite": "Bun.sleep / Bun.sleepSync",
+          "file": "tests/utilities.test.ts",
+          "line": 14,
+          "time": 0.000045,
+          "assertions": 0,
+          "status": "passed"
+        },
+        {
+          "name": "sleep takes approximately the requested time",
+          "suite": "Bun.sleep / Bun.sleepSync",
+          "file": "tests/utilities.test.ts",
+          "line": 18,
+          "time": 0.020945,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sleepSync blocks synchronously",
+          "suite": "Bun.sleep / Bun.sleepSync",
+          "file": "tests/utilities.test.ts",
+          "line": 25,
+          "time": 0.025087,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns a number",
+          "suite": "Bun.nanoseconds",
+          "file": "tests/utilities.test.ts",
+          "line": 38,
+          "time": 0.000017,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "increases over time",
+          "suite": "Bun.nanoseconds",
+          "file": "tests/utilities.test.ts",
+          "line": 42,
+          "time": 0.001605,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "two successive calls differ",
+          "suite": "Bun.nanoseconds",
+          "file": "tests/utilities.test.ts",
+          "line": 49,
+          "time": 0.000038,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "equal primitives return true",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 63,
+          "time": 0.00001,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "unequal primitives return false",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 69,
+          "time": 0.000043,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "deeply equal objects return true",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 74,
+          "time": 0.000025,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "structurally different objects return false",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 78,
+          "time": 0.000005,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "equal arrays return true",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 83,
+          "time": 0.000024,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "arrays of different length return false",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 87,
+          "time": 0.000008,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "strict mode distinguishes 0 and -0",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 91,
+          "time": 0.000024,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "nested objects with same values are equal",
+          "suite": "Bun.deepEquals",
+          "file": "tests/utilities.test.ts",
+          "line": 98,
+          "time": 0.00002,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "subset matches superset",
+          "suite": "Bun.deepMatch",
+          "file": "tests/utilities.test.ts",
+          "line": 110,
+          "time": 0.000016,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "superset does not match subset",
+          "suite": "Bun.deepMatch",
+          "file": "tests/utilities.test.ts",
+          "line": 114,
+          "time": 0.000013,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exact match returns true",
+          "suite": "Bun.deepMatch",
+          "file": "tests/utilities.test.ts",
+          "line": 118,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "mismatched value returns false",
+          "suite": "Bun.deepMatch",
+          "file": "tests/utilities.test.ts",
+          "line": 122,
+          "time": 0.000028,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns a string",
+          "suite": "Bun.inspect",
+          "file": "tests/utilities.test.ts",
+          "line": 132,
+          "time": 0.000058,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "includes object keys",
+          "suite": "Bun.inspect",
+          "file": "tests/utilities.test.ts",
+          "line": 136,
+          "time": 0.000024,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "handles arrays",
+          "suite": "Bun.inspect",
+          "file": "tests/utilities.test.ts",
+          "line": 142,
+          "time": 0.000026,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "handles null and undefined",
+          "suite": "Bun.inspect",
+          "file": "tests/utilities.test.ts",
+          "line": 149,
+          "time": 0.000012,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "depth option limits nesting",
+          "suite": "Bun.inspect",
+          "file": "tests/utilities.test.ts",
+          "line": 154,
+          "time": 0.000029,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "inspect.table returns a string",
+          "suite": "Bun.inspect",
+          "file": "tests/utilities.test.ts",
+          "line": 160,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "escapes < and >",
+          "suite": "Bun.escapeHTML",
+          "file": "tests/utilities.test.ts",
+          "line": 172,
+          "time": 0.000042,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "escapes &",
+          "suite": "Bun.escapeHTML",
+          "file": "tests/utilities.test.ts",
+          "line": 176,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "escapes double quotes",
+          "suite": "Bun.escapeHTML",
+          "file": "tests/utilities.test.ts",
+          "line": 180,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "escapes single quotes",
+          "suite": "Bun.escapeHTML",
+          "file": "tests/utilities.test.ts",
+          "line": 184,
+          "time": 0.000049,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "plain text is unchanged",
+          "suite": "Bun.escapeHTML",
+          "file": "tests/utilities.test.ts",
+          "line": 188,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "accepts numbers",
+          "suite": "Bun.escapeHTML",
+          "file": "tests/utilities.test.ts",
+          "line": 192,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses named color to hex",
+          "suite": "Bun.color",
+          "file": "tests/utilities.test.ts",
+          "line": 202,
+          "time": 0.000086,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses hex color to rgb object",
+          "suite": "Bun.color",
+          "file": "tests/utilities.test.ts",
+          "line": 207,
+          "time": 0.000044,
+          "assertions": 4,
+          "status": "passed"
+        },
+        {
+          "name": "parses hex color to [rgb] array",
+          "suite": "Bun.color",
+          "file": "tests/utilities.test.ts",
+          "line": 215,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns null for invalid color",
+          "suite": "Bun.color",
+          "file": "tests/utilities.test.ts",
+          "line": 220,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parses rgb() string",
+          "suite": "Bun.color",
+          "file": "tests/utilities.test.ts",
+          "line": 225,
+          "time": 0.000049,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "number output format",
+          "suite": "Bun.color",
+          "file": "tests/utilities.test.ts",
+          "line": 232,
+          "time": 0.000024,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "satisfies: exact version matches",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 243,
+          "time": 0.000027,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "satisfies: caret range",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 247,
+          "time": 0.000016,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "satisfies: tilde range",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 252,
+          "time": 0.000022,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "satisfies: wildcard",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 257,
+          "time": 0.000009,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "order: equal versions return 0",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 261,
+          "time": 0.000005,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "order: greater version returns 1",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 265,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "order: lesser version returns -1",
+          "suite": "Bun.semver",
+          "file": "tests/utilities.test.ts",
+          "line": 269,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "finds common executables like 'ls'",
+          "suite": "Bun.which",
+          "file": "tests/utilities.test.ts",
+          "line": 279,
+          "time": 0.000307,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "returns null for non-existent command",
+          "suite": "Bun.which",
+          "file": "tests/utilities.test.ts",
+          "line": 285,
+          "time": 0.000045,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "finds 'bun' itself",
+          "suite": "Bun.which",
+          "file": "tests/utilities.test.ts",
+          "line": 289,
+          "time": 0.000073,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "pathToFileURL returns a URL with file:// scheme",
+          "suite": "Bun.pathToFileURL / Bun.fileURLToPath",
+          "file": "tests/utilities.test.ts",
+          "line": 304,
+          "time": 0.000009,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "fileURLToPath converts URL back to path",
+          "suite": "Bun.pathToFileURL / Bun.fileURLToPath",
+          "file": "tests/utilities.test.ts",
+          "line": 311,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "roundtrip path → URL → path",
+          "suite": "Bun.pathToFileURL / Bun.fileURLToPath",
+          "file": "tests/utilities.test.ts",
+          "line": 317,
+          "time": 0.000062,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "peek on already-resolved promise returns the value",
+          "suite": "Bun.peek",
+          "file": "tests/utilities.test.ts",
+          "line": 329,
+          "time": 0.000049,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "peek.status on resolved promise returns 'fulfilled'",
+          "suite": "Bun.peek",
+          "file": "tests/utilities.test.ts",
+          "line": 337,
+          "time": 0.000059,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "peek.status on pending promise returns 'pending'",
+          "suite": "Bun.peek",
+          "file": "tests/utilities.test.ts",
+          "line": 343,
+          "time": 0.00005,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "peek.status on rejected promise returns 'rejected'",
+          "suite": "Bun.peek",
+          "file": "tests/utilities.test.ts",
+          "line": 348,
+          "time": 0.000048,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.version is a semver string",
+          "suite": "Bun runtime metadata",
+          "file": "tests/utilities.test.ts",
+          "line": 362,
+          "time": 0.000053,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.revision is a non-empty string",
+          "suite": "Bun runtime metadata",
+          "file": "tests/utilities.test.ts",
+          "line": 367,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.env is the process environment",
+          "suite": "Bun runtime metadata",
+          "file": "tests/utilities.test.ts",
+          "line": 372,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "process.env.PATH is defined",
+          "suite": "Bun runtime metadata",
+          "file": "tests/utilities.test.ts",
+          "line": 376,
+          "time": 0.000048,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "clones a plain object",
+          "suite": "structuredClone",
+          "file": "tests/utilities.test.ts",
+          "line": 386,
+          "time": 0.000048,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "clones arrays",
+          "suite": "structuredClone",
+          "file": "tests/utilities.test.ts",
+          "line": 394,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "clones Date objects",
+          "suite": "structuredClone",
+          "file": "tests/utilities.test.ts",
+          "line": 401,
+          "time": 0.000043,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "clones Map and Set",
+          "suite": "structuredClone",
+          "file": "tests/utilities.test.ts",
+          "line": 408,
+          "time": 0.000008,
+          "assertions": 2,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/http-server.test.ts",
+      "tests": 30,
+      "assertions": 53,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "server.url is a valid URL",
+          "suite": "server lifecycle",
+          "file": "tests/http-server.test.ts",
+          "line": 122,
+          "time": 0.00003,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "server.port is a positive integer",
+          "suite": "server lifecycle",
+          "file": "tests/http-server.test.ts",
+          "line": 128,
+          "time": 0.000021,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "server.pendingRequests is a non-negative number",
+          "suite": "server lifecycle",
+          "file": "tests/http-server.test.ts",
+          "line": 133,
+          "time": 0.000017,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "GET /health returns 200 OK",
+          "suite": "static routes",
+          "file": "tests/http-server.test.ts",
+          "line": 143,
+          "time": 0.000605,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "GET /api/static-json returns pre-built JSON",
+          "suite": "static routes",
+          "file": "tests/http-server.test.ts",
+          "line": 149,
+          "time": 0.000194,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "unmatched route falls through to fetch() handler with 404",
+          "suite": "static routes",
+          "file": "tests/http-server.test.ts",
+          "line": 157,
+          "time": 0.000207,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "single param :id is captured correctly",
+          "suite": "parameterised routes",
+          "file": "tests/http-server.test.ts",
+          "line": 168,
+          "time": 0.000195,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "multiple params :org and :repo are captured correctly",
+          "suite": "parameterised routes",
+          "file": "tests/http-server.test.ts",
+          "line": 175,
+          "time": 0.000195,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "URL-encoded param is decoded",
+          "suite": "parameterised routes",
+          "file": "tests/http-server.test.ts",
+          "line": 182,
+          "time": 0.000161,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "GET /api/items returns array",
+          "suite": "HTTP verb routing",
+          "file": "tests/http-server.test.ts",
+          "line": 194,
+          "time": 0.000188,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "POST /api/items creates resource with 201",
+          "suite": "HTTP verb routing",
+          "file": "tests/http-server.test.ts",
+          "line": 202,
+          "time": 0.000289,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "PUT /api/items updates resource",
+          "suite": "HTTP verb routing",
+          "file": "tests/http-server.test.ts",
+          "line": 214,
+          "time": 0.000221,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "DELETE /api/items returns 204 No Content",
+          "suite": "HTTP verb routing",
+          "file": "tests/http-server.test.ts",
+          "line": 225,
+          "time": 0.000174,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "PATCH /api/items partially updates resource",
+          "suite": "HTTP verb routing",
+          "file": "tests/http-server.test.ts",
+          "line": 230,
+          "time": 0.000203,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "JSON body is parsed correctly",
+          "suite": "request body parsing",
+          "file": "tests/http-server.test.ts",
+          "line": 248,
+          "time": 0.000238,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "plain text body is echoed back",
+          "suite": "request body parsing",
+          "file": "tests/http-server.test.ts",
+          "line": 258,
+          "time": 0.00021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "FormData body fields are parsed",
+          "suite": "request body parsing",
+          "file": "tests/http-server.test.ts",
+          "line": 267,
+          "time": 0.000279,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "application/x-www-form-urlencoded body is parsed",
+          "suite": "request body parsing",
+          "file": "tests/http-server.test.ts",
+          "line": 277,
+          "time": 0.000241,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "ArrayBuffer body round-trips correctly",
+          "suite": "request body parsing",
+          "file": "tests/http-server.test.ts",
+          "line": 288,
+          "time": 0.000212,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "BunFile is streamed as response body",
+          "suite": "file streaming",
+          "file": "tests/http-server.test.ts",
+          "line": 305,
+          "time": 0.000257,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "streamed file has a content-type header",
+          "suite": "file streaming",
+          "file": "tests/http-server.test.ts",
+          "line": 312,
+          "time": 0.000161,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "async generator streams chunks in order",
+          "suite": "response streaming",
+          "file": "tests/http-server.test.ts",
+          "line": 323,
+          "time": 0.000637,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "SSE endpoint returns text/event-stream content-type",
+          "suite": "server-sent events",
+          "file": "tests/http-server.test.ts",
+          "line": 336,
+          "time": 0.000205,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "SSE response body contains valid event frames",
+          "suite": "server-sent events",
+          "file": "tests/http-server.test.ts",
+          "line": 341,
+          "time": 0.000143,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "/api/* catches unmatched paths under /api/",
+          "suite": "wildcard routes",
+          "file": "tests/http-server.test.ts",
+          "line": 354,
+          "time": 0.00015,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "thrown error in route invokes the error() callback",
+          "suite": "error handler",
+          "file": "tests/http-server.test.ts",
+          "line": 366,
+          "time": 0.001978,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "server.pendingWebSockets starts at 0",
+          "suite": "server metrics",
+          "file": "tests/http-server.test.ts",
+          "line": 398,
+          "time": 0.000009,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server.subscriberCount returns 0 for unknown topic",
+          "suite": "server metrics",
+          "file": "tests/http-server.test.ts",
+          "line": 402,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server.requestIP returns null or SocketAddress for a request",
+          "suite": "server metrics",
+          "file": "tests/http-server.test.ts",
+          "line": 406,
+          "time": 0.001832,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "routes can be hot-swapped without restarting the server",
+          "suite": "server.reload()",
+          "file": "tests/http-server.test.ts",
+          "line": 435,
+          "time": 0.001203,
+          "assertions": 2,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/networking.test.ts",
+      "tests": 20,
+      "assertions": 30,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "GET request returns 200 for a local server",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 23,
+          "time": 0.001841,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "fetch returns headers from the server",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 39,
+          "time": 0.000857,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "POST body is received by server",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 54,
+          "time": 0.001742,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "JSON round-trip via fetch",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 73,
+          "time": 0.000921,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "fetch follows redirect",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 94,
+          "time": 0.001969,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "fetch with custom request headers",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 114,
+          "time": 0.000844,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "404 response status is preserved",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 131,
+          "time": 0.00183,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "fetch AbortController cancels request",
+          "suite": "fetch — built-in HTTP client",
+          "file": "tests/networking.test.ts",
+          "line": 146,
+          "time": 0.000667,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "lookup('localhost') returns 127.0.0.1 or ::1",
+          "suite": "Bun.dns — DNS resolution",
+          "file": "tests/networking.test.ts",
+          "line": 169,
+          "time": 0.000465,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "lookup result has address and family fields",
+          "suite": "Bun.dns — DNS resolution",
+          "file": "tests/networking.test.ts",
+          "line": 176,
+          "time": 0.000433,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "lookup with family:4 returns only IPv4 addresses",
+          "suite": "Bun.dns — DNS resolution",
+          "file": "tests/networking.test.ts",
+          "line": 182,
+          "time": 0.000272,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "getCacheStats returns expected shape",
+          "suite": "Bun.dns — DNS resolution",
+          "file": "tests/networking.test.ts",
+          "line": 188,
+          "time": 0.000029,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "prefetch is callable without error",
+          "suite": "Bun.dns — DNS resolution",
+          "file": "tests/networking.test.ts",
+          "line": 195,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server echoes data back to client",
+          "suite": "Bun.listen / Bun.connect — TCP",
+          "file": "tests/networking.test.ts",
+          "line": 205,
+          "time": 0.00051,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server receives the exact bytes the client sends",
+          "suite": "Bun.listen / Bun.connect — TCP",
+          "file": "tests/networking.test.ts",
+          "line": 246,
+          "time": 0.000254,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "server.port is a valid port number",
+          "suite": "Bun.listen / Bun.connect — TCP",
+          "file": "tests/networking.test.ts",
+          "line": 280,
+          "time": 0.00005,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "multiple clients can connect concurrently",
+          "suite": "Bun.listen / Bun.connect — TCP",
+          "file": "tests/networking.test.ts",
+          "line": 294,
+          "time": 0.000297,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "can create and close a UDP socket",
+          "suite": "Bun.udpSocket — UDP",
+          "file": "tests/networking.test.ts",
+          "line": 333,
+          "time": 0.000074,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "UDP socket has expected properties",
+          "suite": "Bun.udpSocket — UDP",
+          "file": "tests/networking.test.ts",
+          "line": 346,
+          "time": 0.000057,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "UDP send and receive",
+          "suite": "Bun.udpSocket — UDP",
+          "file": "tests/networking.test.ts",
+          "line": 358,
+          "time": 0.000282,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/redis.test.ts",
+      "tests": 39,
+      "assertions": 50,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "connected is true after connect()",
+          "suite": "connection &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 44,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "bufferedAmount is a number",
+          "suite": "connection &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 48,
+          "time": 0.000044,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "onconnect / onclose callbacks can be set without error",
+          "suite": "connection &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 52,
+          "time": 0.000007,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "PING via send() returns PONG",
+          "suite": "connection &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 61,
+          "time": 0.000182,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "set() and get() round-trip a string",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 78,
+          "time": 0.000238,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "get() returns null for a missing key",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 84,
+          "time": 0.000122,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "getBuffer() returns a Uint8Array",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 89,
+          "time": 0.000229,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "del() removes a key and returns 1",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 96,
+          "time": 0.000312,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "exists() returns true when key is present",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 103,
+          "time": 0.000217,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exists() returns false when key is absent",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 109,
+          "time": 0.000214,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "expire() sets a TTL and ttl() reads it back",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 115,
+          "time": 0.000388,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "ttl() returns -1 for a key with no expiry",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 123,
+          "time": 0.000196,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "overwriting a key replaces its value",
+          "suite": "string operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 129,
+          "time": 0.000261,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "incr() increments and returns the new value",
+          "suite": "numeric operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 147,
+          "time": 0.000185,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "incr() is additive across multiple calls",
+          "suite": "numeric operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 153,
+          "time": 0.000365,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "decr() decrements and returns the new value",
+          "suite": "numeric operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 161,
+          "time": 0.000164,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "decr() goes negative",
+          "suite": "numeric operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 167,
+          "time": 0.000156,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hmset() stores multiple fields, hmget() retrieves them",
+          "suite": "hash operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 185,
+          "time": 0.000217,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hget() retrieves a single field by name",
+          "suite": "hash operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 191,
+          "time": 0.000183,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hget() returns null for a missing field",
+          "suite": "hash operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 197,
+          "time": 0.000108,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hmget() returns null for absent fields",
+          "suite": "hash operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 202,
+          "time": 0.000116,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "hincrby() increments an integer hash field",
+          "suite": "hash operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 208,
+          "time": 0.000243,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hincrbyfloat() increments a float hash field",
+          "suite": "hash operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 215,
+          "time": 0.000282,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sadd() adds members, smembers() returns them all",
+          "suite": "set operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 234,
+          "time": 0.000339,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "sismember() returns true for an existing member",
+          "suite": "set operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 243,
+          "time": 0.000103,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sismember() returns false for a non-member",
+          "suite": "set operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 248,
+          "time": 0.0001,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "srem() removes a member",
+          "suite": "set operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 253,
+          "time": 0.000265,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "srandmember() returns a member from the set",
+          "suite": "set operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 260,
+          "time": 0.000101,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "spop() removes and returns a member",
+          "suite": "set operations &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 265,
+          "time": 0.000268,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "LPUSH + LRANGE builds a list in the expected order",
+          "suite": "raw commands via send() &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 287,
+          "time": 0.000181,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "TYPE returns the type of a key",
+          "suite": "raw commands via send() &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 294,
+          "time": 0.000102,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "OBJECT ENCODING returns a string",
+          "suite": "raw commands via send() &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 299,
+          "time": 0.000131,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "DBSIZE returns a non-negative number",
+          "suite": "raw commands via send() &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 304,
+          "time": 0.000137,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "concurrent set and get commands all resolve correctly",
+          "suite": "auto-pipelining &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 324,
+          "time": 0.000214,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "ten concurrent incr operations all resolve",
+          "suite": "auto-pipelining &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 331,
+          "time": 0.000371,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "subscriber receives a published message",
+          "suite": "pub/sub &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 344,
+          "time": 0.051863,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "unsubscribe stops message delivery",
+          "suite": "pub/sub &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 369,
+          "time": 0.1165,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "WRONGTYPE error thrown when operating on wrong key type",
+          "suite": "error handling &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 393,
+          "time": 0.000723,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "connection closed via close() sets connected to false",
+          "suite": "error handling &gt; Redis — Bun.RedisClient",
+          "file": "tests/redis.test.ts",
+          "line": 401,
+          "time": 0.000726,
+          "assertions": 2,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/streams.test.ts",
+      "tests": 25,
+      "assertions": 31,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "read chunks from a simple pull source",
+          "suite": "ReadableStream — basic construction and reading",
+          "file": "tests/streams.test.ts",
+          "line": 8,
+          "time": 0.000261,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "stream from start() with enqueue/close",
+          "suite": "ReadableStream — basic construction and reading",
+          "file": "tests/streams.test.ts",
+          "line": 27,
+          "time": 0.000221,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.readableStreamToArray returns an array of chunks",
+          "suite": "ReadableStream — basic construction and reading",
+          "file": "tests/streams.test.ts",
+          "line": 40,
+          "time": 0.000059,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.readableStreamToArrayBuffer concatenates Uint8Array chunks",
+          "suite": "ReadableStream — basic construction and reading",
+          "file": "tests/streams.test.ts",
+          "line": 51,
+          "time": 0.000177,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "tee() splits into two independent streams",
+          "suite": "ReadableStream — basic construction and reading",
+          "file": "tests/streams.test.ts",
+          "line": 64,
+          "time": 0.000321,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "cancel() resolves without error",
+          "suite": "ReadableStream — basic construction and reading",
+          "file": "tests/streams.test.ts",
+          "line": 78,
+          "time": 0.000072,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "write chunks and close",
+          "suite": "WritableStream",
+          "file": "tests/streams.test.ts",
+          "line": 94,
+          "time": 0.000137,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "abort() calls abort handler",
+          "suite": "WritableStream",
+          "file": "tests/streams.test.ts",
+          "line": 108,
+          "time": 0.000099,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "desiredSize is exposed on writer",
+          "suite": "WritableStream",
+          "file": "tests/streams.test.ts",
+          "line": 120,
+          "time": 0.00021,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "transforms each chunk",
+          "suite": "TransformStream",
+          "file": "tests/streams.test.ts",
+          "line": 137,
+          "time": 0.000504,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "pipe ReadableStream through TransformStream",
+          "suite": "TransformStream",
+          "file": "tests/streams.test.ts",
+          "line": 157,
+          "time": 0.000327,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "flush is called on close",
+          "suite": "TransformStream",
+          "file": "tests/streams.test.ts",
+          "line": 176,
+          "time": 0.000217,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "identity TransformStream passes chunks through",
+          "suite": "TransformStream",
+          "file": "tests/streams.test.ts",
+          "line": 195,
+          "time": 0.000109,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "basic write + end returns ArrayBuffer",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 210,
+          "time": 0.000076,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "asUint8Array option makes end() return Uint8Array",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 220,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "write() returns number of bytes written",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 229,
+          "time": 0.000042,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "stream mode: flush() returns Uint8Array of pending data",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 237,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "stream mode: writes after flush accumulate correctly",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 246,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "highWaterMark preallocates buffer without changing behaviour",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 256,
+          "time": 0.000048,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "can write ArrayBuffer chunks",
+          "suite": "Bun.ArrayBufferSink",
+          "file": "tests/streams.test.ts",
+          "line": 264,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "concatenates multiple ArrayBuffers",
+          "suite": "Bun.concatArrayBuffers",
+          "file": "tests/streams.test.ts",
+          "line": 278,
+          "time": 0.000045,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "concatenates Uint8Array views",
+          "suite": "Bun.concatArrayBuffers",
+          "file": "tests/streams.test.ts",
+          "line": 286,
+          "time": 0.000006,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns an ArrayBuffer by default",
+          "suite": "Bun.concatArrayBuffers",
+          "file": "tests/streams.test.ts",
+          "line": 293,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "maxLength truncates the result",
+          "suite": "Bun.concatArrayBuffers",
+          "file": "tests/streams.test.ts",
+          "line": 298,
+          "time": 0.000041,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "empty array returns empty ArrayBuffer",
+          "suite": "Bun.concatArrayBuffers",
+          "file": "tests/streams.test.ts",
+          "line": 305,
+          "time": 0.00001,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/postgres.test.ts",
+      "tests": 40,
+      "assertions": 54,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "SELECT 1 returns numeric 1",
+          "suite": "connection and basic queries &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 77,
+          "time": 0.01462,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "SELECT a literal string parameter",
+          "suite": "connection and basic queries &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 82,
+          "time": 0.030019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "NOW() returns a Date object",
+          "suite": "connection and basic queries &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 87,
+          "time": 0.014976,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "generate_series returns multiple rows",
+          "suite": "connection and basic queries &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 92,
+          "time": 0.014907,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "INSERT and SELECT",
+          "suite": "CRUD &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 105,
+          "time": 0.03396,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "UPDATE changes a value",
+          "suite": "CRUD &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 112,
+          "time": 0.035331,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "DELETE removes a row",
+          "suite": "CRUD &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 118,
+          "time": 0.029441,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "empty result set returns []",
+          "suite": "CRUD &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 124,
+          "time": 0.014418,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "SQL-injection attempt is escaped, not executed",
+          "suite": "parameterized query safety &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 135,
+          "time": 0.058013,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "numeric parameter passed safely",
+          "suite": "parameterized query safety &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 146,
+          "time": 0.030234,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "boolean parameter passed safely",
+          "suite": "parameterized query safety &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 151,
+          "time": 0.029851,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "null interpolation produces NULL",
+          "suite": "parameterized query safety &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 156,
+          "time": 0.032769,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sql(object) in INSERT expands to column/value pairs",
+          "suite": "sql() object and array helpers &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 169,
+          "time": 0.045467,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "sql(object, 'col') picks only the listed columns",
+          "suite": "sql() object and array helpers &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 177,
+          "time": 0.044553,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "sql(array) performs a bulk INSERT",
+          "suite": "sql() object and array helpers &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 186,
+          "time": 0.044832,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sql([...]) builds a WHERE IN clause",
+          "suite": "sql() object and array helpers &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 200,
+          "time": 0.030335,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "sql(object) in UPDATE SET clause",
+          "suite": "sql() object and array helpers &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 210,
+          "time": 0.045069,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "returns rows as arrays in column order",
+          "suite": ".values() format &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 227,
+          "time": 0.014862,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "returns rows as arrays of Buffer",
+          "suite": ".raw() format &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 237,
+          "time": 0.015008,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "commits on success",
+          "suite": "transactions &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 252,
+          "time": 0.076343,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "rolls back on thrown error",
+          "suite": "transactions &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 263,
+          "time": 0.06044,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "pipelined queries (returned array) commit together",
+          "suite": "transactions &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 275,
+          "time": 0.080718,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "committed savepoint is included in the outer transaction",
+          "suite": "savepoints &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 291,
+          "time": 0.119442,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "rolled-back savepoint leaves outer transaction intact",
+          "suite": "savepoints &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 302,
+          "time": 0.131465,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "conditional fragment included when truthy",
+          "suite": "dynamic SQL fragments &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 328,
+          "time": 0.043751,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "empty fragment excluded when falsy",
+          "suite": "dynamic SQL fragments &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 337,
+          "time": 0.016331,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "executes a raw SQL string",
+          "suite": "sql.unsafe() &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 352,
+          "time": 0.015301,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "accepts positional $1/$2 parameters",
+          "suite": "sql.unsafe() &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 357,
+          "time": 0.031952,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "executes multi-statement SQL without error",
+          "suite": ".simple() — simple query protocol &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 369,
+          "time": 0.017106,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "reserve() provides an isolated connection",
+          "suite": "reserved connections &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 380,
+          "time": 0.016233,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "using declaration auto-releases via Symbol.dispose",
+          "suite": "reserved connections &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 390,
+          "time": 0.016365,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "query on a non-existent table throws SQL.PostgresError",
+          "suite": "error handling &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 404,
+          "time": 0.016458,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "UNIQUE constraint violation throws PostgresError with code 23505",
+          "suite": "error handling &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 414,
+          "time": 0.037029,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "syntax error throws SQL.PostgresError",
+          "suite": "error handling &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 429,
+          "time": 0.016124,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "integer exceeding 53-bit precision returned as string by default",
+          "suite": "large integer handling &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 445,
+          "time": 0.015546,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "safe integer (≤53-bit) returned as number",
+          "suite": "large integer handling &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 451,
+          "time": 0.016009,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "bigint:true option returns large integers as BigInt",
+          "suite": "large integer handling &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 457,
+          "time": 0.159661,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "integer array works with ANY()",
+          "suite": "sql.array() — PostgreSQL array literals &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 474,
+          "time": 0.031996,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "string array works with ANY()",
+          "suite": "sql.array() — PostgreSQL array literals &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 480,
+          "time": 0.036678,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "value absent from array returns false",
+          "suite": "sql.array() — PostgreSQL array literals &gt; PostgreSQL — Bun.SQL",
+          "file": "tests/postgres.test.ts",
+          "line": 486,
+          "time": 0.033284,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/runner.test.ts",
+      "tests": 17,
+      "assertions": 35,
+      "failures": 1,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "returns the numeric value of the key",
+          "suite": "num()",
+          "file": "tests/runner.test.ts",
+          "line": 9,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "returns fallback when key is absent",
+          "suite": "num()",
+          "file": "tests/runner.test.ts",
+          "line": 15,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "collects a passing test case",
+          "suite": "collectCases()",
+          "file": "tests/runner.test.ts",
+          "line": 25,
+          "time": 0.00035,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "marks a test as failed when a <failure> element is present",
+          "suite": "collectCases()",
+          "file": "tests/runner.test.ts",
+          "line": 56,
+          "time": 0.000041,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "marks a test as skipped when a <skipped> element is present",
+          "suite": "collectCases()",
+          "file": "tests/runner.test.ts",
+          "line": 76,
+          "time": 0.000015,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "recursively collects from nested suites",
+          "suite": "collectCases()",
+          "file": "tests/runner.test.ts",
+          "line": 91,
+          "time": 0.000037,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "handles empty suite gracefully",
+          "suite": "collectCases()",
+          "file": "tests/runner.test.ts",
+          "line": 107,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "summary counts for all-passing XML",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 159,
+          "time": 0.001818,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "produces one file entry per <testsuite>",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 164,
+          "time": 0.00076,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "cases are populated correctly",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 170,
+          "time": 0.000178,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "summary reflects failures",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 177,
+          "time": 0.000212,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "failed case includes failure detail",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 183,
+          "time": 0.000193,
+          "assertions": 4,
+          "status": "passed"
+        },
+        {
+          "name": "summary reflects skipped tests",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 192,
+          "time": 0.000201,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "skipped case has correct status",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 198,
+          "time": 0.000216,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "multiple files are captured as separate entries",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 205,
+          "time": 0.000266,
+          "assertions": 5,
+          "status": "passed"
+        },
+        {
+          "name": "passed = tests - failures - skipped",
+          "suite": "parseJUnit()",
+          "file": "tests/runner.test.ts",
+          "line": 214,
+          "time": 0.00019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "runs a test file and returns structured results",
+          "suite": "runTests()",
+          "file": "tests/runner.test.ts",
+          "line": 232,
+          "time": 0.000666,
+          "assertions": 0,
+          "status": "failed",
+          "failure": {
+            "message": "",
+            "type": "AssertionError",
+            "body": ""
+          }
+        }
+      ]
+    },
+    {
+      "file": "tests/htmlrewriter.test.ts",
+      "tests": 26,
+      "assertions": 35,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "element() is called for matching selector",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 16,
+          "time": 0.000375,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "tagName is lowercase",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 30,
+          "time": 0.000077,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "getAttribute returns existing attribute",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 43,
+          "time": 0.00005,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "getAttribute returns null for missing attribute",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 56,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "hasAttribute returns true/false",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 69,
+          "time": 0.000006,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "setAttribute mutates the attribute in output",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 85,
+          "time": 0.000068,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "removeAttribute removes it from output",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 98,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "attributes iterator yields all pairs",
+          "suite": "HTMLRewriter — element handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 111,
+          "time": 0.000097,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "prepend inserts before element inner content",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 130,
+          "time": 0.000035,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "append inserts after element inner content",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 142,
+          "time": 0.000027,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "before inserts before the element",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 154,
+          "time": 0.000026,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "after inserts after the element",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 166,
+          "time": 0.000048,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "replace substitutes the element",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 178,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "remove removes the element and its content",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 191,
+          "time": 0.00005,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "removeAndKeepContent removes tag but keeps inner text",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 204,
+          "time": 0.000043,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "setInnerContent replaces inner HTML",
+          "suite": "HTMLRewriter — content mutation",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 217,
+          "time": 0.000005,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "text() is called with text chunks",
+          "suite": "HTMLRewriter — text handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 236,
+          "time": 0.000052,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "text can be replaced",
+          "suite": "HTMLRewriter — text handler",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 249,
+          "time": 0.000049,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "two .on() calls both fire",
+          "suite": "HTMLRewriter — multiple selectors",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 268,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "attribute selector [href] matches elements with that attribute",
+          "suite": "HTMLRewriter — multiple selectors",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 287,
+          "time": 0.000048,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "class selector .foo matches by class",
+          "suite": "HTMLRewriter — multiple selectors",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 300,
+          "time": 0.000051,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "end handler fires at document end",
+          "suite": "HTMLRewriter — onDocument()",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 319,
+          "time": 0.000006,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "end.append adds content after document",
+          "suite": "HTMLRewriter — onDocument()",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 332,
+          "time": 0.000051,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "doctype handler receives name",
+          "suite": "HTMLRewriter — onDocument()",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 344,
+          "time": 0,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "transform(Response) returns a Response",
+          "suite": "HTMLRewriter — transform(Response)",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 363,
+          "time": 0.000066,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "transformed Response body contains mutations",
+          "suite": "HTMLRewriter — transform(Response)",
+          "file": "tests/htmlrewriter.test.ts",
+          "line": 377,
+          "time": 0.00005,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/sqlite.test.ts",
+      "tests": 56,
+      "assertions": 77,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "opens an in-memory database with :memory:",
+          "suite": "Database constructor",
+          "file": "tests/sqlite.test.ts",
+          "line": 28,
+          "time": 0.00171,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "opens an in-memory database with empty string",
+          "suite": "Database constructor",
+          "file": "tests/sqlite.test.ts",
+          "line": 34,
+          "time": 0.000075,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "opens an in-memory database with no argument",
+          "suite": "Database constructor",
+          "file": "tests/sqlite.test.ts",
+          "line": 40,
+          "time": 0.000038,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".close() can be called multiple times without error",
+          "suite": "Database constructor",
+          "file": "tests/sqlite.test.ts",
+          "line": 46,
+          "time": 0.000056,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "using statement auto-closes the database",
+          "suite": "Database constructor",
+          "file": "tests/sqlite.test.ts",
+          "line": 52,
+          "time": 0.000199,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": ".run() INSERT returns lastInsertRowid and changes",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 77,
+          "time": 0.000107,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": ".query().get() returns the first matching row as an object",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 83,
+          "time": 0.00019,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": ".query().get() returns null when no row matches",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 90,
+          "time": 0.000121,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".query().all() returns all matching rows as an array of objects",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 95,
+          "time": 0.000188,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": ".query().all() returns empty array when no rows match",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 104,
+          "time": 0.000027,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "UPDATE reflects change count in .run() result",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 109,
+          "time": 0.000166,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "DELETE removes rows and reflects change count",
+          "suite": "basic CRUD",
+          "file": "tests/sqlite.test.ts",
+          "line": 116,
+          "time": 0.000106,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "named parameter with $ prefix",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 139,
+          "time": 0.000015,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "named parameter with : prefix",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 147,
+          "time": 0.000144,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "positional ? parameters",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 154,
+          "time": 0.00009,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "numbered ?1 ?2 parameters",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 161,
+          "time": 0.000086,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "statement is reusable with different parameters",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 168,
+          "time": 0.000096,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "strict mode allows binding without prefixes",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 176,
+          "time": 0.000109,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".values() returns rows as arrays",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 185,
+          "time": 0.000138,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": ".iterate() yields rows one at a time",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 193,
+          "time": 0.000209,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".as(Class) maps rows to class instances with methods",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 203,
+          "time": 0.000117,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": ".finalize() prevents further execution",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 219,
+          "time": 0.000066,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": ".toString() reflects the last bound parameter values",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 225,
+          "time": 0.00014,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "columnNames is populated after .get()",
+          "suite": "prepared statements and parameters",
+          "file": "tests/sqlite.test.ts",
+          "line": 231,
+          "time": 0.000035,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "TEXT stores and retrieves a string",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 254,
+          "time": 0.000089,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "INTEGER stores and retrieves a number",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 260,
+          "time": 0.000084,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "REAL stores and retrieves a float",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 266,
+          "time": 0.000117,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "NULL stores and retrieves null",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 272,
+          "time": 0.000075,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "BLOB (Uint8Array) stores and retrieves binary data",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 278,
+          "time": 0.000071,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Buffer stores and retrieves as Uint8Array",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 286,
+          "time": 0.000012,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "boolean true stores as 1, retrieves as 1",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 294,
+          "time": 0.000123,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "boolean false stores as 0, retrieves as 0",
+          "suite": "data type round-trips",
+          "file": "tests/sqlite.test.ts",
+          "line": 300,
+          "time": 0.000074,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "default mode returns large integers as number (possibly imprecise)",
+          "suite": "safeIntegers",
+          "file": "tests/sqlite.test.ts",
+          "line": 312,
+          "time": 0.000019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "safeIntegers:true returns large integers as bigint",
+          "suite": "safeIntegers",
+          "file": "tests/sqlite.test.ts",
+          "line": 321,
+          "time": 0.000024,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "safeIntegers:true throws when bigint exceeds 64 bits",
+          "suite": "safeIntegers",
+          "file": "tests/sqlite.test.ts",
+          "line": 330,
+          "time": 0.000138,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "transaction commits on success",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 352,
+          "time": 0.000028,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "transaction rolls back on error",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 368,
+          "time": 0.000306,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "transaction return value is propagated",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 381,
+          "time": 0.000275,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "nested transactions use savepoints",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 389,
+          "time": 0.000033,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "deferred transaction variant executes successfully",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 403,
+          "time": 0.000215,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "immediate transaction variant executes successfully",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 410,
+          "time": 0.000065,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exclusive transaction variant executes successfully",
+          "suite": "transactions",
+          "file": "tests/sqlite.test.ts",
+          "line": 417,
+          "time": 0.000131,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "journal_mode = WAL is accepted",
+          "suite": "pragmas and WAL mode",
+          "file": "tests/sqlite.test.ts",
+          "line": 430,
+          "time": 0.000045,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "foreign_keys pragma enables FK enforcement",
+          "suite": "pragmas and WAL mode",
+          "file": "tests/sqlite.test.ts",
+          "line": 438,
+          "time": 0.000075,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "integrity_check returns 'ok' on a healthy database",
+          "suite": "pragmas and WAL mode",
+          "file": "tests/sqlite.test.ts",
+          "line": 447,
+          "time": 0.000109,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "serialize returns a Uint8Array",
+          "suite": "serialize / deserialize",
+          "file": "tests/sqlite.test.ts",
+          "line": 462,
+          "time": 0.000112,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "deserialize reconstructs the database with its data",
+          "suite": "serialize / deserialize",
+          "file": "tests/sqlite.test.ts",
+          "line": 471,
+          "time": 0.000187,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "syntax error throws",
+          "suite": "error handling",
+          "file": "tests/sqlite.test.ts",
+          "line": 491,
+          "time": 0.00001,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "UNIQUE constraint violation throws with SQLITE_CONSTRAINT code",
+          "suite": "error handling",
+          "file": "tests/sqlite.test.ts",
+          "line": 497,
+          "time": 0.000123,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "NOT NULL constraint violation throws",
+          "suite": "error handling",
+          "file": "tests/sqlite.test.ts",
+          "line": 512,
+          "time": 0.000043,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "query on a closed database throws",
+          "suite": "error handling",
+          "file": "tests/sqlite.test.ts",
+          "line": 519,
+          "time": 0.00007,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "in-memory SQLite via new SQL(':memory:')",
+          "suite": "Bun.SQL unified API — SQLite adapter",
+          "file": "tests/sqlite.test.ts",
+          "line": 531,
+          "time": 0.00062,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "parameterised queries prevent SQL injection",
+          "suite": "Bun.SQL unified API — SQLite adapter",
+          "file": "tests/sqlite.test.ts",
+          "line": 540,
+          "time": 0.000169,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.SQL transaction commits on success",
+          "suite": "Bun.SQL unified API — SQLite adapter",
+          "file": "tests/sqlite.test.ts",
+          "line": 553,
+          "time": 0.000522,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.SQL transaction rolls back on error",
+          "suite": "Bun.SQL unified API — SQLite adapter",
+          "file": "tests/sqlite.test.ts",
+          "line": 570,
+          "time": 0.000353,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.SQL .values() returns arrays",
+          "suite": "Bun.SQL unified API — SQLite adapter",
+          "file": "tests/sqlite.test.ts",
+          "line": 587,
+          "time": 0.000024,
+          "assertions": 1,
+          "status": "passed"
+        }
+      ]
+    },
+    {
+      "file": "tests/file-io.test.ts",
+      "tests": 30,
+      "assertions": 52,
+      "failures": 0,
+      "skipped": 0,
+      "time": 0,
+      "cases": [
+        {
+          "name": "size is a positive integer for an existing file",
+          "suite": "BunFile metadata",
+          "file": "tests/file-io.test.ts",
+          "line": 25,
+          "time": 0.000034,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "type returns a MIME string for a known extension",
+          "suite": "BunFile metadata",
+          "file": "tests/file-io.test.ts",
+          "line": 31,
+          "time": 0,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "type can be overridden via options",
+          "suite": "BunFile metadata",
+          "file": "tests/file-io.test.ts",
+          "line": 38,
+          "time": 0.000012,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exists() returns true for a real file",
+          "suite": "BunFile metadata",
+          "file": "tests/file-io.test.ts",
+          "line": 45,
+          "time": 0.000045,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "exists() returns false for a missing file",
+          "suite": "BunFile metadata",
+          "file": "tests/file-io.test.ts",
+          "line": 50,
+          "time": 0.000045,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "size is 0 for a non-existent file",
+          "suite": "BunFile metadata",
+          "file": "tests/file-io.test.ts",
+          "line": 55,
+          "time": 0.000011,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "text() reads file as a UTF-8 string",
+          "suite": "Bun.file() — reading",
+          "file": "tests/file-io.test.ts",
+          "line": 67,
+          "time": 0.000111,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "json() parses file as JSON",
+          "suite": "Bun.file() — reading",
+          "file": "tests/file-io.test.ts",
+          "line": 75,
+          "time": 0.000368,
+          "assertions": 4,
+          "status": "passed"
+        },
+        {
+          "name": "arrayBuffer() returns an ArrayBuffer with correct byte length",
+          "suite": "Bun.file() — reading",
+          "file": "tests/file-io.test.ts",
+          "line": 84,
+          "time": 0.000097,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "bytes() returns a Uint8Array",
+          "suite": "Bun.file() — reading",
+          "file": "tests/file-io.test.ts",
+          "line": 91,
+          "time": 0.000098,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "stream() returns a ReadableStream that yields the full content",
+          "suite": "Bun.file() — reading",
+          "file": "tests/file-io.test.ts",
+          "line": 100,
+          "time": 0.000268,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "can create BunFile from a file:// URL",
+          "suite": "Bun.file() — reading",
+          "file": "tests/file-io.test.ts",
+          "line": 108,
+          "time": 0.00014,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes a string to disk and returns byte count",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 121,
+          "time": 0.00023,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "writes a Uint8Array to disk",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 130,
+          "time": 0.000168,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes an ArrayBuffer to disk",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 138,
+          "time": 0.000211,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes a Blob to disk",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 147,
+          "time": 0.00019,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "copies a BunFile by passing it as the source",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 155,
+          "time": 0.000383,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "overwrites an existing file",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 164,
+          "time": 0.000216,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes using a BunFile destination",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 172,
+          "time": 0.000138,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes a Response body to disk",
+          "suite": "Bun.write()",
+          "file": "tests/file-io.test.ts",
+          "line": 178,
+          "time": 0.000156,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "writes multiple string chunks and reads them back",
+          "suite": "FileSink — incremental writing",
+          "file": "tests/file-io.test.ts",
+          "line": 192,
+          "time": 0.000179,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "write() returns the number of bytes buffered",
+          "suite": "FileSink — incremental writing",
+          "file": "tests/file-io.test.ts",
+          "line": 206,
+          "time": 0.000088,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "flush() flushes the buffer and returns bytes flushed",
+          "suite": "FileSink — incremental writing",
+          "file": "tests/file-io.test.ts",
+          "line": 214,
+          "time": 0.000155,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "writes Uint8Array chunks",
+          "suite": "FileSink — incremental writing",
+          "file": "tests/file-io.test.ts",
+          "line": 226,
+          "time": 0.000145,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "respects a custom highWaterMark",
+          "suite": "FileSink — incremental writing",
+          "file": "tests/file-io.test.ts",
+          "line": 236,
+          "time": 0.000155,
+          "assertions": 1,
+          "status": "passed"
+        },
+        {
+          "name": "deletes an existing file",
+          "suite": "BunFile.delete()",
+          "file": "tests/file-io.test.ts",
+          "line": 251,
+          "time": 0.000199,
+          "assertions": 2,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.stdin is a BunFile with a numeric fd",
+          "suite": "Bun standard streams",
+          "file": "tests/file-io.test.ts",
+          "line": 265,
+          "time": 0.000016,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.stdout is a BunFile with a stream() method",
+          "suite": "Bun standard streams",
+          "file": "tests/file-io.test.ts",
+          "line": 272,
+          "time": 0.000033,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.stderr is a BunFile with a stream() method",
+          "suite": "Bun standard streams",
+          "file": "tests/file-io.test.ts",
+          "line": 278,
+          "time": 0.000009,
+          "assertions": 3,
+          "status": "passed"
+        },
+        {
+          "name": "Bun.stdout and Bun.stderr have a MIME type",
+          "suite": "Bun standard streams",
+          "file": "tests/file-io.test.ts",
+          "line": 284,
+          "time": 0.000014,
+          "assertions": 3,
+          "status": "passed"
+        }
+      ]
+    }
+  ]
+}

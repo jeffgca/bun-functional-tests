@@ -148,7 +148,7 @@ export async function parseJUnit(xml: string): Promise<TestResults> {
 // ─── Runner ───────────────────────────────────────────────────────────────────
 
 export async function runTests(args: string[] = [], junitPath = JUNIT_PATH): Promise<TestResults> {
-  await Bun.$`bun test ${args} --reporter=junit --reporter-outfile=${junitPath}`.nothrow();
+  await Bun.$`bun test ${args} --reporter=junit --reporter-outfile=${junitPath}`.nothrow().quiet();
   const xml = await Bun.file(junitPath).text();
   return parseJUnit(xml);
 }
