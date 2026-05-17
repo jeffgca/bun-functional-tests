@@ -108,14 +108,17 @@ describe("Bun.$ — interpolation", () => {
 
 describe("Bun.$ — env and cwd", () => {
   test(".env() sets custom env var", async () => {
-    const out = await $`echo $MYVAR`.quiet().env({ ...process.env, MYVAR: "hello123" }).text();
+    const out = await $`echo $MYVAR`
+      .quiet()
+      .env({ ...process.env, MYVAR: "hello123" })
+      .text();
     expect(out.trim()).toBe("hello123");
   });
 
   test(".cwd() changes working directory", async () => {
     const out = await $`pwd`.quiet().cwd(TMP).text();
     // resolve symlinks for macOS /private/var -> /var etc.
-    expect(out.trim()).toBe(await Bun.file("/dev/null").exists() ? out.trim() : TMP);
+    expect(out.trim()).toBe((await Bun.file("/dev/null").exists()) ? out.trim() : TMP);
     // Simply verify the reported dir ends with our tmp dir name
     expect(out.trim()).toContain("tmp-shell");
   });

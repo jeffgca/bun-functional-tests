@@ -45,9 +45,7 @@ describe("PostgreSQL — Bun.SQL", () => {
       effectiveUrl = `postgres://postgres:postgres@127.0.0.1:${port}/postgres`;
     }
 
-    db = isPg
-      ? new SQL(effectiveUrl)
-      : new SQL({ url: effectiveUrl, tls: false });
+    db = isPg ? new SQL(effectiveUrl) : new SQL({ url: effectiveUrl, tls: false });
     await db.unsafe(`DROP TABLE IF EXISTS ${TABLE}`);
     await db.unsafe(`
       CREATE TABLE ${TABLE} (
@@ -424,9 +422,7 @@ describe("PostgreSQL — Bun.SQL", () => {
       expect(caught).toBeDefined();
       // Real PostgreSQL uses SQLSTATE 23505; PGlite-socket tunnels it through
       // the error message when the client doesn't parse the ERRORRESPONSE field.
-      const isUniqueViolation =
-        caught!.code === "23505" ||
-        caught!.message?.toLowerCase().includes("unique");
+      const isUniqueViolation = caught!.code === "23505" || caught!.message?.toLowerCase().includes("unique");
       expect(isUniqueViolation).toBe(true);
     });
 
@@ -453,9 +449,7 @@ describe("PostgreSQL — Bun.SQL", () => {
     });
 
     test.skipIf(!isPg)("bigint:true option returns large integers as BigInt", async () => {
-      const bigdb = isPg
-        ? new SQL({ url: effectiveUrl, bigint: true })
-        : new SQL({ url: effectiveUrl, bigint: true, tls: false });
+      const bigdb = isPg ? new SQL({ url: effectiveUrl, bigint: true }) : new SQL({ url: effectiveUrl, bigint: true, tls: false });
       try {
         const [row] = await bigdb`SELECT 9223372036854777 AS v`;
         expect(typeof row.v).toBe("bigint");
