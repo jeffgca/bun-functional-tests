@@ -33,3 +33,8 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # Finder (MacOS) folder config
 .DS_Store
 __snapshots__/test-runner.test.ts.snap
+tests/redis.test.ts
+.gitignore
+tests/fixtures/sample.txt
+tests/__snapshots__/test-runner.test.ts.snap
+test_output.log
