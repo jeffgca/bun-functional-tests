@@ -44,6 +44,17 @@ export interface TestResults {
   files: TestFile[];
 }
 
+export interface RunnerProcess {
+  exited: Promise<number>;
+  stderr: ReadableStream<Uint8Array> | null;
+}
+
+export interface RunTestsDependencies {
+  spawnTestProcess?: (cmd: string[]) => RunnerProcess;
+  readJUnitFile?: (path: string) => Promise<string>;
+  parse?: (xml: string) => Promise<TestResults>;
+}
+
 // ─── xml2js types (parsed shape) ─────────────────────────────────────────────
 
 export interface JUnitAttrs {
@@ -147,22 +158,28 @@ export async function parseJUnit(xml: string): Promise<TestResults> {
 
 // ─── Runner ───────────────────────────────────────────────────────────────────
 
-export async function runTests(args: string[] = [], junitPath = JUNIT_PATH): Promise<TestResults> {
-  const proc = Bun.spawn({
-    cmd: ["bun", "test", ...args, "--reporter=junit", `--reporter-outfile=${junitPath}`],
-    stdout: "pipe",
-    stderr: "pipe",
-  });
+export async function runTests(
+  args: string[] = [],
+  junitPath = JUNIT_PATH,
+  deps: RunTestsDependencies = {},
+): Promise<TestResults> {
+  const spawnTestProcess =
+    deps.spawnTestProcess ??
+    ((cmd: string[]): RunnerProcess => Bun.spawn({ cmd, stdout: "pipe", stderr: "pipe" }));
+  const readJUnitFile = deps.readJUnitFile ?? ((path: string) => Bun.file(path).text());
+  const parse = deps.parse ?? parseJUnit;
+  const cmd = ["bun", "test", ...args, "--reporter=junit", `--reporter-outfile=${junitPath}`];
+  const proc = spawnTestProcess(cmd);
 
   const [exitCode, stderr] = await Promise.all([
     proc.exited,
-    new Response(proc.stderr).text(),
+    proc.stderr ? new Response(proc.stderr).text() : Promise.resolve(""),
   ]);
 
   if (exitCode !== 0) {
     throw new Error(stderr || `bun test failed with exit code ${exitCode}`);
   }
 
-  const xml = await Bun.file(junitPath).text();
-  return parseJUnit(xml);
+  const xml = await readJUnitFile(junitPath);
+  return parse(xml);
 }
