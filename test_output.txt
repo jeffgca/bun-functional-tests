@@ -1,0 +1,254 @@
+bun test v1.3.13 (bf2e2cec)
+
+websocket.test.ts:
+(pass) WebSocket lifecycle > client can connect and receives the open greeting [2.07ms]
+(pass) WebSocket lifecycle > open handler increments server-side open counter [0.53ms]
+(pass) WebSocket lifecycle > server.pendingWebSockets increments when a socket opens [21.64ms]
+(pass) WebSocket lifecycle > close handler receives the close code from client.close() [22.30ms]
+(pass) WebSocket lifecycle > close event fires on the client after ws.close() [0.69ms]
+(pass) message exchange > string message is echoed back correctly [0.55ms]
+(pass) message exchange > multiple sequential messages are echoed in order [0.73ms]
+(pass) message exchange > empty string message is echoed back [0.44ms]
+(pass) message exchange > binary (Uint8Array) message round-trips correctly [0.87ms]
+(pass) message exchange > ArrayBuffer message round-trips correctly [0.67ms]
+(pass) message exchange > large string message is echoed back intact [0.75ms]
+(pass) ws.send() backpressure indicator > send() returns a non-negative integer [23.08ms]
+(pass) contextual data (ws.data) > ws.data carries userId from the upgrade call [1.40ms]
+(pass) contextual data (ws.data) > multiple connections carry independent data [0.67ms]
+(pass) pub/sub > subscribe confirmation is received on open [0.62ms]
+(pass) pub/sub > ws.isSubscribed() returns true after subscribing [0.56ms]
+(pass) pub/sub > ws.isSubscribed() returns false for an unrelated topic [0.46ms]
+(pass) pub/sub > ws.subscriptions includes the active topic [0.46ms]
+(pass) pub/sub > ws.publish() delivers message to other subscribers but not self [0.85ms]
+(pass) pub/sub > server.publish() broadcasts to all subscribers of a topic [1.01ms]
+(pass) pub/sub > server.subscriberCount() reflects live subscription count [22.00ms]
+(pass) perMessageDeflate compression > messages are received correctly when perMessageDeflate is enabled [3.17ms]
+(pass) custom upgrade headers > Set-Cookie header is returned in the 101 upgrade response [2.31ms]
+
+http-server.test.ts:
+(pass) server lifecycle > server.url is a valid URL [0.07ms]
+(pass) server lifecycle > server.port is a positive integer [0.04ms]
+(pass) server lifecycle > server.pendingRequests is a non-negative number [0.01ms]
+(pass) static routes > GET /health returns 200 OK [0.62ms]
+(pass) static routes > GET /api/static-json returns pre-built JSON [0.18ms]
+(pass) static routes > unmatched route falls through to fetch() handler with 404 [0.21ms]
+(pass) parameterised routes > single param :id is captured correctly [0.18ms]
+(pass) parameterised routes > multiple params :org and :repo are captured correctly [0.16ms]
+(pass) parameterised routes > URL-encoded param is decoded [0.14ms]
+(pass) HTTP verb routing > GET /api/items returns array [0.16ms]
+(pass) HTTP verb routing > POST /api/items creates resource with 201 [0.25ms]
+(pass) HTTP verb routing > PUT /api/items updates resource [0.20ms]
+(pass) HTTP verb routing > DELETE /api/items returns 204 No Content [0.13ms]
+(pass) HTTP verb routing > PATCH /api/items partially updates resource [0.19ms]
+(pass) request body parsing > JSON body is parsed correctly [0.19ms]
+(pass) request body parsing > plain text body is echoed back [0.18ms]
+(pass) request body parsing > FormData body fields are parsed [0.24ms]
+(pass) request body parsing > application/x-www-form-urlencoded body is parsed [0.20ms]
+(pass) request body parsing > ArrayBuffer body round-trips correctly [0.21ms]
+(pass) file streaming > BunFile is streamed as response body [0.29ms]
+(pass) file streaming > streamed file has a content-type header [0.19ms]
+(pass) response streaming > async generator streams chunks in order [0.94ms]
+(pass) server-sent events > SSE endpoint returns text/event-stream content-type [0.24ms]
+(pass) server-sent events > SSE response body contains valid event frames [0.16ms]
+(pass) wildcard routes > /api/* catches unmatched paths under /api/ [0.15ms]
+(pass) error handler > thrown error in route invokes the error() callback [2.66ms]
+(pass) server metrics > server.pendingWebSockets starts at 0
+(pass) server metrics > server.subscriberCount returns 0 for unknown topic
+(pass) server metrics > server.requestIP returns null or SocketAddress for a request [2.25ms]
+(pass) server.reload() > routes can be hot-swapped without restarting the server [1.33ms]
+
+file-io.test.ts:
+(pass) BunFile metadata > size is a positive integer for an existing file [0.05ms]
+(pass) BunFile metadata > type returns a MIME string for a known extension
+(pass) BunFile metadata > type can be overridden via options [0.17ms]
+(pass) BunFile metadata > exists() returns true for a real file [0.03ms]
+(pass) BunFile metadata > exists() returns false for a missing file [0.11ms]
+(pass) BunFile metadata > size is 0 for a non-existent file [0.03ms]
+(pass) Bun.file() — reading > text() reads file as a UTF-8 string [0.21ms]
+(pass) Bun.file() — reading > json() parses file as JSON [0.39ms]
+(pass) Bun.file() — reading > arrayBuffer() returns an ArrayBuffer with correct byte length [0.18ms]
+(pass) Bun.file() — reading > bytes() returns a Uint8Array [0.14ms]
+(pass) Bun.file() — reading > stream() returns a ReadableStream that yields the full content [2.47ms]
+(pass) Bun.file() — reading > can create BunFile from a file:// URL [0.13ms]
+(pass) Bun.write() > writes a string to disk and returns byte count [0.41ms]
+(pass) Bun.write() > writes a Uint8Array to disk [0.21ms]
+(pass) Bun.write() > writes an ArrayBuffer to disk [0.20ms]
+(pass) Bun.write() > writes a Blob to disk [0.23ms]
+(pass) Bun.write() > copies a BunFile by passing it as the source [0.48ms]
+(pass) Bun.write() > overwrites an existing file [0.27ms]
+(pass) Bun.write() > writes using a BunFile destination [0.17ms]
+(pass) Bun.write() > writes a Response body to disk [0.21ms]
+(pass) FileSink — incremental writing > writes multiple string chunks and reads them back [0.20ms]
+(pass) FileSink — incremental writing > write() returns the number of bytes buffered [0.12ms]
+(pass) FileSink — incremental writing > flush() flushes the buffer and returns bytes flushed [0.21ms]
+(pass) FileSink — incremental writing > writes Uint8Array chunks [0.18ms]
+(pass) FileSink — incremental writing > respects a custom highWaterMark [0.17ms]
+(pass) BunFile.delete() > deletes an existing file [0.24ms]
+(pass) Bun standard streams > Bun.stdin is a BunFile with a numeric fd [0.02ms]
+(pass) Bun standard streams > Bun.stdout is a BunFile with a stream() method
+(pass) Bun standard streams > Bun.stderr is a BunFile with a stream() method
+(pass) Bun standard streams > Bun.stdout and Bun.stderr have a MIME type
+
+postgres.test.ts:
+(skip) PostgreSQL — Bun.SQL > (unnamed)
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > SELECT 1 returns numeric 1
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > SELECT a literal string parameter
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > NOW() returns a Date object
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > generate_series returns multiple rows
+(skip) PostgreSQL — Bun.SQL > CRUD > (unnamed)
+(skip) PostgreSQL — Bun.SQL > CRUD > INSERT and SELECT
+(skip) PostgreSQL — Bun.SQL > CRUD > UPDATE changes a value
+(skip) PostgreSQL — Bun.SQL > CRUD > DELETE removes a row
+(skip) PostgreSQL — Bun.SQL > CRUD > empty result set returns []
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > SQL-injection attempt is escaped, not executed
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > numeric parameter passed safely
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > boolean parameter passed safely
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > null interpolation produces NULL
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > (unnamed)
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(object) in INSERT expands to column/value pairs
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(object, 'col') picks only the listed columns
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(array) performs a bulk INSERT
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql([...]) builds a WHERE IN clause
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(object) in UPDATE SET clause
+(skip) PostgreSQL — Bun.SQL > .values() format > (unnamed)
+(skip) PostgreSQL — Bun.SQL > .values() format > returns rows as arrays in column order
+(skip) PostgreSQL — Bun.SQL > .raw() format > returns rows as arrays of Buffer
+(skip) PostgreSQL — Bun.SQL > transactions > (unnamed)
+(skip) PostgreSQL — Bun.SQL > transactions > commits on success
+(skip) PostgreSQL — Bun.SQL > transactions > rolls back on thrown error
+(skip) PostgreSQL — Bun.SQL > transactions > pipelined queries (returned array) commit together
+(skip) PostgreSQL — Bun.SQL > savepoints > (unnamed)
+(skip) PostgreSQL — Bun.SQL > savepoints > committed savepoint is included in the outer transaction
+(skip) PostgreSQL — Bun.SQL > savepoints > rolled-back savepoint leaves outer transaction intact
+(skip) PostgreSQL — Bun.SQL > dynamic SQL fragments > (unnamed)
+(skip) PostgreSQL — Bun.SQL > dynamic SQL fragments > conditional fragment included when truthy
+(skip) PostgreSQL — Bun.SQL > dynamic SQL fragments > empty fragment excluded when falsy
+(skip) PostgreSQL — Bun.SQL > sql.unsafe() > executes a raw SQL string
+(skip) PostgreSQL — Bun.SQL > sql.unsafe() > accepts positional $1/$2 parameters
+(skip) PostgreSQL — Bun.SQL > .simple() — simple query protocol > executes multi-statement SQL without error
+(skip) PostgreSQL — Bun.SQL > reserved connections > reserve() provides an isolated connection
+(skip) PostgreSQL — Bun.SQL > reserved connections > using declaration auto-releases via Symbol.dispose
+(skip) PostgreSQL — Bun.SQL > error handling > query on a non-existent table throws SQL.PostgresError
+(skip) PostgreSQL — Bun.SQL > error handling > UNIQUE constraint violation throws PostgresError with code 23505
+(skip) PostgreSQL — Bun.SQL > error handling > syntax error throws SQL.PostgresError
+(skip) PostgreSQL — Bun.SQL > large integer handling > integer exceeding 53-bit precision returned as string by default
+(skip) PostgreSQL — Bun.SQL > large integer handling > safe integer (≤53-bit) returned as number
+(skip) PostgreSQL — Bun.SQL > large integer handling > bigint:true option returns large integers as BigInt
+(skip) PostgreSQL — Bun.SQL > sql.array() — PostgreSQL array literals > integer array works with ANY()
+(skip) PostgreSQL — Bun.SQL > sql.array() — PostgreSQL array literals > string array works with ANY()
+(skip) PostgreSQL — Bun.SQL > sql.array() — PostgreSQL array literals > value absent from array returns false
+(skip) PostgreSQL — Bun.SQL > (unnamed)
+
+sqlite.test.ts:
+(pass) Database constructor > opens an in-memory database with :memory: [1.67ms]
+(pass) Database constructor > opens an in-memory database with empty string [0.09ms]
+(pass) Database constructor > opens an in-memory database with no argument [0.04ms]
+(pass) Database constructor > .close() can be called multiple times without error
+(pass) Database constructor > using statement auto-closes the database [0.15ms]
+(pass) basic CRUD > .run() INSERT returns lastInsertRowid and changes [0.57ms]
+(pass) basic CRUD > .query().get() returns the first matching row as an object
+(pass) basic CRUD > .query().get() returns null when no row matches
+(pass) basic CRUD > .query().all() returns all matching rows as an array of objects
+(pass) basic CRUD > .query().all() returns empty array when no rows match [0.57ms]
+(pass) basic CRUD > UPDATE reflects change count in .run() result
+(pass) basic CRUD > DELETE removes rows and reflects change count [0.22ms]
+(pass) prepared statements and parameters > named parameter with $ prefix [0.25ms]
+(pass) prepared statements and parameters > named parameter with : prefix [0.13ms]
+(pass) prepared statements and parameters > positional ? parameters [0.11ms]
+(pass) prepared statements and parameters > numbered ?1 ?2 parameters [0.13ms]
+(pass) prepared statements and parameters > statement is reusable with different parameters [0.13ms]
+(pass) prepared statements and parameters > strict mode allows binding without prefixes [0.15ms]
+(pass) prepared statements and parameters > .values() returns rows as arrays [0.18ms]
+(pass) prepared statements and parameters > .iterate() yields rows one at a time [0.27ms]
+(pass) prepared statements and parameters > .as(Class) maps rows to class instances with methods
+(pass) prepared statements and parameters > .finalize() prevents further execution [0.27ms]
+(pass) prepared statements and parameters > .toString() reflects the last bound parameter values [0.10ms]
+(pass) prepared statements and parameters > columnNames is populated after .get() [0.13ms]
+(pass) data type round-trips > TEXT stores and retrieves a string [0.20ms]
+(pass) data type round-trips > INTEGER stores and retrieves a number
+(pass) data type round-trips > REAL stores and retrieves a float
+(pass) data type round-trips > NULL stores and retrieves null
+(pass) data type round-trips > BLOB (Uint8Array) stores and retrieves binary data [0.03ms]
+(pass) data type round-trips > Buffer stores and retrieves as Uint8Array [0.11ms]
+(pass) data type round-trips > boolean true stores as 1, retrieves as 1
+(pass) data type round-trips > boolean false stores as 0, retrieves as 0 [0.32ms]
+(pass) safeIntegers > default mode returns large integers as number (possibly imprecise)
+(pass) safeIntegers > safeIntegers:true returns large integers as bigint
+(pass) safeIntegers > safeIntegers:true throws when bigint exceeds 64 bits
+(pass) transactions > transaction commits on success [0.72ms]
+(pass) transactions > transaction rolls back on error [0.05ms]
+(pass) transactions > transaction return value is propagated
+(pass) transactions > nested transactions use savepoints
+(pass) transactions > deferred transaction variant executes successfully [0.61ms]
+(pass) transactions > immediate transaction variant executes successfully [0.02ms]
+(pass) transactions > exclusive transaction variant executes successfully [0.12ms]
+(pass) pragmas and WAL mode > journal_mode = WAL is accepted
+(pass) pragmas and WAL mode > foreign_keys pragma enables FK enforcement
+(pass) pragmas and WAL mode > integrity_check returns 'ok' on a healthy database
+(pass) serialize / deserialize > serialize returns a Uint8Array
+(pass) serialize / deserialize > deserialize reconstructs the database with its data [0.57ms]
+(pass) error handling > syntax error throws [0.06ms]
+(pass) error handling > UNIQUE constraint violation throws with SQLITE_CONSTRAINT code [0.26ms]
+(pass) error handling > NOT NULL constraint violation throws [0.21ms]
+(pass) error handling > query on a closed database throws
+(pass) Bun.SQL unified API — SQLite adapter > in-memory SQLite via new SQL(':memory:') [1.93ms]
+(pass) Bun.SQL unified API — SQLite adapter > parameterised queries prevent SQL injection [0.13ms]
+(pass) Bun.SQL unified API — SQLite adapter > Bun.SQL transaction commits on success [1.53ms]
+(pass) Bun.SQL unified API — SQLite adapter > Bun.SQL transaction rolls back on error [1.02ms]
+(pass) Bun.SQL unified API — SQLite adapter > Bun.SQL .values() returns arrays [0.27ms]
+
+48 tests skipped:
+(skip) PostgreSQL — Bun.SQL > (unnamed)
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > SELECT 1 returns numeric 1
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > SELECT a literal string parameter
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > NOW() returns a Date object
+(skip) PostgreSQL — Bun.SQL > connection and basic queries > generate_series returns multiple rows
+(skip) PostgreSQL — Bun.SQL > CRUD > (unnamed)
+(skip) PostgreSQL — Bun.SQL > CRUD > INSERT and SELECT
+(skip) PostgreSQL — Bun.SQL > CRUD > UPDATE changes a value
+(skip) PostgreSQL — Bun.SQL > CRUD > DELETE removes a row
+(skip) PostgreSQL — Bun.SQL > CRUD > empty result set returns []
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > SQL-injection attempt is escaped, not executed
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > numeric parameter passed safely
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > boolean parameter passed safely
+(skip) PostgreSQL — Bun.SQL > parameterized query safety > null interpolation produces NULL
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > (unnamed)
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(object) in INSERT expands to column/value pairs
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(object, 'col') picks only the listed columns
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(array) performs a bulk INSERT
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql([...]) builds a WHERE IN clause
+(skip) PostgreSQL — Bun.SQL > sql() object and array helpers > sql(object) in UPDATE SET clause
+(skip) PostgreSQL — Bun.SQL > .values() format > (unnamed)
+(skip) PostgreSQL — Bun.SQL > .values() format > returns rows as arrays in column order
+(skip) PostgreSQL — Bun.SQL > .raw() format > returns rows as arrays of Buffer
+(skip) PostgreSQL — Bun.SQL > transactions > (unnamed)
+(skip) PostgreSQL — Bun.SQL > transactions > commits on success
+(skip) PostgreSQL — Bun.SQL > transactions > rolls back on thrown error
+(skip) PostgreSQL — Bun.SQL > transactions > pipelined queries (returned array) commit together
+(skip) PostgreSQL — Bun.SQL > savepoints > (unnamed)
+(skip) PostgreSQL — Bun.SQL > savepoints > committed savepoint is included in the outer transaction
+(skip) PostgreSQL — Bun.SQL > savepoints > rolled-back savepoint leaves outer transaction intact
+(skip) PostgreSQL — Bun.SQL > dynamic SQL fragments > (unnamed)
+(skip) PostgreSQL — Bun.SQL > dynamic SQL fragments > conditional fragment included when truthy
+(skip) PostgreSQL — Bun.SQL > dynamic SQL fragments > empty fragment excluded when falsy
+(skip) PostgreSQL — Bun.SQL > sql.unsafe() > executes a raw SQL string
+(skip) PostgreSQL — Bun.SQL > sql.unsafe() > accepts positional $1/$2 parameters
+(skip) PostgreSQL — Bun.SQL > .simple() — simple query protocol > executes multi-statement SQL without error
+(skip) PostgreSQL — Bun.SQL > reserved connections > reserve() provides an isolated connection
+(skip) PostgreSQL — Bun.SQL > reserved connections > using declaration auto-releases via Symbol.dispose
+(skip) PostgreSQL — Bun.SQL > error handling > query on a non-existent table throws SQL.PostgresError
+(skip) PostgreSQL — Bun.SQL > error handling > UNIQUE constraint violation throws PostgresError with code 23505
+(skip) PostgreSQL — Bun.SQL > error handling > syntax error throws SQL.PostgresError
+(skip) PostgreSQL — Bun.SQL > large integer handling > integer exceeding 53-bit precision returned as string by default
+(skip) PostgreSQL — Bun.SQL > large integer handling > safe integer (≤53-bit) returned as number
+(skip) PostgreSQL — Bun.SQL > large integer handling > bigint:true option returns large integers as BigInt
+(skip) PostgreSQL — Bun.SQL > sql.array() — PostgreSQL array literals > integer array works with ANY()
+(skip) PostgreSQL — Bun.SQL > sql.array() — PostgreSQL array literals > string array works with ANY()
+(skip) PostgreSQL — Bun.SQL > sql.array() — PostgreSQL array literals > value absent from array returns false
+(skip) PostgreSQL — Bun.SQL > (unnamed)
+
+ 139 pass
+ 48 skip
+ 0 fail
+ 214 expect() calls
+Ran 187 tests across 5 files. [177.00ms]
