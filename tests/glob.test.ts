@@ -1,5 +1,5 @@
 import { describe, test, expect, beforeAll, afterAll } from "bun:test";
-import { join } from "node:path";
+import { join, isAbsolute } from "node:path";
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 
 const { Glob, FileSystemRouter } = Bun;
@@ -129,7 +129,7 @@ describe("Bun.Glob — scanSync()", () => {
 
   test("absolute option returns absolute paths", () => {
     const files = Array.from(new Glob("*.ts").scanSync({ cwd: join(TMP, "src"), absolute: true }));
-    expect(files.every((f) => f.startsWith("/"))).toBe(true);
+    expect(files.every((f) => isAbsolute(f))).toBe(true);
   });
 });
 

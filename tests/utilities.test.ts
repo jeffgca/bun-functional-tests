@@ -297,23 +297,27 @@ describe("Bun.which", () => {
 // ---------------------------------------------------------------------------
 
 describe("Bun.pathToFileURL / Bun.fileURLToPath", () => {
+  const isWindows = process.platform === "win32";
+  const nativePath = isWindows ? "C:\\tmp\\test.txt" : "/tmp/test.txt";
+  const nativePath2 = isWindows ? "C:\\usr\\local\\bin\\bun" : "/usr/local/bin/bun";
+
   test("pathToFileURL returns a URL with file:// scheme", () => {
-    const url = Bun.pathToFileURL("/tmp/test.txt");
+    const url = Bun.pathToFileURL(nativePath);
     expect(url).toBeInstanceOf(URL);
     expect(url.protocol).toBe("file:");
-    expect(url.pathname).toBe("/tmp/test.txt");
+    expect(Bun.fileURLToPath(url)).toBe(nativePath);
   });
 
   test("fileURLToPath converts URL back to path", () => {
-    const path = Bun.fileURLToPath("file:///tmp/test.txt");
-    expect(path).toBe("/tmp/test.txt");
+    const url = Bun.pathToFileURL(nativePath);
+    const path = Bun.fileURLToPath(url);
+    expect(path).toBe(nativePath);
   });
 
   test("roundtrip path → URL → path", () => {
-    const original = "/usr/local/bin/bun";
-    const url = Bun.pathToFileURL(original);
+    const url = Bun.pathToFileURL(nativePath2);
     const result = Bun.fileURLToPath(url);
-    expect(result).toBe(original);
+    expect(result).toBe(nativePath2);
   });
 });
 
