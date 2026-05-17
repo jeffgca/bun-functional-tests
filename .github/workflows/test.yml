@@ -27,7 +27,7 @@ jobs:
             container: oven/bun:alpine
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install Bun
         if: matrix.container == ''
