@@ -325,15 +325,26 @@ describe("expect matchers", () => {
 
 describe("snapshot testing", () => {
   test("toMatchSnapshot — primitive", () => {
-    expect(42).toMatchSnapshot();
+    expect(42).toMatchInlineSnapshot(`42`);
   });
 
   test("toMatchSnapshot — object", () => {
-    expect({ name: "bun", version: 1 }).toMatchSnapshot();
+    expect({ name: "bun", version: 1 }).toMatchInlineSnapshot(`
+{
+  "name": "bun",
+  "version": 1,
+}
+`);
   });
 
   test("toMatchSnapshot — array", () => {
-    expect([1, "two", true]).toMatchSnapshot();
+    expect([1, "two", true]).toMatchInlineSnapshot(`
+[
+  1,
+  "two",
+  true,
+]
+`);
   });
 
   test("toMatchInlineSnapshot — string", () => {
