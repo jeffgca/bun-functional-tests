@@ -1,5 +1,4 @@
-import { describe, test, expect, beforeAll, afterAll } from "bun:test";
-import { join } from "node:path";
+import { describe, test, expect, mock } from "bun:test";
 import { num, collectCases, parseJUnit, runTests } from "../lib/runner";
 import type { JUnitAttrs, JUnitTestsuite, TestCase } from "../lib/runner";
 
@@ -221,30 +220,86 @@ describe("parseJUnit()", () => {
 // ─── runTests() ───────────────────────────────────────────────────────────────
 
 describe("runTests()", () => {
-  const TEMP_JUNIT = join(import.meta.dir, "../junit-runner-test.xml");
+  test("invokes bun test with junit reporter and returns parsed results", async () => {
+    const junitPath = "/tmp/junit-runner-test.xml";
+    const xml = "<testsuites></testsuites>";
+    const parsed = {
+      summary: { tests: 0, assertions: 0, failures: 0, skipped: 0, passed: 0, time: 0 },
+      files: [],
+    };
+    const spawnCalls: string[][] = [];
+    const readJUnitFile = mock(async (path: string) => {
+      expect(path).toBe(junitPath);
+      return xml;
+    });
+    const parse = mock(async (inputXml: string) => {
+      expect(inputXml).toBe(xml);
+      return parsed;
+    });
 
-  afterAll(async () => {
-    // clean up the temp JUnit file
-    const f = Bun.file(TEMP_JUNIT);
-    if (await f.exists()) await Bun.$`rm ${TEMP_JUNIT}`.quiet();
+    const result = await runTests(["tests/a.test.ts"], junitPath, {
+      spawnTestProcess: (cmd) => {
+        spawnCalls.push(cmd);
+        return { exited: Promise.resolve(0), stderr: null };
+      },
+      readJUnitFile,
+      parse,
+    });
+
+    expect(spawnCalls).toHaveLength(1);
+    expect(spawnCalls[0]).toEqual([
+      "bun",
+      "test",
+      "tests/a.test.ts",
+      "--reporter=junit",
+      `--reporter-outfile=${junitPath}`,
+    ]);
+    expect(readJUnitFile).toHaveBeenCalledTimes(1);
+    expect(parse).toHaveBeenCalledTimes(1);
+    expect(result).toBe(parsed);
   });
 
-  test("runs a test file and returns structured results", async () => {
-    // Run only this suite's own passing unit tests (num, collectCases, parseJUnit)
-    // by targeting this file, but to avoid recursion we pass a simple fixture.
-    // We use a real bun test run against a minimal inline test file.
-    // const tmpFile = join(import.meta.dir, "../_runner_smoke_test.ts");
-    // await Bun.write(tmpFile, `import { test, expect } from "bun:test";\ntest("smoke", () => { expect(1).toBe(1); });\n`);
-    // try {
-    //   const { runTests: rt } = await import("../lib/runner");
-    //   const results = await rt([tmpFile], TEMP_JUNIT);
-    //   expect(results.summary.tests).toBeGreaterThanOrEqual(1);
-    //   expect(results.summary.failures).toBe(0);
-    //   expect(results.files.length).toBeGreaterThanOrEqual(1);
-    //   const smokeCase = results.files.flatMap((f) => f.cases).find((c) => c.name === "smoke");
-    //   expect(smokeCase?.status).toBe("passed");
-    // } finally {
-    //   await Bun.$`rm ${tmpFile}`.quiet();
-    // }
-  }, 10000);
+  test("throws stderr output when bun test exits non-zero", async () => {
+    const readJUnitFile = mock(async () => "<testsuites></testsuites>");
+    const parse = mock(async () => ({
+      summary: { tests: 0, assertions: 0, failures: 0, skipped: 0, passed: 0, time: 0 },
+      files: [],
+    }));
+    const stderr = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode("runner failed"));
+        controller.close();
+      },
+    });
+
+    await expect(
+      runTests([], "/tmp/junit-runner-test.xml", {
+        spawnTestProcess: () => ({ exited: Promise.resolve(1), stderr }),
+        readJUnitFile,
+        parse,
+      }),
+    ).rejects.toThrow("runner failed");
+
+    expect(readJUnitFile).not.toHaveBeenCalled();
+    expect(parse).not.toHaveBeenCalled();
+  });
+
+  test("throws generic message when bun test exits non-zero without stderr", async () => {
+    const readJUnitFile = mock(async () => "<testsuites></testsuites>");
+    const parse = mock(async () => ({
+      summary: { tests: 0, assertions: 0, failures: 0, skipped: 0, passed: 0, time: 0 },
+      files: [],
+    }));
+
+    await expect(
+      runTests([], "/tmp/junit-runner-test.xml", {
+        spawnTestProcess: () => ({ exited: Promise.resolve(2), stderr: null }),
+        readJUnitFile,
+        parse,
+      }),
+    ).rejects.toThrow("bun test failed with exit code 2");
+
+    expect(readJUnitFile).not.toHaveBeenCalled();
+    expect(parse).not.toHaveBeenCalled();
+  });
 });
