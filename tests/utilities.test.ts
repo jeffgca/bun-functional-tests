@@ -277,7 +277,7 @@ describe("Bun.semver", () => {
 
 describe("Bun.which", () => {
   test("finds common executables like 'ls'", () => {
-    const result = Bun.which("ls");
+    const result = process.platform === "win32" ? Bun.which("cmd") : Bun.which("ls");
     expect(typeof result).toBe("string");
     expect(result!.length).toBeGreaterThan(0);
   });

@@ -3,6 +3,7 @@ import { $ } from "bun";
 import { join } from "node:path";
 import { mkdirSync, rmSync } from "node:fs";
 
+const isWindows = process.platform === "win32";
 const TMP = join(import.meta.dir, "tmp-shell");
 
 beforeAll(() => {
@@ -60,8 +61,14 @@ describe("Bun.$ — basic execution", () => {
   });
 
   test("multi-command pipeline", async () => {
-    const out = await $`echo "foo bar baz" | wc -w`.quiet().text();
-    expect(parseInt(out.trim())).toBe(3);
+    if (isWindows) {
+      // wc is not available on Windows; test pipeline using the built-in cat
+      const out = await $`echo "foo bar baz" | cat`.quiet().text();
+      expect(out.trim()).toBe("foo bar baz");
+    } else {
+      const out = await $`echo "foo bar baz" | wc -w`.quiet().text();
+      expect(parseInt(out.trim())).toBe(3);
+    }
   });
 
   test("stderr is captured in .stderr", async () => {
@@ -149,7 +156,8 @@ describe("Bun.$ — file redirection", () => {
   });
 
   test("pipe output of one command to another via stdin()", async () => {
-    const proc = Bun.spawn(["cat"], { stdin: "pipe", stdout: "pipe" });
+    const catArgs = isWindows ? ["bun", "-e", "process.stdin.pipe(process.stdout)"] : ["cat"];
+    const proc = Bun.spawn(catArgs, { stdin: "pipe", stdout: "pipe" });
     proc.stdin.write("piped\n");
     proc.stdin.end();
     const text = await new Response(proc.stdout).text();
@@ -192,7 +200,7 @@ describe("Bun.$ — error control", () => {
 
 describe("Bun.spawn", () => {
   test("captures stdout via pipe", async () => {
-    const proc = Bun.spawn(["echo", "spawned"], { stdout: "pipe" });
+    const proc = Bun.spawn(isWindows ? ["cmd", "/c", "echo spawned"] : ["echo", "spawned"], { stdout: "pipe" });
     const text = await new Response(proc.stdout).text();
     expect(text.trim()).toBe("spawned");
     await proc.exited;
@@ -200,14 +208,15 @@ describe("Bun.spawn", () => {
   });
 
   test("captures stderr via pipe", async () => {
-    const proc = Bun.spawn(["sh", "-c", "echo err >&2"], { stderr: "pipe" });
+    const proc = Bun.spawn(isWindows ? ["cmd", "/c", "echo err 1>&2"] : ["sh", "-c", "echo err >&2"], { stderr: "pipe" });
     const text = await new Response(proc.stderr).text();
     await proc.exited;
     expect(text.trim()).toBe("err");
   });
 
   test("writes to stdin via pipe", async () => {
-    const proc = Bun.spawn(["cat"], { stdin: "pipe", stdout: "pipe" });
+    const catArgs = isWindows ? ["bun", "-e", "process.stdin.pipe(process.stdout)"] : ["cat"];
+    const proc = Bun.spawn(catArgs, { stdin: "pipe", stdout: "pipe" });
     proc.stdin.write("hello stdin");
     proc.stdin.end();
     const text = await new Response(proc.stdout).text();
@@ -215,20 +224,20 @@ describe("Bun.spawn", () => {
   });
 
   test("exited promise resolves with exit code", async () => {
-    const proc = Bun.spawn(["sh", "-c", "exit 3"], { stdout: "ignore" });
+    const proc = Bun.spawn(isWindows ? ["cmd", "/c", "exit 3"] : ["sh", "-c", "exit 3"], { stdout: "ignore" });
     const code = await proc.exited;
     expect(code).toBe(3);
   });
 
   test("kill() terminates the process", async () => {
-    const proc = Bun.spawn(["sleep", "60"], { stdout: "ignore" });
+    const proc = Bun.spawn(isWindows ? ["bun", "-e", "await Bun.sleep(60000)"] : ["sleep", "60"], { stdout: "ignore" });
     proc.kill();
     const code = await proc.exited;
     expect(code).not.toBe(0);
   });
 
   test("env option passes custom environment", async () => {
-    const proc = Bun.spawn(["sh", "-c", "echo $CUSTOM_VAR"], {
+    const proc = Bun.spawn(isWindows ? ["cmd", "/c", "echo %CUSTOM_VAR%"] : ["sh", "-c", "echo $CUSTOM_VAR"], {
       env: { ...process.env, CUSTOM_VAR: "custom_value" },
       stdout: "pipe",
     });
@@ -238,14 +247,14 @@ describe("Bun.spawn", () => {
   });
 
   test("cwd option sets working directory", async () => {
-    const proc = Bun.spawn(["pwd"], { cwd: TMP, stdout: "pipe" });
+    const proc = Bun.spawn(isWindows ? ["cmd", "/c", "cd"] : ["pwd"], { cwd: TMP, stdout: "pipe" });
     const text = await new Response(proc.stdout).text();
     await proc.exited;
     expect(text.trim()).toContain("tmp-shell");
   });
 
   test("pid is a positive integer", async () => {
-    const proc = Bun.spawn(["true"], { stdout: "ignore" });
+    const proc = Bun.spawn(isWindows ? ["cmd", "/c", "exit 0"] : ["true"], { stdout: "ignore" });
     expect(proc.pid).toBeGreaterThan(0);
     await proc.exited;
   });
@@ -257,44 +266,43 @@ describe("Bun.spawn", () => {
 
 describe("Bun.spawnSync", () => {
   test("captures stdout synchronously", () => {
-    const result = Bun.spawnSync(["echo", "sync"]);
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "echo sync"] : ["echo", "sync"]);
     expect(result.stdout.toString().trim()).toBe("sync");
   });
 
   test("exit code is returned", () => {
-    const result = Bun.spawnSync(["sh", "-c", "exit 5"]);
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "exit 5"] : ["sh", "-c", "exit 5"]);
     expect(result.exitCode).toBe(5);
   });
 
   test("captures stderr synchronously", () => {
-    const result = Bun.spawnSync(["sh", "-c", "echo err >&2"]);
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "echo err 1>&2"] : ["sh", "-c", "echo err >&2"]);
     expect(result.stderr.toString().trim()).toBe("err");
   });
 
   test("success is true when exit code is 0", () => {
-    const result = Bun.spawnSync(["true"]);
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "exit 0"] : ["true"]);
     expect(result.success).toBe(true);
   });
 
   test("success is false when exit code is non-zero", () => {
-    const result = Bun.spawnSync(["false"]);
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "exit 1"] : ["false"]);
     expect(result.success).toBe(false);
   });
 
   test("stdin buffer is passed to the process", () => {
-    const result = Bun.spawnSync(["cat"], { stdin: Buffer.from("hello sync stdin") });
+    const catArgs = isWindows ? ["bun", "-e", "process.stdin.pipe(process.stdout)"] : ["cat"];
+    const result = Bun.spawnSync(catArgs, { stdin: Buffer.from("hello sync stdin") });
     expect(result.stdout.toString()).toBe("hello sync stdin");
   });
 
   test("env option is forwarded", () => {
-    const result = Bun.spawnSync(["sh", "-c", "echo $SYNC_VAR"], {
-      env: { ...process.env, SYNC_VAR: "sync123" },
-    });
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "echo %SYNC_VAR%"] : ["sh", "-c", "echo $SYNC_VAR"], { env: { ...process.env, SYNC_VAR: "sync123" } });
     expect(result.stdout.toString().trim()).toBe("sync123");
   });
 
   test("cwd option is respected", () => {
-    const result = Bun.spawnSync(["pwd"], { cwd: TMP });
+    const result = Bun.spawnSync(isWindows ? ["cmd", "/c", "cd"] : ["pwd"], { cwd: TMP });
     expect(result.stdout.toString().trim()).toContain("tmp-shell");
   });
 });
