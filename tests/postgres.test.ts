@@ -426,9 +426,15 @@ describe("PostgreSQL — Bun.SQL", () => {
       expect(isUniqueViolation).toBe(true);
     });
 
-    test.skip("syntax error throws SQL.PostgresError", async () => {
-      await expect(db`THIS IS NOT SQL`).rejects.toBeInstanceOf(SQL.PostgresError);
-    });
+    test("syntax error throws SQL.PostgresError", async () => {
+      let caught: unknown;
+      try {
+        await db`THIS IS NOT SQL`;
+      } catch (e) {
+        caught = e;
+      }
+      expect(caught).toBeInstanceOf(SQL.PostgresError);
+    }, 2000);
   });
 
   // ---------------------------------------------------------------------------
@@ -467,18 +473,18 @@ describe("PostgreSQL — Bun.SQL", () => {
   describe("sql.array() — PostgreSQL array literals", () => {
     test.skipIf(!isPg)("integer array works with ANY()", async () => {
       const ids = [1, 2, 3];
-      const [row] = await db`SELECT 2 = ANY(${db.array(ids)}) AS found`;
+      const [row] = await db`SELECT 2 = ANY(${db.array(ids, "INT")}) AS found`;
       expect(row.found).toBe(true);
     });
 
     test.skipIf(!isPg)("string array works with ANY()", async () => {
       const tags = ["red", "blue"];
-      const [row] = await db`SELECT 'red' = ANY(${db.array(tags)}) AS found`;
+      const [row] = await db`SELECT 'red' = ANY(${db.array(tags, "text")}) AS found`;
       expect(row.found).toBe(true);
     });
 
     test.skipIf(!isPg)("value absent from array returns false", async () => {
-      const [row] = await db`SELECT 99 = ANY(${db.array([1, 2, 3])}) AS found`;
+      const [row] = await db`SELECT 99 = ANY(${db.array([1, 2, 3], "INT")}) AS found`;
       expect(row.found).toBe(false);
     });
   });
