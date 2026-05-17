@@ -233,7 +233,7 @@ describe("runTests()", () => {
     // Run only this suite's own passing unit tests (num, collectCases, parseJUnit)
     // by targeting this file, but to avoid recursion we pass a simple fixture.
     // We use a real bun test run against a minimal inline test file.
-    const tmpFile = join(import.meta.dir, "../_runner_smoke_test.ts");
+    const tmpFile = join(import.meta.dir, `../_runner_smoke_${Date.now()}_${Math.random().toString(36).slice(2)}.test.ts`);
     await Bun.write(tmpFile, `import { test, expect } from "bun:test";\ntest("smoke", () => { expect(1).toBe(1); });\n`);
     try {
       const { runTests: rt } = await import("../lib/runner");
