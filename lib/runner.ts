@@ -148,7 +148,21 @@ export async function parseJUnit(xml: string): Promise<TestResults> {
 // ─── Runner ───────────────────────────────────────────────────────────────────
 
 export async function runTests(args: string[] = [], junitPath = JUNIT_PATH): Promise<TestResults> {
-  await Bun.$`bun test ${args} --reporter=junit --reporter-outfile=${junitPath}`.nothrow().quiet();
+  const proc = Bun.spawn({
+    cmd: ["bun", "test", ...args, "--reporter=junit", `--reporter-outfile=${junitPath}`],
+    stdout: "pipe",
+    stderr: "pipe",
+  });
+
+  const [exitCode, stderr] = await Promise.all([
+    proc.exited,
+    new Response(proc.stderr).text(),
+  ]);
+
+  if (exitCode !== 0) {
+    throw new Error(stderr || `bun test failed with exit code ${exitCode}`);
+  }
+
   const xml = await Bun.file(junitPath).text();
   return parseJUnit(xml);
 }

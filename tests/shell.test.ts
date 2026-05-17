@@ -1,14 +1,10 @@
 import { describe, test, expect, beforeAll, afterAll } from "bun:test";
 import { $ } from "bun";
 import { join } from "node:path";
-import { mkdirSync, rmSync } from "node:fs";
+import { mkdtempSync, rmSync } from "node:fs";
 
 const isWindows = process.platform === "win32";
-const TMP = join(import.meta.dir, "tmp-shell");
-
-beforeAll(() => {
-  mkdirSync(TMP, { recursive: true });
-});
+const TMP = mkdtempSync(join(import.meta.dir, "tmp-shell-"));
 
 afterAll(() => {
   rmSync(TMP, { recursive: true, force: true });
