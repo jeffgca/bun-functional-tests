@@ -1,0 +1,108 @@
+import type { TestResults } from "./runner";
+
+// ─── ANSI helpers ─────────────────────────────────────────────────────────────
+
+const RESET = "\x1b[0m";
+const BOLD = "\x1b[1m";
+const DIM = "\x1b[2m";
+const RED = "\x1b[31m";
+const GREEN = "\x1b[32m";
+const YELLOW = "\x1b[33m";
+
+function bold(s: string) { return `${BOLD}${s}${RESET}`; }
+function dim(s: string) { return `${DIM}${s}${RESET}`; }
+function red(s: string) { return `${RED}${s}${RESET}`; }
+function green(s: string) { return `${GREEN}${s}${RESET}`; }
+function yellow(s: string) { return `${YELLOW}${s}${RESET}`; }
+
+// ─── Arg parsing ──────────────────────────────────────────────────────────────
+
+export function parseArgs(argv: string[]): { outfile: string | null; testArgs: string[] } {
+  const testArgs: string[] = [];
+  let outfile: string | null = null;
+  let i = 0;
+  while (i < argv.length) {
+    if (argv[i] === "--outfile") {
+      outfile = argv[i + 1] ?? null;
+      i += 2;
+    } else {
+      testArgs.push(argv[i]);
+      i++;
+    }
+  }
+  return { outfile, testArgs };
+}
+
+// ─── Summary printer ──────────────────────────────────────────────────────────
+
+export function printSummary(results: TestResults): void {
+  const { summary, files } = results;
+  const passed = summary.failures === 0;
+  const hr = dim("─".repeat(60));
+
+  // Status banner
+  console.log();
+  if (passed) {
+    console.log(bold(green("  ✓ PASS")));
+  } else {
+    console.log(bold(red("  ✗ FAIL")));
+  }
+
+  // Overall summary row
+  console.log();
+  const parts = [
+    `Tests: ${bold(String(summary.tests))}`,
+    `Passed: ${bold(green(String(summary.passed)))}`,
+    summary.failures > 0
+      ? `Failed: ${bold(red(String(summary.failures)))}`
+      : `Failed: ${bold(String(summary.failures))}`,
+    summary.skipped > 0
+      ? `Skipped: ${bold(yellow(String(summary.skipped)))}`
+      : `Skipped: ${bold(String(summary.skipped))}`,
+    `Time: ${bold(summary.time.toFixed(2) + "s")}`,
+  ];
+  console.log("  " + parts.join("  |  "));
+
+  // Per-file table
+  console.log();
+  console.log(hr);
+  for (const file of files) {
+    const fileHasFailed = file.failures > 0;
+    const indicator = fileHasFailed ? red("✗") : green("✓");
+    const fileLine = `  ${indicator}  ${file.file}`;
+    const counts = `${file.tests} tests, ${file.failures} failed, ${file.skipped} skipped`;
+    if (fileHasFailed) {
+      console.log(`${bold(red(fileLine))}  ${dim(counts)}`);
+    } else {
+      console.log(`${dim(fileLine)}  ${dim(counts)}`);
+    }
+  }
+
+  // Failure detail block
+  const failedCases = files.flatMap((f) => f.cases.filter((c) => c.status === "failed"));
+  if (failedCases.length > 0) {
+    console.log();
+    console.log(hr);
+    console.log(bold(red("  Failures")));
+    console.log();
+    for (const tc of failedCases) {
+      const suitePart = tc.suite ? `${tc.suite} > ` : "";
+      console.log(`  ${bold(red(`${suitePart}${tc.name}`))}`);
+      console.log(`  ${dim(`${tc.file}:${tc.line}`)}`);
+      if (tc.failure) {
+        if (tc.failure.message) {
+          console.log(`    ${red(tc.failure.message)}`);
+        }
+        if (tc.failure.body) {
+          for (const line of tc.failure.body.split("\n")) {
+            console.log(`    ${red(line)}`);
+          }
+        }
+      }
+      console.log();
+    }
+  }
+
+  console.log(hr);
+  console.log();
+}
