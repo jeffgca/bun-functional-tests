@@ -1,5 +1,5 @@
 import { describe, test, expect, mock } from "bun:test";
-import { num, collectCases, parseJUnit, runTests } from "../lib/runner";
+import { num, collectCases, parseJUnit, runTests, consumeStderr } from "../lib/runner";
 import type { JUnitAttrs, JUnitTestsuite, TestCase } from "../lib/runner";
 
 // ─── num() ────────────────────────────────────────────────────────────────────
@@ -247,13 +247,7 @@ describe("runTests()", () => {
     });
 
     expect(spawnCalls).toHaveLength(1);
-    expect(spawnCalls[0]).toEqual([
-      "bun",
-      "test",
-      "tests/a.test.ts",
-      "--reporter=junit",
-      `--reporter-outfile=${junitPath}`,
-    ]);
+    expect(spawnCalls[0]).toEqual(["bun", "test", "tests/a.test.ts", "--reporter=junit", `--reporter-outfile=${junitPath}`]);
     expect(readJUnitFile).toHaveBeenCalledTimes(1);
     expect(parse).toHaveBeenCalledTimes(1);
     expect(result).toBe(parsed);
@@ -301,5 +295,101 @@ describe("runTests()", () => {
 
     expect(readJUnitFile).not.toHaveBeenCalled();
     expect(parse).not.toHaveBeenCalled();
+  });
+
+  test("calls onProgress for each matching line in stderr", async () => {
+    const stderrContent = ["bun test v1.x (abc)", "", "(pass) Suite > test one [1ms]", "(pass) Suite > test two [2ms]", "(fail) Suite > test three [5ms]", "2 pass, 1 fail"].join("\n") + "\n";
+
+    const stderr = new ReadableStream<Uint8Array>({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode(stderrContent));
+        controller.close();
+      },
+    });
+
+    const calls: number[] = [];
+    await runTests([], "/tmp/junit-runner-test.xml", {
+      spawnTestProcess: () => ({ exited: Promise.resolve(0), stderr }),
+      readJUnitFile: mock(async () => "<testsuites></testsuites>"),
+      parse: mock(async () => ({ summary: { tests: 0, assertions: 0, failures: 0, skipped: 0, passed: 0, time: 0 }, files: [] })),
+      onProgress: (count) => calls.push(count),
+    });
+
+    expect(calls).toEqual([1, 2, 3]);
+  });
+});
+
+// ─── consumeStderr() ──────────────────────────────────────────────────────────
+
+function makeStream(content: string): ReadableStream<Uint8Array> {
+  return new ReadableStream<Uint8Array>({
+    start(controller) {
+      controller.enqueue(new TextEncoder().encode(content));
+      controller.close();
+    },
+  });
+}
+
+describe("consumeStderr()", () => {
+  test("returns the full content as a string", async () => {
+    const result = await consumeStderr(makeStream("hello\nworld\n"));
+    expect(result).toBe("hello\nworld");
+  });
+
+  test("handles content with no trailing newline", async () => {
+    const result = await consumeStderr(makeStream("no newline at end"));
+    expect(result).toBe("no newline at end");
+  });
+
+  test("calls onProgress for each (pass) line", async () => {
+    const calls: number[] = [];
+    await consumeStderr(makeStream("(pass) Suite > test one [1ms]\n(pass) Suite > test two [2ms]\n"), (count) => calls.push(count));
+    expect(calls).toEqual([1, 2]);
+  });
+
+  test("calls onProgress for each (fail) line", async () => {
+    const calls: number[] = [];
+    await consumeStderr(makeStream("(fail) Suite > test one [1ms]\n(fail) Suite > test two [2ms]\n"), (count) => calls.push(count));
+    expect(calls).toEqual([1, 2]);
+  });
+
+  test("counts (pass) and (fail) lines together", async () => {
+    const calls: number[] = [];
+    await consumeStderr(makeStream("(pass) a [1ms]\n(fail) b [2ms]\n(pass) c [1ms]\n"), (count) => calls.push(count));
+    expect(calls).toEqual([1, 2, 3]);
+  });
+
+  test("does not call onProgress for non-matching lines", async () => {
+    const calls: number[] = [];
+    await consumeStderr(makeStream("bun test v1.x\n\n2 pass, 0 fail\n"), (count) => calls.push(count));
+    expect(calls).toHaveLength(0);
+  });
+
+  test("works without an onProgress callback", async () => {
+    const result = await consumeStderr(makeStream("(pass) test one [1ms]\n"));
+    expect(result).toContain("(pass) test one");
+  });
+
+  test("handles multi-chunk streams", async () => {
+    const chunks = ["(pass) te", "st one [1ms]\n(pass) test two [2ms]\n"];
+    const stream = new ReadableStream<Uint8Array>({
+      start(controller) {
+        for (const chunk of chunks) {
+          controller.enqueue(new TextEncoder().encode(chunk));
+        }
+        controller.close();
+      },
+    });
+    const calls: number[] = [];
+    const result = await consumeStderr(stream, (count) => calls.push(count));
+    expect(calls).toEqual([1, 2]);
+    expect(result).toContain("(pass) test one [1ms]");
+    expect(result).toContain("(pass) test two [2ms]");
+  });
+
+  test("trims leading whitespace before matching", async () => {
+    const calls: number[] = [];
+    await consumeStderr(makeStream("  (pass) indented test [1ms]\n"), (count) => calls.push(count));
+    expect(calls).toEqual([1]);
   });
 });

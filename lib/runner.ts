@@ -159,7 +159,7 @@ export async function parseJUnit(xml: string): Promise<TestResults> {
 
 // ─── Runner ───────────────────────────────────────────────────────────────────
 
-async function consumeStderr(stream: ReadableStream<Uint8Array>, onProgress?: (count: number) => void): Promise<string> {
+export async function consumeStderr(stream: ReadableStream<Uint8Array>, onProgress?: (count: number) => void): Promise<string> {
   const reader = stream.getReader();
   const decoder = new TextDecoder();
   const allLines: string[] = [];
