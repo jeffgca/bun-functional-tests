@@ -72,23 +72,24 @@ const SKIPPED_RESULTS: TestResults = {
 
 describe("parseArgs()", () => {
   test("returns empty testArgs and null outfile when given no args", () => {
-    expect(parseArgs([])).toEqual({ outfile: null, testArgs: [] });
+    expect(parseArgs([])).toEqual({ outfile: null, verbose: false, testArgs: [] });
   });
 
   test("passes through non-outfile args as testArgs", () => {
     const result = parseArgs(["tests/foo.test.ts", "--timeout", "5000"]);
-    expect(result).toEqual({ outfile: null, testArgs: ["tests/foo.test.ts", "--timeout", "5000"] });
+    expect(result).toEqual({ outfile: null, verbose: false, testArgs: ["tests/foo.test.ts", "--timeout", "5000"] });
   });
 
   test("extracts --outfile value and removes both tokens from testArgs", () => {
     const result = parseArgs(["--outfile", "/tmp/out.json"]);
-    expect(result).toEqual({ outfile: "/tmp/out.json", testArgs: [] });
+    expect(result).toEqual({ outfile: "/tmp/out.json", verbose: false, testArgs: [] });
   });
 
   test("strips --outfile from the middle of the arg list", () => {
     const result = parseArgs(["tests/a.test.ts", "--outfile", "/tmp/out.json", "--timeout", "5000"]);
     expect(result).toEqual({
       outfile: "/tmp/out.json",
+      verbose: false,
       testArgs: ["tests/a.test.ts", "--timeout", "5000"],
     });
   });
@@ -97,6 +98,16 @@ describe("parseArgs()", () => {
     const result = parseArgs(["tests/a.test.ts", "--outfile"]);
     expect(result.outfile).toBeNull();
     expect(result.testArgs).toEqual(["tests/a.test.ts"]);
+  });
+
+  test("sets verbose to true when --verbose is passed", () => {
+    const result = parseArgs(["--verbose"]);
+    expect(result).toEqual({ outfile: null, verbose: true, testArgs: [] });
+  });
+
+  test("strips --verbose from testArgs", () => {
+    const result = parseArgs(["tests/a.test.ts", "--verbose", "--timeout", "5000"]);
+    expect(result).toEqual({ outfile: null, verbose: true, testArgs: ["tests/a.test.ts", "--timeout", "5000"] });
   });
 });
 
@@ -155,10 +166,22 @@ describe("printSummary()", () => {
     expect(output).toContain("Passed: 1");
   });
 
-  test("prints per-file entry for each file", () => {
+  test("hides per-file list when all pass (default)", () => {
     printSummary(PASSING_RESULTS);
     const output = plainLines().join("\n");
+    expect(output).not.toContain("tests/a.test.ts");
+  });
+
+  test("shows per-file list when verbose and all pass", () => {
+    printSummary(PASSING_RESULTS, { verbose: true });
+    const output = plainLines().join("\n");
     expect(output).toContain("tests/a.test.ts");
+  });
+
+  test("shows only failed files when failures present (default)", () => {
+    printSummary(FAILING_RESULTS);
+    const output = plainLines().join("\n");
+    expect(output).toContain("tests/b.test.ts");
   });
 
   test("does not print failure block when all tests pass", () => {
