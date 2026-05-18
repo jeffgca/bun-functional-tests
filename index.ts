@@ -5,6 +5,12 @@ export { runTests };
 // ─── CLI entry point ──────────────────────────────────────────────────────────
 
 if (import.meta.main) {
-  const results = await runTests(Bun.argv.slice(2));
-  console.log(JSON.stringify(results, null, 2));
+  const { parseArgs, printSummary } = await import("./lib/reporter");
+  const { outfile, testArgs } = parseArgs(Bun.argv.slice(2));
+  const results = await runTests(testArgs);
+  printSummary(results);
+  if (outfile) {
+    await Bun.write(outfile, JSON.stringify(results, null, 2));
+  }
+  process.exit(results.summary.failures > 0 ? 1 : 0);
 }
