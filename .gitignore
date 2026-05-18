@@ -37,3 +37,6 @@ tests/redis.test.ts
 .gitignore
 tests/__snapshots__/test-runner.test.ts.snap
 test_output.log
+
+# produced by the tests
+junit.xml
