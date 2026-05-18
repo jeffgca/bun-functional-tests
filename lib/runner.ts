@@ -53,6 +53,7 @@ export interface RunTestsDependencies {
   spawnTestProcess?: (cmd: string[]) => RunnerProcess;
   readJUnitFile?: (path: string) => Promise<string>;
   parse?: (xml: string) => Promise<TestResults>;
+  onProgress?: (count: number) => void;
 }
 
 // ─── xml2js types (parsed shape) ─────────────────────────────────────────────
@@ -158,23 +159,37 @@ export async function parseJUnit(xml: string): Promise<TestResults> {
 
 // ─── Runner ───────────────────────────────────────────────────────────────────
 
-export async function runTests(
-  args: string[] = [],
-  junitPath = JUNIT_PATH,
-  deps: RunTestsDependencies = {},
-): Promise<TestResults> {
-  const spawnTestProcess =
-    deps.spawnTestProcess ??
-    ((cmd: string[]): RunnerProcess => Bun.spawn({ cmd, stdout: "pipe", stderr: "pipe" }));
+async function consumeStderr(stream: ReadableStream<Uint8Array>, onProgress?: (count: number) => void): Promise<string> {
+  const reader = stream.getReader();
+  const decoder = new TextDecoder();
+  const allLines: string[] = [];
+  let buffer = "";
+  let count = 0;
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+    buffer += decoder.decode(value, { stream: true });
+    const parts = buffer.split("\n");
+    buffer = parts.pop() ?? "";
+    for (const line of parts) {
+      allLines.push(line);
+      if (/^\(pass\)|^\(fail\)/.test(line.trim())) {
+        onProgress?.(++count);
+      }
+    }
+  }
+  if (buffer) allLines.push(buffer);
+  return allLines.join("\n");
+}
+
+export async function runTests(args: string[] = [], junitPath = JUNIT_PATH, deps: RunTestsDependencies = {}): Promise<TestResults> {
+  const spawnTestProcess = deps.spawnTestProcess ?? ((cmd: string[]): RunnerProcess => Bun.spawn({ cmd, stdout: "pipe", stderr: "pipe" }));
   const readJUnitFile = deps.readJUnitFile ?? ((path: string) => Bun.file(path).text());
   const parse = deps.parse ?? parseJUnit;
   const cmd = ["bun", "test", ...args, "--reporter=junit", `--reporter-outfile=${junitPath}`];
   const proc = spawnTestProcess(cmd);
 
-  const [exitCode, stderr] = await Promise.all([
-    proc.exited,
-    proc.stderr ? new Response(proc.stderr).text() : Promise.resolve(""),
-  ]);
+  const [exitCode, stderr] = await Promise.all([proc.exited, proc.stderr ? consumeStderr(proc.stderr, deps.onProgress) : Promise.resolve("")]);
 
   if (exitCode !== 0) {
     throw new Error(stderr || `bun test failed with exit code ${exitCode}`);

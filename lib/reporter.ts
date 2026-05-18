@@ -9,34 +9,51 @@ const RED = "\x1b[31m";
 const GREEN = "\x1b[32m";
 const YELLOW = "\x1b[33m";
 
-function color(code: string, s: string) { return `${code}${s}${RESET}`; }
-function bold(s: string) { return color(BOLD, s); }
-function dim(s: string) { return color(DIM, s); }
-function red(s: string) { return color(RED, s); }
-function green(s: string) { return color(GREEN, s); }
-function yellow(s: string) { return color(YELLOW, s); }
+function color(code: string, s: string) {
+  return `${code}${s}${RESET}`;
+}
+function bold(s: string) {
+  return color(BOLD, s);
+}
+function dim(s: string) {
+  return color(DIM, s);
+}
+function red(s: string) {
+  return color(RED, s);
+}
+function green(s: string) {
+  return color(GREEN, s);
+}
+function yellow(s: string) {
+  return color(YELLOW, s);
+}
 
 // ─── Arg parsing ──────────────────────────────────────────────────────────────
 
-export function parseArgs(argv: string[]): { outfile: string | null; testArgs: string[] } {
+export function parseArgs(argv: string[]): { outfile: string | null; verbose: boolean; testArgs: string[] } {
   const testArgs: string[] = [];
   let outfile: string | null = null;
+  let verbose = false;
   let i = 0;
   while (i < argv.length) {
     if (argv[i] === "--outfile") {
       outfile = argv[i + 1] ?? null;
       i += 2;
+    } else if (argv[i] === "--verbose") {
+      verbose = true;
+      i++;
     } else {
       testArgs.push(argv[i]);
       i++;
     }
   }
-  return { outfile, testArgs };
+  return { outfile, verbose, testArgs };
 }
 
 // ─── Summary printer ──────────────────────────────────────────────────────────
 
-export function printSummary(results: TestResults): void {
+export function printSummary(results: TestResults, options: { verbose?: boolean } = {}): void {
+  const { verbose = false } = options;
   const { summary, files } = results;
   const passed = summary.failures === 0;
   const hr = dim("─".repeat(60));
@@ -49,33 +66,30 @@ export function printSummary(results: TestResults): void {
     console.log(bold(red("  ✗ FAIL")));
   }
 
-  // Overall summary row
+  // Overall summary row (always shown)
   console.log();
-  const parts = [
-    `Tests: ${bold(String(summary.tests))}`,
-    `Passed: ${bold(green(String(summary.passed)))}`,
-    summary.failures > 0
-      ? `Failed: ${bold(red(String(summary.failures)))}`
-      : `Failed: ${bold(String(summary.failures))}`,
-    summary.skipped > 0
-      ? `Skipped: ${bold(yellow(String(summary.skipped)))}`
-      : `Skipped: ${bold(String(summary.skipped))}`,
-    `Time: ${bold(summary.time.toFixed(2) + "s")}`,
-  ];
+  const parts = [`Tests: ${bold(String(summary.tests))}`, `Passed: ${bold(green(String(summary.passed)))}`, summary.failures > 0 ? `Failed: ${bold(red(String(summary.failures)))}` : `Failed: ${bold(String(summary.failures))}`, summary.skipped > 0 ? `Skipped: ${bold(yellow(String(summary.skipped)))}` : `Skipped: ${bold(String(summary.skipped))}`, `Time: ${bold(summary.time.toFixed(2) + "s")}`];
   console.log("  " + parts.join("  |  "));
 
-  // Per-file table
-  console.log();
-  console.log(hr);
-  for (const file of files) {
-    const fileHasFailed = file.failures > 0;
-    const indicator = fileHasFailed ? red("✗") : green("✓");
-    const fileLine = `  ${indicator}  ${file.file}`;
-    const counts = `${file.tests} tests, ${file.failures} failed, ${file.skipped} skipped`;
-    if (fileHasFailed) {
-      console.log(`${bold(red(fileLine))}  ${dim(counts)}`);
-    } else {
-      console.log(`${dim(fileLine)}  ${dim(counts)}`);
+  // Per-file table:
+  //   verbose        → show all files
+  //   failures exist → show only failed files
+  //   all pass       → hide file list
+  const filesToShow = verbose ? files : files.filter((f) => f.failures > 0);
+
+  if (filesToShow.length > 0) {
+    console.log();
+    console.log(hr);
+    for (const file of filesToShow) {
+      const fileHasFailed = file.failures > 0;
+      const indicator = fileHasFailed ? red("✗") : green("✓");
+      const fileLine = `  ${indicator}  ${file.file}`;
+      const counts = `${file.tests} tests, ${file.failures} failed, ${file.skipped} skipped`;
+      if (fileHasFailed) {
+        console.log(`${bold(red(fileLine))}  ${dim(counts)}`);
+      } else {
+        console.log(`${dim(fileLine)}  ${dim(counts)}`);
+      }
     }
   }
 
