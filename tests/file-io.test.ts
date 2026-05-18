@@ -203,11 +203,25 @@ describe("FileSink — incremental writing", () => {
     expect(result).toBe("chunk one\nchunk two\nchunk three\n");
   });
 
-  test("write() returns the number of bytes buffered", () => {
+  test("write() returns the number of bytes buffered", async () => {
     const path = join(TMP, "filesink-count.txt");
     const writer = Bun.file(path).writer();
     const n = writer.write("hello");
-    expect(typeof n).toBeDefined();
+
+    // write() can return a number or a Promise<number> depending on backpressure;
+    // https://bun.sh/reference/bun/BunFile/writer#bun.BunFile.writer
+    // fun fact, on UNIX systems this seems to always be an integer, Windows is more likely to return a Promise
+    if (n instanceof Promise) {
+      // write returned a Promise — resolve it and verify the byte count
+      const resolved = await n;
+      expect(typeof resolved).toBe("number");
+      expect(resolved).toBeGreaterThan(0);
+    } else {
+      // write returned synchronously — verify the byte count directly
+      expect(typeof n).toBe("number");
+      expect(n).toBeGreaterThan(0);
+    }
+
     writer.end();
   });
 
