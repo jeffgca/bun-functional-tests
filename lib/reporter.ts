@@ -9,11 +9,12 @@ const RED = "\x1b[31m";
 const GREEN = "\x1b[32m";
 const YELLOW = "\x1b[33m";
 
-function bold(s: string) { return `${BOLD}${s}${RESET}`; }
-function dim(s: string) { return `${DIM}${s}${RESET}`; }
-function red(s: string) { return `${RED}${s}${RESET}`; }
-function green(s: string) { return `${GREEN}${s}${RESET}`; }
-function yellow(s: string) { return `${YELLOW}${s}${RESET}`; }
+function color(code: string, s: string) { return `${code}${s}${RESET}`; }
+function bold(s: string) { return color(BOLD, s); }
+function dim(s: string) { return color(DIM, s); }
+function red(s: string) { return color(RED, s); }
+function green(s: string) { return color(GREEN, s); }
+function yellow(s: string) { return color(YELLOW, s); }
 
 // ─── Arg parsing ──────────────────────────────────────────────────────────────
 

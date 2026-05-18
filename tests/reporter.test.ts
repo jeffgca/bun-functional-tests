@@ -202,13 +202,30 @@ describe("printSummary()", () => {
 // ─── --outfile integration ────────────────────────────────────────────────────
 
 describe("--outfile integration", () => {
-  test("writes JSON results to file when outfile is specified", async () => {
+  test("parseArgs extracts --outfile path correctly", () => {
     const outfile = `/tmp/reporter-test-${Date.now()}.json`;
-    const results = PASSING_RESULTS;
-    await Bun.write(outfile, JSON.stringify(results, null, 2));
-    const written = await Bun.file(outfile).text();
+    const { outfile: parsed, testArgs } = parseArgs(["tests/a.test.ts", "--outfile", outfile]);
+    expect(parsed).toBe(outfile);
+    expect(testArgs).toEqual(["tests/a.test.ts"]);
+  });
+
+  test("writes JSON results to specified outfile path", async () => {
+    const outfile = `/tmp/reporter-test-${Date.now()}.json`;
+    const { outfile: outPath } = parseArgs(["--outfile", outfile]);
+    expect(outPath).toBe(outfile);
+    // Simulate what index.ts does after receiving the results
+    await Bun.write(outPath!, JSON.stringify(PASSING_RESULTS, null, 2));
+    const written = await Bun.file(outPath!).text();
     const parsed = JSON.parse(written);
     expect(parsed.summary.tests).toBe(3);
     expect(parsed.summary.passed).toBe(3);
+    expect(parsed.summary.failures).toBe(0);
+    expect(parsed.files).toHaveLength(1);
+  });
+
+  test("no outfile path means outfile is null and all args forwarded", () => {
+    const { outfile, testArgs } = parseArgs(["tests/a.test.ts", "--timeout", "5000"]);
+    expect(outfile).toBeNull();
+    expect(testArgs).toEqual(["tests/a.test.ts", "--timeout", "5000"]);
   });
 });
